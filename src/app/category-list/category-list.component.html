@@ -1,0 +1,6 @@
+<div>Categorys</div>
+<ul>
+  <li *ngFor="let category of categorys">
+    <a routerLink="/{{category.relativeOutputPath}}">{{category.name}}</a>
+  </li>
+</ul>
