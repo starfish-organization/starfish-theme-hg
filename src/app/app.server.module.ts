@@ -1,18 +1,18 @@
-import { NgModule, APP_BOOTSTRAP_LISTENER, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { ServerModule } from '@angular/platform-server';
-import { AppComponent } from './app.component';
+
 import { AppModule } from './app.module';
-import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
 
 @NgModule({
-  bootstrap: [AppComponent],
-  providers: [],
   imports: [
-    BrowserModule.withServerTransition({
-      appId: 'app-root'
-    }),
-    ServerModule,
-    AppModule
-  ]
+    // The AppServerModule should import your AppModule followed
+    // by the ServerModule from @angular/platform-server.
+    AppModule,
+    ServerModule
+  ],
+  // Since the bootstrapped component is not inherited from your
+  // imported AppModule, it needs to be repeated here.
+  bootstrap: [AppComponent]
 })
-export class ServerAppModule {}
+export class AppServerModule {}

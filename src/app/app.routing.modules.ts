@@ -5,6 +5,7 @@ import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
 
 const routes: Routes = [
+  // { path: '', loadChildren: 'app/+home/home.module#HomeModule' },
   { path: 'categorys', component: CategoryListComponent },
   { path: ':categoryName', component: CategoryComponent },
   {
