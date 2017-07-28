@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { glitcher } from '../glitch.serve';
 
 @Component({
   selector: 'fangwei',
@@ -6,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fangwei.component.scss']
 })
 export class FangweiComponent implements OnInit {
+  @ViewChild('canvas') canvas: ElementRef;
+
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    const canvas = this.canvas.nativeElement;
+    glitcher.init(canvas);
+  }
 }
