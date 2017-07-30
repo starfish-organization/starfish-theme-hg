@@ -5,9 +5,42 @@ export var glitcher = {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
 
-        this.initOptions();
-        this.resize();
-        this.tick();
+        var img = new Image(); // Create new img element
+        img.onload = () => {
+          this.img = img;
+
+          this.context.drawImage(img, 0, 0, img.width, img.height);
+          var imgData = this.context.getImageData(0, 0, img.width, img.height);
+          this.imgData = imgData;
+          var imgData = this.context.getImageData(0, 0, img.width, img.height);
+          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
+            imgData.data[i] = 224;
+            imgData.data[i + 1] = 66;
+            imgData.data[i + 2] = 215;
+          }
+          this.redImageData = imgData;
+          var imgData = this.context.getImageData(0, 0, img.width, img.height);
+          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
+            imgData.data[i] = 48;
+            imgData.data[i + 1] = 48;
+            imgData.data[i + 2] = 121;
+          }
+          this.blueImageData = imgData;
+          var imgData = this.context.getImageData(0, 0, img.width, img.height);
+          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
+            imgData.data[i] = 47;
+            imgData.data[i + 1] = 245;
+            imgData.data[i + 2] = 204;
+          }
+          this.greenImageData = imgData;
+
+          this.context.clearRect(0, 0, this.width, this.height);
+
+          this.initOptions();
+          this.resize();
+          this.tick();
+        };
+        img.src = '/assets/image/fang.png';
       }.bind(this),
       100
     );
@@ -86,6 +119,11 @@ export var glitcher = {
         this.renderChannels(x3, x1, x2);
         break;
     }
+
+    this.context.putImageData(this.imgData, 0, 0, 0, 0, this.img.width, this.img.height);
+    this.context.putImageData(this.redImageData, this.img.width, 0);
+    this.context.putImageData(this.blueImageData, this.img.width * 2, 0);
+    this.context.putImageData(this.greenImageData, this.img.width * 3, 0);
 
     this.renderScanline();
   },

@@ -24,6 +24,7 @@
     "@angular/router": "v4.3.2",
     "core-js": "^2.4.1",
     "enhanced-resolve": "^3.4.1",
+    "ramda": "^0.24.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
   },
