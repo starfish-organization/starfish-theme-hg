@@ -1,11 +1,42 @@
-export var glitcher = {
-  init: function(canvas) {
+export default class Glitcher {
+  width: number;
+  height: number;
+  // font: string;
+  context: any;
+  text: string;
+  textWidth: number;
+
+  fps: number = 60;
+  channel: number = 0;
+  compOp: string = 'lighter';
+  phase: number = 0.0;
+  phaseStep: number = 0.05;
+  amplitude: number = 0.0;
+  amplitudeBase: number = 2.0;
+  amplitudeRange: number = 2.0;
+  alphaMin: number = 0.8;
+
+  glitchAmplitude: number = 5.0;
+  glitchThreshold: number = 0.9;
+  scanlineBase: number = 40;
+  scanlineRange: number = 40;
+  scanlineShift: number = 15;
+
+  redImageData: any;
+  blueImageData: any;
+  greenImageData: any;
+  canvas: any;
+
+  constructor() {}
+
+  init(canvas: any) {
     setTimeout(
       function() {
         this.canvas = canvas;
         this.context = this.canvas.getContext('2d');
 
         var img = new Image(); // Create new img element
+
         img.onload = () => {
           this.img = img;
 
@@ -40,41 +71,18 @@ export var glitcher = {
           this.resize();
           this.tick();
         };
-        img.src = '/assets/image/fang.png';
+        img.src = '/assets/fang.svg';
       }.bind(this),
       100
     );
-  },
-  initOptions: function() {
+  }
+
+  initOptions() {
     this.width = document.documentElement.offsetWidth;
     this.height = window.innerHeight;
+  }
 
-    this.font = 'bold 12vw Arial';
-    this.context.font = this.font;
-    this.text = '放';
-    this.textWidth = this.context.measureText(this.text).width;
-
-    this.fps = 60;
-
-    this.channel = 0; // 0 = red, 1 = green, 2 = blue
-    this.compOp = 'lighter'; // CompositeOperation = lighter || darker || xor
-
-    this.phase = 0.0;
-    this.phaseStep = 0.05; //determines how often we will change channel and amplitude
-    this.amplitude = 0.0;
-    this.amplitudeBase = 2.0;
-    this.amplitudeRange = 2.0;
-    this.alphaMin = 0.8;
-
-    this.glitchAmplitude = 5.0;
-    this.glitchThreshold = 0.9;
-    this.scanlineBase = 40;
-    this.scanlineRange = 40;
-    this.scanlineShift = 15;
-
-    // gui.add(fizzyText, 'noiseStrength', 0, 100).listen();
-  },
-  tick: function() {
+  tick() {
     setTimeout(
       function() {
         this.phase += this.phaseStep;
@@ -90,8 +98,9 @@ export var glitcher = {
       }.bind(this),
       1000 / this.fps
     );
-  },
-  render: function() {
+  }
+
+  render() {
     var x0 = (this.amplitude * Math.sin(Math.PI * 2 * this.phase)) >> 0,
       x1,
       x2,
@@ -101,7 +110,7 @@ export var glitcher = {
       x0 *= this.glitchAmplitude;
     }
 
-    x1 = (this.width - this.textWidth) >> 1;
+    x1 = (this.width - 200) >> 1;
     x2 = x1 + x0;
     x3 = x1 - x0;
 
@@ -120,17 +129,17 @@ export var glitcher = {
         break;
     }
 
-    this.context.putImageData(this.imgData, 0, 0, 0, 0, this.img.width, this.img.height);
-    this.context.putImageData(this.redImageData, this.img.width, 0);
-    this.context.putImageData(this.blueImageData, this.img.width * 2, 0);
-    this.context.putImageData(this.greenImageData, this.img.width * 3, 0);
-
     this.renderScanline();
-  },
-  renderChannels: function(x1, x2, x3) {
-    this.context.font = this.font;
+  }
+
+  renderChannels(x1, x2, x3) {
+    var p1 = new Path2D('M221.8 63.087h221.8v112.892h-221.8v-112.892z');
+
+    this.context.globalAlpha = 0.5;
+    // this.context.font = this.font;
     this.context.fillStyle = 'rgb(255,0,0)';
-    this.context.fillText(this.text, x1, this.height / 2);
+    /* this.context.fillText(this.text, x1, this.height / 2);*/
+    this.context.stroke();
 
     this.context.globalCompositeOperation = this.compOp;
 
@@ -138,8 +147,13 @@ export var glitcher = {
     this.context.fillText(this.text, x2, this.height / 2);
     this.context.fillStyle = 'rgb(0,0,255)';
     this.context.fillText(this.text, x3, this.height / 2);
-  },
-  renderScanline: function() {
+
+    /* this.context.putImageData(this.redImageData, x1, 0);
+     * this.context.putImageData(this.blueImageData, x2, 0);
+     * this.context.putImageData(this.greenImageData, x3, 0);*/
+  }
+
+  renderScanline() {
     var y = (this.height * Math.random()) >> 0,
       o = this.context.getImageData(0, y, this.width, 1),
       d = o.data,
@@ -152,11 +166,11 @@ export var glitcher = {
     }
 
     this.context.putImageData(o, x, y);
-  },
-  resize: function() {
+  }
+  resize() {
     if (this.canvas) {
       this.canvas.width = document.documentElement.offsetWidth;
       this.canvas.height = window.innerHeight;
     }
   }
-};
+}
