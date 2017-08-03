@@ -1,12 +1,12 @@
 export default class Glitcher {
-  width: number;
-  height: number;
-  // font: string;
-  context: any;
+  width: number = 150;
+  height: number = 110;
   text: string;
+  font: string = '100px icomoon';
   textWidth: number;
+  globalAlpha: number = 0.9;
 
-  fps: number = 60;
+  fps: number = 45;
   channel: number = 0;
   compOp: string = 'lighter';
   phase: number = 0.0;
@@ -22,64 +22,27 @@ export default class Glitcher {
   scanlineRange: number = 40;
   scanlineShift: number = 15;
 
-  redImageData: any;
-  blueImageData: any;
-  greenImageData: any;
+  fillStyle1: string = 'rgb(224,66,215)';
+  fillStyle2: string = 'rgb(48, 48, 121)';
+  fillStyle3: string = 'rgb(47, 245, 204)';
+
   canvas: any;
+  context: any;
 
-  constructor() {}
+  constructor(canvas: any, text: string) {
+    this.text = text;
+    this.canvas = canvas;
+    this.context = this.canvas.getContext('2d');
 
-  init(canvas: any) {
-    setTimeout(
-      function() {
-        this.canvas = canvas;
-        this.context = this.canvas.getContext('2d');
+    this.context.font = this.font;
+    this.textWidth = this.context.measureText(this.text).width;
 
-        var img = new Image(); // Create new img element
-
-        img.onload = () => {
-          this.img = img;
-
-          this.context.drawImage(img, 0, 0, img.width, img.height);
-          var imgData = this.context.getImageData(0, 0, img.width, img.height);
-          this.imgData = imgData;
-          var imgData = this.context.getImageData(0, 0, img.width, img.height);
-          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
-            imgData.data[i] = 224;
-            imgData.data[i + 1] = 66;
-            imgData.data[i + 2] = 215;
-          }
-          this.redImageData = imgData;
-          var imgData = this.context.getImageData(0, 0, img.width, img.height);
-          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
-            imgData.data[i] = 48;
-            imgData.data[i + 1] = 48;
-            imgData.data[i + 2] = 121;
-          }
-          this.blueImageData = imgData;
-          var imgData = this.context.getImageData(0, 0, img.width, img.height);
-          for (let i = 0, max = imgData.data.length; i < max; i += 4) {
-            imgData.data[i] = 47;
-            imgData.data[i + 1] = 245;
-            imgData.data[i + 2] = 204;
-          }
-          this.greenImageData = imgData;
-
-          this.context.clearRect(0, 0, this.width, this.height);
-
-          this.initOptions();
-          this.resize();
-          this.tick();
-        };
-        img.src = '/assets/fang.svg';
-      }.bind(this),
-      100
-    );
+    this.canvas.width = this.width;
+    this.canvas.height = this.height;
   }
 
-  initOptions() {
-    this.width = document.documentElement.offsetWidth;
-    this.height = window.innerHeight;
+  start() {
+    this.tick();
   }
 
   tick() {
@@ -101,22 +64,21 @@ export default class Glitcher {
   }
 
   render() {
-    var x0 = (this.amplitude * Math.sin(Math.PI * 2 * this.phase)) >> 0,
-      x1,
-      x2,
-      x3;
+    const x0 = (this.amplitude * Math.sin(Math.PI * 2 * this.phase)) >> 0;
+    let x1;
+    let x2;
+    let x3;
 
     if (Math.random() >= this.glitchThreshold) {
       x0 *= this.glitchAmplitude;
     }
 
-    x1 = (this.width - 200) >> 1;
+    x1 = (this.width - this.textWidth) >> 1;
     x2 = x1 + x0;
     x3 = x1 - x0;
 
     this.context.clearRect(0, 0, this.width, this.height);
     this.context.globalAlpha = this.alphaMin + (1 - this.alphaMin) * Math.random();
-
     switch (this.channel) {
       case 0:
         this.renderChannels(x1, x2, x3);
@@ -128,36 +90,24 @@ export default class Glitcher {
         this.renderChannels(x3, x1, x2);
         break;
     }
-
     this.renderScanline();
   }
 
   renderChannels(x1, x2, x3) {
-    /* var p2 = new Path2D(
-     *   'M895.17 311.45h61.095v-112.892h-281.567c0-3.32 0.664-7.305 0.664-10.625v-135.471h-119.533v135.471c0 67.735-33.204 130.822-89.65 168.674l67.071 98.947c53.126-35.86 93.634-86.329 117.541-144.104h124.846v98.283c0 90.314-21.25 164.69-51.798 226.449-20.586-45.157-33.204-94.298-33.204-146.096h-119.533c0 87.658 26.563 174.651 77.032 257.66-53.79 61.095-112.228 100.275-145.432 122.189l-7.305 4.649 67.071 98.947 6.641-4.649c32.54-21.914 92.306-61.759 151.409-124.182 45.157 51.134 100.275 100.275 165.354 147.424l70.392-96.955c-53.79-39.18-111.564-88.322-160.042-146.096 55.782-85.665 98.283-197.23 98.283-340.005v-97.619z'
-     * );*/
-
-    this.context.globalAlpha = 0.5;
-    // this.context.font = this.font;
-    this.context.fillStyle = 'rgb(255,0,0)';
-    /* this.context.fillText(this.text, x1, this.height / 2);*/
-    this.context.fill(p1);
-    // this.context.stroke(p2);
-
+    const height = this.height - 10;
     this.context.globalCompositeOperation = this.compOp;
 
-    this.context.fillStyle = 'rgb(0,255,0)';
-    /*     this.context.fillText(this.text, x2, this.height / 2);*/
-    this.context.fill(p1);
-    // this.context.stroke(p2);
-    this.context.fillStyle = 'rgb(0,0,255)';
-    this.context.fill(p1);
-    // this.context.stroke(p2);
-    /*     this.context.fillText(this.text, x3, this.height / 2);*/
+    this.context.font = this.font;
+    this.context.globalAlpha = this.globalAlpha;
 
-    /* this.context.putImageData(this.redImageData, x1, 0);
-     * this.context.putImageData(this.blueImageData, x2, 0);
-     * this.context.putImageData(this.greenImageData, x3, 0);*/
+    this.context.fillStyle = this.fillStyle1;
+    this.context.fillText(this.text, x1, height);
+
+    this.context.fillStyle = this.fillStyle2;
+    this.context.fillText(this.text, x2, height);
+
+    this.context.fillStyle = this.fillStyle3;
+    this.context.fillText(this.text, x3, height);
   }
 
   renderScanline() {
@@ -171,13 +121,6 @@ export default class Glitcher {
     while (i-- > 0) {
       d[i] += s;
     }
-
     this.context.putImageData(o, x, y);
-  }
-  resize() {
-    if (this.canvas) {
-      this.canvas.width = document.documentElement.offsetWidth;
-      this.canvas.height = window.innerHeight;
-    }
   }
 }

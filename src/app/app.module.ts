@@ -33,7 +33,9 @@ import { FooterComponent } from './footer/footer.component';
     BrowserModule.withServerTransition({ appId: 'app-root' }),
     HttpModule,
     AppRoutingModule,
-    HomeModule
+
+    HomeModule,
+    ArticleModule
   ],
   providers: [Title],
   bootstrap: [AppComponent],
