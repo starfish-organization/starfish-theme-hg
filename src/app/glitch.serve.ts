@@ -133,20 +133,27 @@ export default class Glitcher {
   }
 
   renderChannels(x1, x2, x3) {
-    var p1 = new Path2D('M221.8 63.087h221.8v112.892h-221.8v-112.892z');
+    /* var p2 = new Path2D(
+     *   'M895.17 311.45h61.095v-112.892h-281.567c0-3.32 0.664-7.305 0.664-10.625v-135.471h-119.533v135.471c0 67.735-33.204 130.822-89.65 168.674l67.071 98.947c53.126-35.86 93.634-86.329 117.541-144.104h124.846v98.283c0 90.314-21.25 164.69-51.798 226.449-20.586-45.157-33.204-94.298-33.204-146.096h-119.533c0 87.658 26.563 174.651 77.032 257.66-53.79 61.095-112.228 100.275-145.432 122.189l-7.305 4.649 67.071 98.947 6.641-4.649c32.54-21.914 92.306-61.759 151.409-124.182 45.157 51.134 100.275 100.275 165.354 147.424l70.392-96.955c-53.79-39.18-111.564-88.322-160.042-146.096 55.782-85.665 98.283-197.23 98.283-340.005v-97.619z'
+     * );*/
 
     this.context.globalAlpha = 0.5;
     // this.context.font = this.font;
     this.context.fillStyle = 'rgb(255,0,0)';
     /* this.context.fillText(this.text, x1, this.height / 2);*/
-    this.context.stroke();
+    this.context.fill(p1);
+    // this.context.stroke(p2);
 
     this.context.globalCompositeOperation = this.compOp;
 
     this.context.fillStyle = 'rgb(0,255,0)';
-    this.context.fillText(this.text, x2, this.height / 2);
+    /*     this.context.fillText(this.text, x2, this.height / 2);*/
+    this.context.fill(p1);
+    // this.context.stroke(p2);
     this.context.fillStyle = 'rgb(0,0,255)';
-    this.context.fillText(this.text, x3, this.height / 2);
+    this.context.fill(p1);
+    // this.context.stroke(p2);
+    /*     this.context.fillText(this.text, x3, this.height / 2);*/
 
     /* this.context.putImageData(this.redImageData, x1, 0);
      * this.context.putImageData(this.blueImageData, x2, 0);
