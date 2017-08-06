@@ -1,12 +1,19 @@
 nav {
+  padding-top: 20px;
   position: relative;
-  color: white;
+  display: flex;
+  justify-content: space-between;
+  opacity: 0.95;
 }
 
 ul {
   display: flex;
 
+  li {
+    margin-left: 20px;
+  }
+
   a {
-    color: white;
+    font-weight: lighter;
   }
 }

@@ -1,18 +1,11 @@
-$link-circle-size: 30px;
+
 
 .links {
   list-style: none;
-  color: white;
+  margin-left: 50px;
+
   li {
     position: relative;
-
-    &:before {
-      content: '';
-      display: block;
-      position: absolute;
-      width: $link-circle-size;
-      height: $link-circle-size;
-    }
-
+    margin-top: 100px;
   }
 }

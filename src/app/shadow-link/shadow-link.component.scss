@@ -1,21 +1,45 @@
-.main {
-  position: relative;
-  height: 100px;
-  cursor: pointer;
+$left-space: 80px;
+$circle-size: 48px;
+$major-bottom-distance: 10px;
 
+:host {
+  display: block;
+  position: relative;
+  cursor: pointer;
+  padding-left: $left-space;
+  box-sizing: border-box;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: $major-bottom-distance;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    background-color: #363a43;
+    transition: background-color 300ms ease-in-out;
+  }
+
+  &:hover {
+    &:before {
+      background-color: #6191fb;
+    }
+  }
 }
 
 .major {
-
+  position: absolute;
+  left: $left-space;
+  bottom: $major-bottom-distance;
+  font-size: 25px;
+  opacity: 0.95;
 }
 
 .shadow {
-  position: absolute;
-  opacity: 0.5;
-  font-size: 30px;
-  top: 0;
-}
-
-span {
-  color: white;
+  opacity: 0.1;
+  font-size: 60px;
+  font-weight: bold;
+  letter-spacing: 5px;
 }

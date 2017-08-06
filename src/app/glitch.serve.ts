@@ -2,11 +2,12 @@ export default class Glitcher {
   width: number = 150;
   height: number = 110;
   text: string;
-  font: string = '100px icomoon';
+  size: string;
+  font: string;
   textWidth: number;
   globalAlpha: number = 0.9;
 
-  fps: number = 45;
+  fps: number = 25;
   channel: number = 0;
   compOp: string = 'lighter';
   phase: number = 0.0;
@@ -29,10 +30,12 @@ export default class Glitcher {
   canvas: any;
   context: any;
 
-  constructor(canvas: any, text: string) {
+  constructor(canvas: any, text: string, size: string) {
     this.text = text;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
+    this.size = size;
+    this.font = `${size}px icomoon`;
 
     this.context.font = this.font;
     this.textWidth = this.context.measureText(this.text).width;

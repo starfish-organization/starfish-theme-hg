@@ -1,0 +1,33 @@
+:host {
+  display: block;
+  position: relative;
+  padding-left: 50px;
+}
+
+h1 {
+  position: relative;
+  font-size: 20px;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 30px;
+    height: 2px;
+    background-color: white;
+  }
+}
+
+ul {
+  margin-top: 50px;
+
+  li {
+    .show-time {
+      margin-right: 20px;
+    }
+    a {
+      font-size: 20px;
+    }
+  }
+}

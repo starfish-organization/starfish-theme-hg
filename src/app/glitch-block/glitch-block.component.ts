@@ -9,13 +9,14 @@ import Glitcher from '../glitch.serve';
 export class GlitchBlockComponent implements OnInit, OnDestroy {
   @ViewChild('canvas') canvas: ElementRef;
   @Input() text: string;
+  @Input() size: string;
   glitcher: any;
 
   constructor() {}
 
   ngOnInit() {
     const canvas = this.canvas.nativeElement;
-    this.glitcher = new Glitcher(canvas, this.text);
+    this.glitcher = new Glitcher(canvas, this.text, this.size);
     this.glitcher.start();
   }
 

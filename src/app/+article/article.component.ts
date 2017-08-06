@@ -6,6 +6,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
 import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
+import { Title } from '@angular/platform-browser';
 
 class Article {
   title: string;
@@ -22,13 +23,15 @@ export class ArticleComponent implements OnInit {
     private http: Http,
     private route: ActivatedRoute,
     private location: Location,
-    private sanitizer: DomSanitizer
+    private sanitizer: DomSanitizer,
+    private titleService: Title
   ) {}
 
   article: any = {};
   content: SafeHtml;
 
   ngOnInit(): void {
+    // TODO remove base because anchor link
     this.route.params
       .switchMap((params: Params) => {
         var articleFilename = params['articleName'].replace('.html', '');
@@ -40,6 +43,7 @@ export class ArticleComponent implements OnInit {
       .subscribe(res => {
         this.content = this.sanitizer.bypassSecurityTrustHtml(res.content);
         this.article = res;
+        this.titleService.setTitle(`${this.article.title}`);
       });
   }
 }

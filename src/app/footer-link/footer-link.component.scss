@@ -1,7 +1,8 @@
 :host {
-  position: relative;
-  display: inline-block;
-  float: right;
+  position: absolute;
+  display: block;
+  right: 100px;
+  top: 0;
 
   &:hover {
     ul {

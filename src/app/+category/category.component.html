@@ -1,0 +1,13 @@
+<h1>{{category.name}}</h1>
+<div>
+  <ul>
+    <li *ngFor="let article of category.articles">
+      <span class="show-time">{{article.showTime}}</span>
+      <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">{{article.title}}</a>
+    </li>
+  </ul>
+
+  <div>
+
+  </div>
+</div>

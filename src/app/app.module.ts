@@ -7,10 +7,10 @@ import { AppComponent } from './app.component';
 
 import { HomeModule } from './+home/home.module';
 import { ArticleModule } from './+article/article.module';
+import { CategoryModule } from './+category/category.module';
 
 import { AppRoutingModule } from './app.routing.modules';
 import { CategoryListComponent } from './category-list/category-list.component';
-import { CategoryComponent } from './category/category.component';
 
 import { NavComponent } from './nav/nav.component';
 import { NavSoundSwitchComponent } from './nav-sound-switch/nav-sound-switch.component';
@@ -22,7 +22,6 @@ import { FooterComponent } from './footer/footer.component';
   declarations: [
     AppComponent,
     CategoryListComponent,
-    CategoryComponent,
     NavComponent,
     NavSoundSwitchComponent,
     FooterLinkComponent,
@@ -35,7 +34,8 @@ import { FooterComponent } from './footer/footer.component';
     AppRoutingModule,
 
     HomeModule,
-    ArticleModule
+    ArticleModule,
+    CategoryModule
   ],
   providers: [Title],
   bootstrap: [AppComponent],
