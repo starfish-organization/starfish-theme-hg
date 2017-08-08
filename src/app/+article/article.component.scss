@@ -38,7 +38,7 @@
         margin-bottom: 10px;
         position: relative;
         cursor: pointer;
-
+        user-select: none;
         input {
           visibility: hidden;
 
@@ -87,20 +87,45 @@
   }
 
   article {
+    position: relative;
     font-size: 12px;
     width: 650px;
 
+    $title-anchor-size: 40px;
     .article-title {
-      &:before {
+      text-align: center;
+      font-size: 28px;
 
+      span {
+        position: relative;
+        display: inline-block;
+        z-index: 10;
+        letter-spacing: 3px;
+        text-indent: 3px;
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: $title-anchor-size;
+          height: $title-anchor-size;
+          z-index: -1;
+          border-radius: 50%;
+          background-color: #6191fb;
+          left: - $title-anchor-size / 2;
+          top: 50%;
+          margin-top: - $title-anchor-size / 2;
+          box-shadow: 0 0 $title-anchor-size #6191fb;
+        }
       }
     }
 
     pre {
       padding: 10px;
       border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.8);
-      color: black;
+      background-color: #313744;
+      color: white;
+      white-space: pre-wrap;
+      word-wrap: break-word;
     }
   }
 }

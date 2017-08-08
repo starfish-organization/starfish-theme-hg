@@ -33,8 +33,8 @@ import { FooterComponent } from './footer/footer.component';
 
     HomeModule,
     ArticleModule,
-    CategoryModule,
-    CategoryListModule
+    CategoryListModule,
+    CategoryModule
   ],
   providers: [Title],
   bootstrap: [AppComponent],

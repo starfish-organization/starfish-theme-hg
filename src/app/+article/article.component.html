@@ -4,9 +4,9 @@
   </aside>
 
   <article>
-    <h1 class="article-title">{{article.title}}</h1>
+    <h1 class="article-title"><span>{{article.title}}</span></h1>
     <div>{{article.showTime}}</div>
-    <div #article [innerHTML]="content"></div>
+    <div #articleDom [innerHTML]="content"></div>
   </article>
 
   <aside class="right">

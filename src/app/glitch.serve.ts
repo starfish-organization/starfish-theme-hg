@@ -1,5 +1,5 @@
 export default class Glitcher {
-  width: number = 150;
+  width: number = 160;
   height: number = 110;
   text: string;
   size: string;
@@ -29,8 +29,9 @@ export default class Glitcher {
 
   canvas: any;
   context: any;
+  timer: any;
 
-  constructor(canvas: any, text: string, size: string) {
+  constructor(canvas: any, text: string, size: string, private silent: boolean) {
     this.text = text;
     this.canvas = canvas;
     this.context = this.canvas.getContext('2d');
@@ -42,14 +43,33 @@ export default class Glitcher {
 
     this.canvas.width = this.width;
     this.canvas.height = this.height;
+
+    // this.render();
+  }
+
+  stop() {
+    if (!!this.timer) {
+      clearInterval(this.timer);
+      this.timer = null;
+      this.grayify();
+    }
   }
 
   start() {
     this.tick();
+    if (this.silent) {
+      setTimeout(() => {
+        this.stop();
+      }, 1000);
+    }
   }
 
   tick() {
-    setTimeout(
+    if (!!this.timer) {
+      clearInterval(this.timer);
+    }
+
+    this.timer = setInterval(
       function() {
         this.phase += this.phaseStep;
 
@@ -60,10 +80,19 @@ export default class Glitcher {
         }
 
         this.render();
-        this.tick();
       }.bind(this),
       1000 / this.fps
     );
+  }
+
+  grayify() {
+    const contextData = this.context.getImageData(0, 0, this.width, this.height);
+    for (var i = 0; i < contextData.data.length; i += 4) {
+      contextData.data[i] = Math.max(0, contextData.data[i] - 120);
+      contextData.data[i + 1] = Math.max(0, contextData.data[i + 1] - 120);
+      contextData.data[i + 2] = Math.max(0, contextData.data[i + 2] - 120);
+    }
+    this.context.putImageData(contextData, 0, 0);
   }
 
   render() {

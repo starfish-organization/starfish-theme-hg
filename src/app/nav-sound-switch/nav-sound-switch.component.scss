@@ -7,4 +7,26 @@
   justify-content: space-around;
   margin-left: 200px;
   font-style: italic;
+  letter-spacing: 4px;
+  text-indent: 4px;
+  font-weight: lighter;
+}
+
+.music-icon {
+  fill: white;
+  position: relative;
+  top: -1px;
+  vertical-align: middle;
+  animation: 4s infinite rotate linear;
+  margin-right: 2px;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }

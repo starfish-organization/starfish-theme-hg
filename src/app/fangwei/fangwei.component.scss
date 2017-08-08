@@ -1,6 +1,33 @@
 :host {
   display: block;
+  background-image: url(/assets/image/square.png);
+  background-size: cover;
+  width: 245.5px;
+  height: 414.5px;
+  user-select: none;
+}
+
+.fang {
   position: absolute;
-  right: 0;
-  top: 100px;
+  top: 30px;
+  left: -70px;
+}
+
+.wei {
+  position: absolute;
+  top: 126px;
+  left: -10px;
+}
+
+.wave {
+  position: absolute;
+  top: 209px;
+  left: -89px;
+}
+
+.name {
+  position: absolute;
+  width: 35px;
+  left: -25px;
+  top: 160px;
 }

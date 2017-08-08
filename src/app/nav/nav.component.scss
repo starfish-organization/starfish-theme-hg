@@ -4,6 +4,7 @@ nav {
   display: flex;
   justify-content: space-between;
   opacity: 0.95;
+  font-size: 12px;
 }
 
 ul {
@@ -15,5 +16,6 @@ ul {
 
   a {
     font-weight: lighter;
+    letter-spacing: 2px;
   }
 }

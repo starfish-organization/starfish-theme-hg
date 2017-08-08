@@ -20,7 +20,7 @@ class Article {
   encapsulation: ViewEncapsulation.None
 })
 export class ArticleComponent implements OnInit {
-  @ViewChild('article') article: ElementRef;
+  @ViewChild('articleDom') article: ElementRef;
   article: Article;
   content: SafeHtml;
 

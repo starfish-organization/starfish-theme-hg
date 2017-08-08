@@ -3,11 +3,12 @@ $circle-size: 48px;
 $major-bottom-distance: 10px;
 
 :host {
-  display: block;
+  display: inline-block;
   position: relative;
   cursor: pointer;
   padding-left: $left-space;
   box-sizing: border-box;
+  user-select: none;
 
   &:before {
     content: '';
@@ -19,12 +20,24 @@ $major-bottom-distance: 10px;
     height: $circle-size;
     border-radius: 50%;
     background-color: #363a43;
-    transition: background-color 300ms ease-in-out;
+    transition: background-color 300ms ease-in-out, box-shadow 300ms ease-in-out;
   }
 
   &:hover {
     &:before {
       background-color: #6191fb;
+      box-shadow: 0 0 50px #4b6ca8;
+    }
+
+    .major {
+      opacity: 0.90;
+      transform: translate(0, -5px);
+      text-shadow: 0 0 20px white;
+    }
+
+    .shadow {
+      top: 5px;
+      opacity: 0.15;
     }
   }
 }
@@ -35,11 +48,16 @@ $major-bottom-distance: 10px;
   bottom: $major-bottom-distance;
   font-size: 25px;
   opacity: 0.95;
+  transform: translate(0, 0);
+  transition: all 200ms ease-in-out;
 }
 
 .shadow {
+  position: relative;
   opacity: 0.1;
   font-size: 60px;
   font-weight: bold;
   letter-spacing: 5px;
+  transform: translate(0, 0);
+  transition: all 200ms ease-in-out;
 }
