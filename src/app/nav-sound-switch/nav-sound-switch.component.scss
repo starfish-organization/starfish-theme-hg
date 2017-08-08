@@ -1,4 +1,3 @@
-
 .main {
   cursor: pointer;
   position: relative;
@@ -10,6 +9,16 @@
   letter-spacing: 4px;
   text-indent: 4px;
   font-weight: lighter;
+
+  &.playing {
+    .music-icon {
+      animation: 4s infinite rotate linear;
+    }
+  }
+}
+
+.text {
+  width: 110px;
 }
 
 .music-icon {
@@ -19,7 +28,9 @@
   vertical-align: middle;
   animation: 4s infinite rotate linear;
   margin-right: 2px;
+  animation: none;
 }
+
 
 @keyframes rotate {
   from {

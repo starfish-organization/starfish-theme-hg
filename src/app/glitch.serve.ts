@@ -125,6 +125,8 @@ export default class Glitcher {
     this.renderScanline();
   }
 
+  renderBlock() {}
+
   renderChannels(x1, x2, x3) {
     const height = this.height - 10;
     this.context.globalCompositeOperation = this.compOp;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'nav-sound-switch',
@@ -6,12 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./nav-sound-switch.component.scss']
 })
 export class NavSoundSwitchComponent implements OnInit {
-  isPlaying: boolean = false;
+  @ViewChild('audio') audio: ElementRef;
+  isPlaying: boolean = true;
   constructor() {}
 
   ngOnInit() {}
 
   onClick() {
+    const audio = this.audio.nativeElement;
     this.isPlaying = !this.isPlaying;
+    if (!this.isPlaying) {
+      audio.pause();
+    } else {
+      audio.play();
+    }
   }
 }
