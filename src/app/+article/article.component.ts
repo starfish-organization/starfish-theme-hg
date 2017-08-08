@@ -1,6 +1,6 @@
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
@@ -16,9 +16,14 @@ class Article {
 @Component({
   selector: 'app-article',
   templateUrl: './article.component.html',
-  styleUrls: ['./article.component.scss']
+  styleUrls: ['./article.component.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class ArticleComponent implements OnInit {
+  @ViewChild('article') article: ElementRef;
+  article: any = {};
+  content: SafeHtml;
+
   constructor(
     private http: Http,
     private route: ActivatedRoute,
@@ -26,9 +31,6 @@ export class ArticleComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private titleService: Title
   ) {}
-
-  article: any = {};
-  content: SafeHtml;
 
   ngOnInit(): void {
     // TODO remove base because anchor link

@@ -1,26 +1,28 @@
-<aside class="left">
-  <div class="article">Article</div>
-</aside>
+<div class="article-page">
+  <aside class="left">
+    <div class="big-article">Article</div>
+  </aside>
 
-<article>
-  <h1>{{article.title}}</h1>
-  <div [innerHTML]="content"></div>
-</article>
+  <article>
+    <h1>{{article.title}}</h1>
+    <div #article [innerHTML]="content"></div>
+  </article>
 
-<aside class="right">
-  <form>
-    <label>
-      <input type="radio" name="sex" value="male" checked>
-      Bright
-    </label>
+  <aside class="right">
+    <main>
+      <form>
+        <label>
+          <input type="radio" name="sex" value="male">
+          <span>Bright</span>
+        </label>
 
-    <br/>
 
-    <label>
-      <input type="radio" name="sex" value="female">
-      Dark
-    </label>
+        <label>
+          <input type="radio" name="sex" value="female" checked>
+          <span>Dark</span>
+        </label>
+      </form>
+    </main>
+  </aside>
 
-  </form>
-
-</aside>
+</div>
