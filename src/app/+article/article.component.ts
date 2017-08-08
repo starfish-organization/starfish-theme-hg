@@ -21,7 +21,7 @@ class Article {
 })
 export class ArticleComponent implements OnInit {
   @ViewChild('article') article: ElementRef;
-  article: any = {};
+  article: Article;
   content: SafeHtml;
 
   constructor(

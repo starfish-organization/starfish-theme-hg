@@ -1,7 +1,7 @@
 .article-page {
   position: relative;
   display: flex;
-  padding-left: 50px;
+  padding-bottom: 50px;
 
 
   .article-page.bright {
@@ -27,7 +27,8 @@
     padding-top: 50px;
 
     main {
-      position: fixed;
+      padding-left: 20px;
+      // position: fixed;
     }
 
     form {
@@ -89,11 +90,16 @@
     font-size: 12px;
     width: 650px;
 
+    .article-title {
+      &:before {
+
+      }
+    }
+
     pre {
-      margin: 0;
       padding: 10px;
       border-radius: 5px;
-      background-color: rgba(255, 255, 255, 0.5);
+      background-color: rgba(255, 255, 255, 0.8);
       color: black;
     }
   }

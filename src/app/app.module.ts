@@ -8,24 +8,22 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './+home/home.module';
 import { ArticleModule } from './+article/article.module';
 import { CategoryModule } from './+category/category.module';
+import { CategoryListModule } from './+category-list/category-list.module';
 
 import { AppRoutingModule } from './app.routing.modules';
-import { CategoryListComponent } from './category-list/category-list.component';
 
 import { NavComponent } from './nav/nav.component';
 import { NavSoundSwitchComponent } from './nav-sound-switch/nav-sound-switch.component';
 import { FooterLinkComponent } from './footer-link/footer-link.component';
-import { LanuageSwitchComponent } from './lanuage-switch/lanuage-switch.component';
 import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CategoryListComponent,
+
     NavComponent,
     NavSoundSwitchComponent,
     FooterLinkComponent,
-    LanuageSwitchComponent,
     FooterComponent
   ],
   imports: [
@@ -35,7 +33,8 @@ import { FooterComponent } from './footer/footer.component';
 
     HomeModule,
     ArticleModule,
-    CategoryModule
+    CategoryModule,
+    CategoryListModule
   ],
   providers: [Title],
   bootstrap: [AppComponent],

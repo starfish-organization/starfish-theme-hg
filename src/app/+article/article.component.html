@@ -4,7 +4,8 @@
   </aside>
 
   <article>
-    <h1>{{article.title}}</h1>
+    <h1 class="article-title">{{article.title}}</h1>
+    <div>{{article.showTime}}</div>
     <div #article [innerHTML]="content"></div>
   </article>
 
