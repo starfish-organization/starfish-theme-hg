@@ -1,0 +1,27 @@
+:host {
+  display: flex;
+  padding-bottom: 50px;
+}
+
+aside.left {
+  width: 250px;
+  .article {
+    font-weight: 900;
+    font-size: 60px;
+    color: #404146;
+  }
+}
+
+
+aside.right {
+  width: 150px;
+
+  label {
+    cursor: pointer;
+  }
+}
+
+article {
+  font-size: 12px;
+  width: 650px;
+}

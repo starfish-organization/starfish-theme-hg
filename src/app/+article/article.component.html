@@ -1,2 +1,26 @@
-<h1>{{article.title}}</h1>
-<div [innerHTML]="content"></div>
+<aside class="left">
+  <div class="article">Article</div>
+</aside>
+
+<article>
+  <h1>{{article.title}}</h1>
+  <div [innerHTML]="content"></div>
+</article>
+
+<aside class="right">
+  <form>
+    <label>
+      <input type="radio" name="sex" value="male" checked>
+      Bright
+    </label>
+
+    <br/>
+
+    <label>
+      <input type="radio" name="sex" value="female">
+      Dark
+    </label>
+
+  </form>
+
+</aside>

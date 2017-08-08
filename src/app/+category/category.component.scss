@@ -2,11 +2,18 @@
   display: block;
   position: relative;
   padding-left: 50px;
+  padding-right: 50px;
+}
+
+main {
+  display: flex;
+  justify-content: space-between;
 }
 
 h1 {
   position: relative;
   font-size: 20px;
+
   &:before {
     content: '';
     display: block;
@@ -23,11 +30,38 @@ ul {
   margin-top: 50px;
 
   li {
-    .show-time {
-      margin-right: 20px;
-    }
     a {
-      font-size: 20px;
+      display: inline-block;
+      border-bottom: 1px solid transparent;
+      transition: border-color 200ms ease-in-out;
+      vertical-align: baseline;
+      font-size: 14px;
+      margin-bottom: 8px;
+      cursor: pointer;
+
+      &:hover {
+        border-color: rgba(255, 255, 255, 0.6);
+      }
     }
+
+    .show-time {
+      display: inline-block;
+      margin-right: 20px;
+      width: 150px;
+
+    }
+    .title {
+      display: inline-block;
+      font-size: 16px;
+    }
+  }
+}
+
+.illustration {
+  width: 260px;
+
+  img {
+    display: block;
+    width: 100%;
   }
 }

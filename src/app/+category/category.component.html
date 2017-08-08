@@ -1,13 +1,16 @@
 <h1>{{category.name}}</h1>
-<div>
+<main>
   <ul>
     <li *ngFor="let article of category.articles">
-      <span class="show-time">{{article.showTime}}</span>
-      <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">{{article.title}}</a>
+      <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
+        <span class="show-time">{{article.showTime}}</span>
+        <span class="title">{{article.title}}</span>
+      </a>
     </li>
   </ul>
 
-  <div>
-
+  <div class="illustration">
+    <img alt="" src="/assets/image/wolf.jpg"/>
   </div>
-</div>
+
+</main>
