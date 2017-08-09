@@ -9,12 +9,5 @@ import { FangweiComponent } from '../fangwei/fangwei.component';
 export class HomeComponent implements OnInit {
   constructor() {}
 
-  ngOnInit() {
-    console.log('hi2');
-    this.error();
-  }
-
-  error() {
-    //throw new Error('hi3');
-  }
+  ngOnInit() {}
 }

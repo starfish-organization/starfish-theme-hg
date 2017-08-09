@@ -9,9 +9,9 @@ import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-brows
 import { Title } from '@angular/platform-browser';
 
 class Article {
-  title: string;
-  content: string;
-  showTime: string;
+  title?: string;
+  content?: string;
+  showTime?: string;
 }
 
 @Component({
@@ -22,7 +22,7 @@ class Article {
 })
 export class ArticleComponent implements OnInit {
   @ViewChild('articleDom') articleDom: ElementRef;
-  article: Article;
+  article: Article = {};
   content: SafeHtml;
 
   constructor(

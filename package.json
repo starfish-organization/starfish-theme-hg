@@ -5,7 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod --deploy-url=static",
+    "build2": "ng build --prod --aot deploy-url=static --app 1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -24,6 +25,7 @@
     "@angular/router": "^4.3.3",
     "core-js": "^2.4.1",
     "enhanced-resolve": "^3.4.1",
+    "glob": "^7.1.2",
     "ramda": "^0.24.1",
     "rxjs": "^5.4.1",
     "zone.js": "^0.8.14"
