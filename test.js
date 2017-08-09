@@ -22,8 +22,7 @@ const buildedPath = '/Users/chchen/MY-PROJECT/nobbb/build';
 glob('/Users/chchen/MY-PROJECT/nobbb/build/**/*.html', function(err, files) {
   files.forEach(file => {
     const url = file.split(buildedPath)[1];
-
-    renderModuleFactory(AppServerModuleNgFactory, {document: index, url: '/'})
+    renderModuleFactory(AppServerModuleNgFactory, {document: require('fs').readFileSync(file, 'utf8'), url: '/'})
       .then(html => {
         console.log(file);
         fs.writeFileSync(path.join(buildedPath, url), html)

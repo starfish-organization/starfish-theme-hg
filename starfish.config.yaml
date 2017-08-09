@@ -5,6 +5,11 @@ TEMPLATE:
   CATEGORY_LIST: "./dist/index.html"
   CATEGORY: "./dist/index.html"
   ARTICLE: "./dist/index.html"
+  ALL_ARTICLE: "./dist/index.html"
+
+THEME_MAPPING:
+  assets: "./dist/assets"
+  static: "./dist/"
 
 INDEX_TYPE: one
 
