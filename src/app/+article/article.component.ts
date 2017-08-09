@@ -11,6 +11,7 @@ import { Title } from '@angular/platform-browser';
 class Article {
   title: string;
   content: string;
+  showTime: string;
 }
 
 @Component({
@@ -20,7 +21,7 @@ class Article {
   encapsulation: ViewEncapsulation.None
 })
 export class ArticleComponent implements OnInit {
-  @ViewChild('articleDom') article: ElementRef;
+  @ViewChild('articleDom') articleDom: ElementRef;
   article: Article;
   content: SafeHtml;
 

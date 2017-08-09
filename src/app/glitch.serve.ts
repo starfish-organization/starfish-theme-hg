@@ -96,7 +96,7 @@ export default class Glitcher {
   }
 
   render() {
-    const x0 = (this.amplitude * Math.sin(Math.PI * 2 * this.phase)) >> 0;
+    let x0 = (this.amplitude * Math.sin(Math.PI * 2 * this.phase)) >> 0;
     let x1;
     let x2;
     let x3;
