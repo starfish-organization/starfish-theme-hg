@@ -45,8 +45,8 @@ export class ArticleComponent implements OnInit {
       })
       .subscribe(res => {
         this.content = this.sanitizer.bypassSecurityTrustHtml(res.content);
-        this.article = res;
         this.titleService.setTitle(`${this.article.title}`);
+        this.article = res;
       });
   }
 }
