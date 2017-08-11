@@ -5,8 +5,7 @@ import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
-import { DomSanitizer, SafeResourceUrl, SafeHtml } from '@angular/platform-browser';
-import { Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl, SafeHtml, Title } from '@angular/platform-browser';
 
 class Article {
   title?: string;
@@ -23,7 +22,7 @@ class Article {
 export class ArticleComponent implements OnInit {
   @ViewChild('articleDom') articleDom: ElementRef;
   article: Article = {};
-  content: SafeHtml;
+  content: SafeHtml = '';
 
   constructor(
     private http: Http,
@@ -37,6 +36,7 @@ export class ArticleComponent implements OnInit {
     // TODO remove base because anchor link
     this.route.params
       .switchMap((params: Params) => {
+        console.log(params);
         var articleFilename = params['articleName'].replace('.html', '');
         return this.http
           .get(API_ENDPOINT + `/${params['categoryName']}/${articleFilename}.json`)
