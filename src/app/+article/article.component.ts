@@ -36,7 +36,6 @@ export class ArticleComponent implements OnInit {
     // TODO remove base because anchor link
     this.route.params
       .switchMap((params: Params) => {
-        console.log(params);
         var articleFilename = params['articleName'].replace('.html', '');
         return this.http
           .get(API_ENDPOINT + `/${params['categoryName']}/${articleFilename}.json`)
