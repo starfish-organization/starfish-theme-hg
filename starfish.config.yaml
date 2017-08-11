@@ -8,8 +8,9 @@ TEMPLATE:
   ALL_ARTICLE: "./dist/index.html"
 
 THEME_MAPPING:
-  assets: "./dist/assets"
-  static: "./dist/"
+  - static: "./dist/assets"
+  - static: "./dist/*.js"
+  - static: "./dist/*.css"
 
 INDEX_TYPE: one
 
