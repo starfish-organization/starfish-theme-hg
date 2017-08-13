@@ -5,6 +5,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/toPromise';
 import { API_ENDPOINT } from '../../constants';
+import { CategorysService } from '../categorys.service';
 
 class Article {
   name: string;
@@ -17,9 +18,15 @@ class Article {
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  constructor(private http: Http, private route: ActivatedRoute, private location: Location) {}
+  constructor(
+    private http: Http,
+    private route: ActivatedRoute,
+    private location: Location,
+    private categorys: CategorysService
+  ) {}
 
   category: any = {};
+  categoryList: Array<any> = [];
 
   ngOnInit(): void {
     this.route.params
@@ -30,5 +37,9 @@ export class CategoryComponent implements OnInit {
           .then(response => response.json())
       )
       .subscribe(res => (this.category = res));
+
+    this.categorys.getCategoryList().then(categroyList => {
+      this.categoryList = categroyList;
+    });
   }
 }

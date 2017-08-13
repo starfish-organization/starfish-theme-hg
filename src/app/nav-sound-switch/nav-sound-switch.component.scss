@@ -1,24 +1,26 @@
+:host {
+  display: block;
+}
 .main {
   cursor: pointer;
   position: relative;
   user-select: none;
   display: flex;
-  justify-content: space-around;
-  margin-left: 200px;
+  justify-content: space-between;
   font-style: italic;
   letter-spacing: 4px;
   text-indent: 4px;
   font-weight: lighter;
+  background-color: #292c32;
+  margin-right: 5px;
+  padding: 0 3px;
+  text-align: center;
 
   &.playing {
     .music-icon {
       animation: 4s infinite rotate linear;
     }
   }
-}
-
-.text {
-  width: 110px;
 }
 
 .music-icon {

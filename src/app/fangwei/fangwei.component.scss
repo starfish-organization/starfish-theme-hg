@@ -31,3 +31,45 @@
   left: -25px;
   top: 160px;
 }
+
+.jupiter-container {
+  width: 231px;
+  left: 161px;
+  top: 49px;
+  position: absolute;
+  perspective: 1000px;
+
+  &, & > * {
+    will-change: transform;
+
+    &.leaved {
+      transition: transform 400ms ease-in-out;
+    }
+  }
+}
+
+.jupiter {
+  width: 100%;
+  display: block;
+  position: relative;
+  z-index: 2;
+}
+
+.jupiter-cover {
+  width: 169.5px;
+  position: absolute;
+  left: -14px;
+  top: 18px;
+  background-color: transparent;
+  z-index: 3;
+}
+
+.back-block {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+  z-index: 1;
+  left: 10px;
+  top: 10px;
+}

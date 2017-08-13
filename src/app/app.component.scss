@@ -4,6 +4,30 @@
   padding-bottom: 60px;
   display: block;
   box-sizing: border-box;
-  width: 1000px;
+  width: 1300px;
   margin: 0 auto;
+
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    border: 1px solid #999;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: 18px;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+    z-index: -1;
+  }
+
+  @media screen and (max-width: 500px) {
+    width: 100%;
+    padding: 10px 20px;
+
+    &:before {
+      display: none;
+    }
+  }
 }

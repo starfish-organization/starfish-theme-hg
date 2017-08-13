@@ -1,20 +1,29 @@
+app-article {
+  display: block;
+}
+
 .article-page {
   position: relative;
   display: flex;
   padding-bottom: 50px;
-
 
   .article-page.bright {
     background-color: white;
   }
 
   aside.left {
-    width: 250px;
-    padding-right: 50px;
+    text-align: center;
+    width: 300px;
+
     .big-article {
       font-weight: 900;
       font-size: 60px;
       color: #404146;
+      letter-spacing: 2px;
+    }
+
+    @media screen and (max-width: 500px) {
+      display: none;
     }
   }
 
@@ -84,24 +93,39 @@
         }
       }
     }
+
+    @media screen and (max-width: 500px) {
+      display: none;
+    }
   }
 
   article {
     position: relative;
-    font-size: 12px;
+    font-size: 13px;
     width: 650px;
+
+    @media screen and (max-width: 500px) {
+      width: 100%;
+    }
+
+    img {
+      max-width: 100%;
+    }
 
     $title-anchor-size: 40px;
     .article-title {
+      position: relative;
       text-align: center;
       font-size: 28px;
 
-      span {
+      .title-name {
         position: relative;
         display: inline-block;
         z-index: 10;
         letter-spacing: 3px;
         text-indent: 3px;
+        font-weight: lighter;
+
         &:before {
           content: '';
           display: block;
@@ -112,20 +136,48 @@
           border-radius: 50%;
           background-color: #6191fb;
           left: - $title-anchor-size / 2;
-          top: 50%;
-          margin-top: - $title-anchor-size / 2;
-          box-shadow: 0 0 $title-anchor-size #6191fb;
+          top: 0;
+          box-shadow: 0 0 $title-anchor-size rgba(97, 145, 251, 0.4);
         }
       }
     }
 
+    .article-time {
+      display: block;
+      font-size: 13px;
+      letter-spacing: initial;
+      text-align: right;
+      font-weight: normal;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .article-content {
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: lighter;
+      line-height: 1.6;
+      letter-spacing: 0.8px;
+      text-indent: 0.8px;
+
+      td {
+        text-align: center;
+        border-color: currentColor;
+        border-radius: 1px;
+      }
+    }
+
     pre {
-      padding: 10px;
-      border-radius: 5px;
-      background-color: #313744;
+      border-radius: 8px;
       color: white;
-      white-space: pre-wrap;
-      word-wrap: break-word;
+      /* white-space: pre-wrap; */
+      /* word-wrap: break-word; */
+      font-size: 13px;
+      overflow-x: scroll;
+
+      code {
+        font-family: Monaco;
+        padding: 10px;
+      }
     }
   }
 }

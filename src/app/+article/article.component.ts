@@ -1,17 +1,24 @@
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
-import { Component, OnInit, ElementRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Inject,
+  Component,
+  OnInit,
+  ElementRef,
+  ViewChild,
+  AfterViewInit,
+  ViewEncapsulation
+} from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
 import { DomSanitizer, SafeResourceUrl, SafeHtml, Title } from '@angular/platform-browser';
+import { Article } from './article';
+import { PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
-class Article {
-  title?: string;
-  content?: string;
-  showTime?: string;
-}
+declare var hljs: any;
 
 @Component({
   selector: 'app-article',
@@ -19,7 +26,7 @@ class Article {
   styleUrls: ['./article.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArticleComponent implements OnInit {
+export class ArticleComponent implements OnInit, AfterViewInit {
   @ViewChild('articleDom') articleDom: ElementRef;
   article: Article = {};
   content: SafeHtml = '';
@@ -29,23 +36,29 @@ export class ArticleComponent implements OnInit {
     private route: ActivatedRoute,
     private location: Location,
     private sanitizer: DomSanitizer,
-    private titleService: Title
+    private titleService: Title,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
     // TODO remove base because anchor link
-    this.route.params
-      .switchMap((params: Params) => {
-        var articleFilename = params['articleName'].replace('.html', '');
-        return this.http
-          .get(API_ENDPOINT + `/${params['categoryName']}/${articleFilename}.json`)
-          .toPromise()
-          .then(response => response.json());
-      })
-      .subscribe(res => {
-        this.content = this.sanitizer.bypassSecurityTrustHtml(res.content);
-        this.titleService.setTitle(`${this.article.title}`);
-        this.article = res;
-      });
+    this.route.data.subscribe((data: { article: Article }) => {
+      this.article = data.article;
+      this.content = this.sanitizer.bypassSecurityTrustHtml(data.article.content);
+      this.titleService.setTitle(`${data.article.title}`);
+    });
+  }
+
+  highlightify() {
+    this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
+  }
+
+  ngAfterViewInit() {
+    if (isPlatformBrowser(this.platformId)) {
+      this.highlightify();
+    }
+    if (isPlatformServer(this.platformId)) {
+      // Server only code.
+    }
   }
 }

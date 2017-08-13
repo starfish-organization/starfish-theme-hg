@@ -4,9 +4,15 @@
   </aside>
 
   <article>
-    <h1 class="article-title"><span>{{article.title}}</span></h1>
-    <div>{{article.showTime}}</div>
-    <div #articleDom [innerHTML]="content"></div>
+    <h1 class="article-title">
+      <span class="title-name">
+        {{article.title}}
+        <span class="article-time">{{article.showTime}}</span>
+      </span>
+
+    </h1>
+
+    <div class="article-content" #articleDom [innerHTML]="content"></div>
   </article>
 
   <aside class="right">

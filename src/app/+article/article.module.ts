@@ -5,14 +5,22 @@ import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { ArticleComponent } from './article.component';
+import { ArticleResolver } from './article-resolve.service';
 
 @NgModule({
   declarations: [ArticleComponent],
   imports: [
     RouterModule.forChild([
-      { path: ':categoryName/:articleName', component: ArticleComponent, pathMatch: 'full' }
+      {
+        path: ':categoryName/:articleName',
+        component: ArticleComponent,
+        pathMatch: 'full',
+        resolve: {
+          article: ArticleResolver
+        }
+      }
     ])
   ],
-  providers: [Title]
+  providers: [Title, ArticleResolver]
 })
 export class ArticleModule {}

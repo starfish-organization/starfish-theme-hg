@@ -5,6 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { CategoryComponent } from './category.component';
+import { CategorysService } from '../categorys.service';
 
 @NgModule({
   declarations: [CategoryComponent],
@@ -12,6 +13,6 @@ import { CategoryComponent } from './category.component';
     RouterModule.forChild([{ path: ':categoryName', component: CategoryComponent }]),
     CommonModule
   ],
-  providers: [Title]
+  providers: [Title, CategorysService]
 })
 export class CategoryModule {}

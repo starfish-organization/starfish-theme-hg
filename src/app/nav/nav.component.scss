@@ -1,3 +1,7 @@
+:host {
+  display: block;
+}
+
 nav {
   padding-top: 10px;
   position: relative;
@@ -12,10 +16,14 @@ ul {
 
   li {
     margin-left: 20px;
+    background-color: #292c32;
+    padding: 0 5px;
+    box-sizing: border-box;
   }
 
   a {
     font-weight: lighter;
     letter-spacing: 2px;
+
   }
 }

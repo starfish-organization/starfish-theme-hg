@@ -1,7 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 body {
   background-color: #292c32;
-  font-family: PT_Sans;
+  // background-color: #1a1a1a;
+  font-family: SourceSansPro, pingfang-tc;
   color: white;
 }
 
@@ -34,28 +35,23 @@ ul {
   font-style: normal;
 }
 
-
 @font-face {
-  font-family: 'PT_Sans';
-  src:  url('/assets/fonts/PT_Sans-Web-Regular.ttf');
-  src:  url('/assets/fonts/PT_Sans-Web-Regular.ttf') format('truetype');
-  font-weight: normal;
-  font-style: normal;
+  font-family: 'SourceSansPro';
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf');
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Black.ttf') format('truetype');
+  font-weight: 900;
 }
 
 @font-face {
-  font-family: 'PT_Sans';
-  src:  url('/assets/fonts/PT_Sans-Web-Bold.ttf');
-  src:  url('/assets/fonts/PT_Sans-Web-Bold.ttf') format('truetype');
-  font-weight: bold;
-  font-style: normal;
+  font-family: 'SourceSansPro';
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf');
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Light.ttf') format('truetype');
+  font-weight: 300;
 }
 
-
 @font-face {
-  font-family: 'PT_Sans';
-  src:  url('/assets/fonts/PT_Sans-Web-Italic.ttf');
-  src:  url('/assets/fonts/PT_Sans-Web-Italic.ttf') format('truetype');
-  font-weight: normal;
-  font-style: italic;
+  font-family: 'SourceSansPro';
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf');
+  src:  url('/assets/fonts/Source_Sans_Pro/SourceSansPro-Regular.ttf') format('truetype');
+  font-weight: 500;
 }

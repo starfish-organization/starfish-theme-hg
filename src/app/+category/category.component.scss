@@ -8,11 +8,13 @@
 main {
   display: flex;
   justify-content: space-between;
+  margin-top: 80px;
 }
 
 h1 {
   position: relative;
   font-size: 20px;
+  margin: 0;
 
   &:before {
     content: '';
@@ -26,7 +28,7 @@ h1 {
   }
 }
 
-ul {
+ul.articles {
   margin-top: 50px;
 
   li {
@@ -35,7 +37,7 @@ ul {
       border-bottom: 1px solid transparent;
       transition: border-color 200ms ease-in-out;
       vertical-align: baseline;
-      font-size: 14px;
+
       margin-bottom: 8px;
       cursor: pointer;
       outline: none;
@@ -53,7 +55,7 @@ ul {
     }
     .title {
       display: inline-block;
-      font-size: 16px;
+      font-size: 25px;
     }
   }
 }

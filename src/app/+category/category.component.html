@@ -1,6 +1,14 @@
 <h1>{{category.name}}</h1>
+
 <main>
-  <ul>
+  <aside>
+    <ul>
+      <li *ngFor="let category of categoryList">
+        <a routerLink="/{{category.relativeOutputPath}}">{{category.name}}</a>
+      </li>
+    </ul>
+  </aside>
+  <ul class="articles">
     <li *ngFor="let article of category.articles">
       <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
         <span class="show-time">{{article.showTime}}</span>

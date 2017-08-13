@@ -5,8 +5,8 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build --prod --deploy-url=static",
-    "build-ssr": "ng build --prod --aot deploy-url=static --app 1",
+    "build": "ng build --prod",
+    "build-ssr": "ng build --prod --app 1",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
