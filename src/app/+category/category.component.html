@@ -2,9 +2,9 @@
 
 <main>
   <aside>
-    <ul>
+    <ul class="categorys">
       <li *ngFor="let category of categoryList">
-        <a routerLink="/{{category.relativeOutputPath}}">{{category.name}}</a>
+        <a routerLink="/{{category.relativeOutputPath}}" routerLinkActive="active">{{category.name}}</a>
       </li>
     </ul>
   </aside>

@@ -17,6 +17,7 @@ import { NavSoundSwitchComponent } from './nav-sound-switch/nav-sound-switch.com
 import { FooterLinkComponent } from './footer-link/footer-link.component';
 import { FooterComponent } from './footer/footer.component';
 import { CategorysService } from './categorys.service';
+import { CategorysResolveService } from './categorys-resolve.service';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ import { CategorysService } from './categorys.service';
     CategoryListModule,
     CategoryModule
   ],
-  providers: [Title, CategorysService],
+  providers: [Title, CategorysService, CategorysResolveService],
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })

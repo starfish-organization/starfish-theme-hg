@@ -1,8 +1,9 @@
 :host {
   display: block;
   position: relative;
-  padding-left: 50px;
+  padding-left: 27px;
   padding-right: 50px;
+  padding-top: 20px;
 }
 
 main {
@@ -28,22 +29,73 @@ h1 {
   }
 }
 
-ul.articles {
-  margin-top: 50px;
-
+ul.categorys {
+  padding-right: 50px;
   li {
+    line-height: 25px;
+  }
+
+  a {
+    position: relative;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-indent: 1px;
+    opacity: 0.9;
+    font-weight: lighter;
+
+    &:hover, &.active {
+      &:before {
+        width: 110%;
+      }
+    }
+
+    &:before {
+      transition: width 300ms ease-in-out;
+      content: '';
+      display: block;
+      position: absolute;
+      background-color: #2e85d8;
+      opacity: 0.5;
+      height: 3px;
+      width: 0px;
+      bottom: 0;
+      left: -5%;
+    }
+  }
+}
+
+ul.articles {
+  flex-grow: 2;
+  li {
+    font-weight: lighter;
     a {
       display: inline-block;
       border-bottom: 1px solid transparent;
       transition: border-color 200ms ease-in-out;
       vertical-align: baseline;
-
       margin-bottom: 8px;
       cursor: pointer;
       outline: none;
+      position: relative;
+      opacity: 0.9;
 
       &:hover {
-        border-color: rgba(255, 255, 255, 0.6);
+        &:before {
+          width: 100%;
+        }
+      }
+
+      &:before {
+        transition: width 300ms ease-in-out;
+        content: '';
+        display: block;
+        position: absolute;
+        background-color: #2e85d8;
+        opacity: 0.5;
+        height: 3px;
+        width: 0px;
+        bottom: 0;
+        left: -1px;
       }
     }
 
@@ -51,18 +103,27 @@ ul.articles {
       display: inline-block;
       margin-right: 20px;
       width: 150px;
+      font-size: 12px;
+      letter-spacing: 1px;
+      text-indent: 1px;
 
     }
     .title {
       display: inline-block;
-      font-size: 25px;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-indent: 1px;
+      font-weight: lighter;
     }
   }
 }
 
 .illustration {
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
   width: 260px;
-
+  margin-top: -90px;
   img {
     display: block;
     width: 100%;

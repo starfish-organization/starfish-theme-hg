@@ -1,4 +1,23 @@
+:host {
+  display: block;
 
+  @media screen and (max-width: 500px) {
+    fangwei {
+      transform: scale(0.8, 0.8);
+      position: relative;
+      top: 0;
+      right: 42px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    fangwei {
+      transform: scale(0.6, 0.6);
+      right: 10px;
+    }
+  }
+}
 
 .links {
   list-style: none;
@@ -7,6 +26,10 @@
   li {
     position: relative;
     margin-top: 100px;
+
+    @media screen and (max-width: 500px) {
+      margin-top: 15px;
+    }
   }
 }
 
