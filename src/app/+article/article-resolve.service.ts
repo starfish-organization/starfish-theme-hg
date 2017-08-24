@@ -14,7 +14,7 @@ export class ArticleResolver implements Resolve<Article> {
     const articleName = route.paramMap.get('articleName').replace('.html', '');
     const categoryName = route.paramMap.get('categoryName');
     return this.http
-      .get(API_ENDPOINT + `/${categoryName}/${articleName}.json`)
+      .get(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`)
       .toPromise()
       .then(article => {
         return article.json();
