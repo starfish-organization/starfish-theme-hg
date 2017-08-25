@@ -1,11 +1,13 @@
 import 'rxjs/add/operator/switchMap';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/toPromise';
 import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../categorys.service';
+import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { PLATFORM_ID } from '@angular/core';
 
 class Article {
   name: string;
@@ -22,7 +24,8 @@ export class CategoryComponent implements OnInit {
     private http: Http,
     private route: ActivatedRoute,
     private location: Location,
-    private categorys: CategorysService
+    private categorys: CategorysService,
+    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   category: any = {};
@@ -30,12 +33,19 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     this.route.params
-      .switchMap((params: Params) =>
-        this.http
+      .switchMap((params: Params) => {
+        if (isPlatformServer(this.platformId)) {
+          return Promise.resolve(
+            JSON.parse(
+              require('fs').readFileSync(`build/${params['categoryName']}/index.json`, 'utf-8')
+            )
+          );
+        }
+        return this.http
           .get(API_ENDPOINT + `/${params['categoryName']}/index.json`)
           .toPromise()
-          .then(response => response.json())
-      )
+          .then(response => response.json());
+      })
       .subscribe(res => (this.category = res));
 
     this.categorys.getCategoryList().then(categroyList => {
