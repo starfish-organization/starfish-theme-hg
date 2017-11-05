@@ -16,7 +16,7 @@ export class ArticleResolver implements Resolve<Article> {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Article> {
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Article> {
     const articleName = route.paramMap.get('articleName').replace('.html', '');
     const categoryName = route.paramMap.get('categoryName');
     if (isPlatformServer(this.platformId)) {

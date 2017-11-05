@@ -1,6 +1,10 @@
 <div class="article-page">
   <aside class="left">
     <div class="big-article">Article</div>
+    
+    <li *ngFor="let article of recentArticles">
+      <span>{{article.title}}</span>
+    </li>
   </aside>
 
   <article>

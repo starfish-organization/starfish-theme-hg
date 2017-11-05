@@ -16,7 +16,7 @@ import { ArticleResolver } from './article-resolve.service';
         component: ArticleComponent,
         pathMatch: 'full',
         resolve: {
-          article: ArticleResolver
+            article: ArticleResolver,
         }
       }
     ]),
