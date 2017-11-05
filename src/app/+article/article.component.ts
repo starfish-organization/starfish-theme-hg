@@ -17,6 +17,7 @@ import { DomSanitizer, SafeResourceUrl, SafeHtml, Title } from '@angular/platfor
 import { Article } from './article';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { parse, format, formatDistance } from 'date-fns';
 
 declare var hljs: any;
 
@@ -49,6 +50,18 @@ export class ArticleComponent implements OnInit, AfterViewInit {
     });
   }
 
+  formatTime(timestamp) {
+    return format(timestamp, 'MMMM Do YYYY, h:mm');
+  }
+
+  distanceTime(timestamp) {
+    return formatDistance(new Date(timestamp), new Date());
+  }
+
+  isLongAgo(timestamp) {
+    return new Date().getTime() - timestamp > 1000 * 60 * 60 * 24 * 265;
+  }
+
   highlightify() {
     this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
   }
@@ -56,9 +69,6 @@ export class ArticleComponent implements OnInit, AfterViewInit {
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.highlightify();
-    }
-    if (isPlatformServer(this.platformId)) {
-      // Server only code.
     }
   }
 }

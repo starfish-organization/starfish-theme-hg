@@ -1,4 +1,4 @@
-import { APP_BASE_HREF } from '@angular/common';
+import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
@@ -8,7 +8,7 @@ import { ArticleComponent } from './article.component';
 import { ArticleResolver } from './article-resolve.service';
 
 @NgModule({
-  declarations: [ArticleComponent],
+    declarations: [ArticleComponent],
   imports: [
     RouterModule.forChild([
       {
@@ -19,7 +19,8 @@ import { ArticleResolver } from './article-resolve.service';
           article: ArticleResolver
         }
       }
-    ])
+    ]),
+      CommonModule
   ],
   providers: [Title, ArticleResolver]
 })

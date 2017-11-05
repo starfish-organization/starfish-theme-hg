@@ -6,6 +6,11 @@ app-article {
   position: relative;
   display: flex;
   padding-bottom: 50px;
+  padding-right: 50px;
+
+  @media screen and (max-width: 600px) {
+    padding-right: 50px;
+  }
 
   .article-page.bright {
     background-color: white;
@@ -22,7 +27,7 @@ app-article {
       letter-spacing: 2px;
     }
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       display: none;
     }
   }
@@ -37,7 +42,6 @@ app-article {
 
     main {
       padding-left: 20px;
-      // position: fixed;
     }
 
     form {
@@ -102,9 +106,9 @@ app-article {
   article {
     position: relative;
     font-size: 13px;
-    width: 650px;
+    overflow: hidden;
 
-    @media screen and (max-width: 500px) {
+    @media screen and (max-width: 600px) {
       width: 100%;
     }
 
@@ -142,7 +146,7 @@ app-article {
       }
     }
 
-    .article-time {
+    .article-time, .article-time-distance, .article-long-ago-a {
       display: block;
       font-size: 13px;
       letter-spacing: initial;
@@ -150,6 +154,15 @@ app-article {
       font-weight: normal;
       letter-spacing: 1px;
       opacity: 0.6;
+    }
+
+    .article-time-add {
+      text-align: right; 
+      line-height: 18px;
+    }
+
+    .article-time {
+      display: block;
     }
 
     .article-content {
@@ -169,10 +182,7 @@ app-article {
     pre {
       border-radius: 8px;
       color: white;
-      /* white-space: pre-wrap; */
-      /* word-wrap: break-word; */
       font-size: 13px;
-      overflow-x: scroll;
 
       code {
         font-family: Monaco;
