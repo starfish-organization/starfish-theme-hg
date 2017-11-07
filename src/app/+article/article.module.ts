@@ -6,9 +6,10 @@ import { Title } from '@angular/platform-browser';
 
 import { ArticleComponent } from './article.component';
 import { ArticleResolver } from './article-resolve.service';
+import { RecentArticlesComponent } from '../recent-articles/recent-articles.component';
 
 @NgModule({
-    declarations: [ArticleComponent],
+    declarations: [ArticleComponent, RecentArticlesComponent],
   imports: [
     RouterModule.forChild([
       {

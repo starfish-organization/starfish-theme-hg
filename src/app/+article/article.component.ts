@@ -49,27 +49,8 @@ export class ArticleComponent implements OnInit, AfterViewInit {
       this.content = this.sanitizer.bypassSecurityTrustHtml(data.article.content);
       this.titleService.setTitle(`${data.article.title}`);
     });
-
-    this.getRecentArticles().then(articles => {
-      console.log(articles);
-      this.recentArticles = articles;
-    });
   }
 
-  getRecentArticles(): Promise<any> {
-    if (isPlatformServer(this.platformId)) {
-      return Promise.resolve(
-        JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8'))
-      );
-    } else {
-      return this.http
-        .get(API_ENDPOINT + `/recent-articles.json`)
-        .toPromise()
-        .then(article => {
-          return article.json();
-        });
-    }
-  }
 
   formatTime(timestamp) {
     return format(timestamp, 'MMMM Do YYYY, h:mm');
