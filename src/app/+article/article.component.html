@@ -1,10 +1,7 @@
 <div class="article-page">
   <aside class="left">
     <div class="big-article">Article</div>
-    
-    <li *ngFor="let article of recentArticles">
-      <span>{{article.title}}</span>
-    </li>
+    <app-recent-articles></app-recent-articles>
   </aside>
 
   <article>
@@ -14,7 +11,7 @@
         <span class="article-time">{{formatTime(article.showTime)}}</span>
         <div class="article-time-add">
           <span class="article-time-distance">{{distanceTime(article.showTime)}} ago</span>
-          <span class="article-long-ago-a" *ngIf="isLongAgo(article.showTime)">本博文撰写过久不代表作者现在的观点</span>
+          <span class="article-long-ago-a" *ngIf="isLongAgo(article.showTime)">*本博文撰写过久不代表作者现在的观点</span>
         </div>
       </span>
     </h1>

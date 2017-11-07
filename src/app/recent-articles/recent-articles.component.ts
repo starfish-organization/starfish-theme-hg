@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { Inject, Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
 
@@ -12,7 +13,7 @@ import { API_ENDPOINT } from '../../constants';
 export class RecentArticlesComponent implements OnInit {
   recentArticles = [];
 
-  constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   // TODO 抽一个全局 service
   ngOnInit() {
@@ -32,7 +33,7 @@ export class RecentArticlesComponent implements OnInit {
         .get(API_ENDPOINT + `/recent-articles.json`)
         .toPromise()
         .then(article => {
-          return article.json();
+          return article;
         });
     }
   }

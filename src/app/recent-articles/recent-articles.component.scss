@@ -1,0 +1,30 @@
+::host {
+  padding: 10px 5px;
+  text-align: left;
+}
+
+header {
+  text-align: left;
+  color: #eee;
+
+  span {
+    vertical-align: middle;
+  }
+
+  svg {
+    fill: #eee;
+    vertical-align: middle;
+    width: 20px;
+  }
+}
+
+ul {
+  li {
+    font-size: 14px;
+    text-align: left;
+    line-height: 24px;
+    a {
+      color: #ccc;
+    }
+  }
+}

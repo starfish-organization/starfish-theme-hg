@@ -53,7 +53,7 @@ export class ArticleComponent implements OnInit, AfterViewInit {
 
 
   formatTime(timestamp) {
-    return format(timestamp, 'MMMM Do YYYY, h:mm');
+      return format(timestamp, 'MMMM Do YYYY, h:mm');
   }
 
   distanceTime(timestamp) {

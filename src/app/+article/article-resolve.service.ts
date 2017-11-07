@@ -3,15 +3,15 @@ import { Inject, Injectable } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { API_ENDPOINT } from '../../constants';
 import { Article } from './article';
-import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Injectable()
 export class ArticleResolver implements Resolve<Article> {
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private router: Router,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
@@ -30,7 +30,7 @@ export class ArticleResolver implements Resolve<Article> {
         .get(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`)
         .toPromise()
         .then(article => {
-          return article.json();
+          return article;
         });
     }
   }
