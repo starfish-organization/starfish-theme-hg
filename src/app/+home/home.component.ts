@@ -16,7 +16,7 @@ export class HomeComponent implements OnInit {
     private titleService: Title,
     private categorys: CategorysService
   ) {}
-  e;
+
   ngOnInit() {
     this.route.data.subscribe((data: { categoryList: any }) => {
       this.blogsLink = data.categoryList[0].relativeOutputPath;
