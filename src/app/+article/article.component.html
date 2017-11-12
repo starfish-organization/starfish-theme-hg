@@ -1,10 +1,10 @@
-<div class="article-page">
+<div class="article-page" [ngClass]="{'inited': viewInit === true }">
   <aside class="left">
     <div class="big-article">Article</div>
     <app-recent-articles></app-recent-articles>
   </aside>
 
-  <article>
+  <article class="article-animate">
     <h1 class="article-title">
       <span class="title-name">
         {{article.title}}
@@ -18,5 +18,4 @@
 
     <div class="article-content" #articleDom [innerHTML]="content"></div>
   </article>
-
 </div>

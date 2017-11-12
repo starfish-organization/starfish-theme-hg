@@ -107,6 +107,12 @@ app-article {
     position: relative;
     font-size: 13px;
     overflow: hidden;
+    opacity: 0;
+    transition: all 300ms ease-in-out;
+
+    &.article-animate {
+      opacity: 1; 
+    }
 
     @media screen and (max-width: 600px) {
       width: 100%;

@@ -4,6 +4,8 @@ import {
   Inject,
   Component,
   OnInit,
+  AfterViewChecked,
+  AfterContentInit,
   ElementRef,
   ViewChild,
   AfterViewInit,
@@ -27,11 +29,12 @@ declare var hljs: any;
   styleUrls: ['./article.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArticleComponent implements OnInit, AfterViewInit {
+export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
   @ViewChild('articleDom') articleDom: ElementRef;
   article: Article = {};
   recentArticles = [];
   content: SafeHtml = '';
+  contentInited = false;
 
   constructor(
     private http: Http,
@@ -51,9 +54,8 @@ export class ArticleComponent implements OnInit, AfterViewInit {
     });
   }
 
-
   formatTime(timestamp) {
-      return format(timestamp, 'MMMM Do YYYY, h:mm');
+    return format(timestamp, 'MMMM Do YYYY, h:mm');
   }
 
   distanceTime(timestamp) {
@@ -68,9 +70,16 @@ export class ArticleComponent implements OnInit, AfterViewInit {
     this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
   }
 
+  ngAfterViewChecked() {
+  }
+
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
       this.highlightify();
     }
+  }
+
+  ngAfterContentInit() {
+    this.contentInited = true;
   }
 }
