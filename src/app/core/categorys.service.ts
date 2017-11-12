@@ -2,7 +2,7 @@ import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/toPromise';
 import { Inject, Injectable } from '@angular/core';
 import { Headers, Http } from '@angular/http';
-import { API_ENDPOINT } from '../constants';
+import { API_ENDPOINT } from '../../constants';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 

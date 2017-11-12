@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 
 import { CategoryComponent } from './category.component';
-import { CategorysService } from '../categorys.service';
+import { CategorysService } from '../core/categorys.service';
 
 @NgModule({
   declarations: [CategoryComponent],

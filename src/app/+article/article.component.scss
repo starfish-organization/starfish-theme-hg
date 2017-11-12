@@ -12,6 +12,13 @@ app-article {
     padding-right: 50px;
   }
 
+  &.inited {
+    article {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+  
   .article-page.bright {
     background-color: white;
   }
@@ -43,7 +50,7 @@ app-article {
     main {
       padding-left: 20px;
     }
-
+    
     form {
       label {
         display: block;
@@ -108,11 +115,8 @@ app-article {
     font-size: 13px;
     overflow: hidden;
     opacity: 0;
-    transition: all 300ms ease-in-out;
-
-    &.article-animate {
-      opacity: 1; 
-    }
+    transform: translateY(-50px);
+    transition: all 600ms ease-in-out;
 
     @media screen and (max-width: 600px) {
       width: 100%;
@@ -174,9 +178,9 @@ app-article {
     .article-content {
       color: rgba(255, 255, 255, 0.8);
       font-weight: lighter;
-      line-height: 1.6;
-      letter-spacing: 0.8px;
-      text-indent: 0.8px;
+      line-height: 1.8;
+      letter-spacing: 1px;
+      text-indent: 1px;
 
       td {
         text-align: center;

@@ -7,8 +7,8 @@ import { HomeComponent } from './home.component';
 import { FangweiComponent } from '../fangwei/fangwei.component';
 import { GlitchBlockComponent } from '../glitch-block/glitch-block.component';
 import { ShadowLinkComponent } from '../shadow-link/shadow-link.component';
-import { CategorysService } from '../categorys.service';
-import { CategorysResolveService } from '../categorys-resolve.service';
+import { CategorysService } from '../core/categorys.service';
+import { CategorysResolveService } from '../core/categorys-resolve.service';
 
 @NgModule({
   declarations: [HomeComponent, FangweiComponent, GlitchBlockComponent, ShadowLinkComponent],

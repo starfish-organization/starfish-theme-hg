@@ -54,24 +54,23 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
     });
   }
 
-  formatTime(timestamp) {
+  formatTime(timestamp): string {
     return format(timestamp, 'MMMM Do YYYY, h:mm');
   }
 
-  distanceTime(timestamp) {
+  distanceTime(timestamp): string {
     return formatDistance(new Date(timestamp), new Date());
   }
 
-  isLongAgo(timestamp) {
+  isLongAgo(timestamp): boolean {
     return new Date().getTime() - timestamp > 1000 * 60 * 60 * 24 * 265;
   }
 
-  highlightify() {
+  highlightify(): void {
     this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
   }
 
-  ngAfterViewChecked() {
-  }
+  ngAfterViewChecked() {}
 
   ngAfterViewInit() {
     if (isPlatformBrowser(this.platformId)) {
@@ -80,6 +79,8 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   ngAfterContentInit() {
-    this.contentInited = true;
+    setTimeout(() => {
+      this.contentInited = true;
+    }, 300);
   }
 }

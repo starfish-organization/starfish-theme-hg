@@ -5,7 +5,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
 import 'rxjs/add/operator/toPromise';
 import { API_ENDPOINT } from '../../constants';
-import { CategorysService } from '../categorys.service';
+import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 

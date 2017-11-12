@@ -4,7 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { CategorysService } from '../categorys.service';
+import { CategorysService } from '../core/categorys.service';
 import 'rxjs/add/operator/toPromise';
 
 @Component({

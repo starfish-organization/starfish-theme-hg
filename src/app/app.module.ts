@@ -3,6 +3,7 @@ import { BrowserModule, Title } from '@angular/platform-browser';
 
 import { NgModule, ApplicationRef } from '@angular/core';
 import { HttpModule } from '@angular/http';
+import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
 
 import { HomeModule } from './+home/home.module';
@@ -12,32 +13,23 @@ import { CategoryListModule } from './+category-list/category-list.module';
 
 import { AppRoutingModule } from './app.routing.modules';
 
-import { NavComponent } from './nav/nav.component';
-import { NavSoundSwitchComponent } from './nav-sound-switch/nav-sound-switch.component';
 import { FooterLinkComponent } from './footer-link/footer-link.component';
 import { FooterComponent } from './footer/footer.component';
-import { CategorysService } from './categorys.service';
-import { CategorysResolveService } from './categorys-resolve.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    NavComponent,
-    NavSoundSwitchComponent,
-    FooterLinkComponent,
-    FooterComponent
-  ],
+  declarations: [AppComponent, FooterLinkComponent, FooterComponent],
   imports: [
     BrowserModule.withServerTransition({ appId: 'app-root' }),
     HttpModule,
     AppRoutingModule,
+    CoreModule,
 
     HomeModule,
     ArticleModule,
     CategoryListModule,
     CategoryModule
   ],
-  providers: [Title, CategorysService, CategorysResolveService],
+  providers: [Title],
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })
