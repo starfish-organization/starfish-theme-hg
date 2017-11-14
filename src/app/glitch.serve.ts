@@ -87,7 +87,7 @@ export default class Glitcher {
 
   grayify() {
     const contextData = this.context.getImageData(0, 0, this.width, this.height);
-    for (var i = 0; i < contextData.data.length; i += 4) {
+    for (let i = 0; i < contextData.data.length; i += 4) {
       contextData.data[i] = Math.max(0, contextData.data[i] - 120);
       contextData.data[i + 1] = Math.max(0, contextData.data[i + 1] - 120);
       contextData.data[i + 2] = Math.max(0, contextData.data[i + 2] - 120);

@@ -1,8 +1,7 @@
 <nav>
   <ul [hidden]="currentRoute === 'home'">
     <li>
-      <a routerLink="/">HOME</a>
-      
+      <app-nav-logo></app-nav-logo> 
     </li>
     <li>
       <a routerLink="{{categorysLink}}" [ngClass]="{'active': currentRoute === 'blogs'}">BLOGS</a>
@@ -11,9 +10,5 @@
       <a>ABOUT ME</a>
     </li>
   </ul>
-
-  <nav-sound-switch></nav-sound-switch>
-
-  <!-- <lanuage-switch></lanuage-switch> -->
 
 </nav>

@@ -26,6 +26,7 @@ app-article {
   aside.left {
     text-align: center;
     width: 300px;
+    padding-right: 30px;
 
     .big-article {
       font-weight: 900;
@@ -116,7 +117,7 @@ app-article {
     overflow: hidden;
     opacity: 0;
     transform: translateY(-50px);
-    transition: all 600ms ease-in-out;
+    transition: all 300ms ease-in-out 50ms;
 
     @media screen and (max-width: 600px) {
       width: 100%;
