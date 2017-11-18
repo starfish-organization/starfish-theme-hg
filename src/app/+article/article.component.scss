@@ -177,7 +177,6 @@ app-article {
     }
 
     .article-content {
-      color: rgba(255, 255, 255, 0.8);
       font-weight: lighter;
       line-height: 1.8;
       letter-spacing: 1px;
@@ -192,8 +191,8 @@ app-article {
 
     pre {
       border-radius: 8px;
-      color: white;
-      font-size: 13px;
+      font-size: 10px;
+      line-height: 1.5;
 
       code {
         font-family: Monaco;

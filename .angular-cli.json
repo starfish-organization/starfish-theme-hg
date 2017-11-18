@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "styles.scss",
-        "monokai.css"
+        "github-gist.css"
       ],
       "scripts": [
         "highlight.pack.js"
