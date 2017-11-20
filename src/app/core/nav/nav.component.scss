@@ -24,8 +24,9 @@ ul {
   li {
     margin-left: 20px;
     background-color: #292c32;
-    padding: 0 5px;
+    padding: 2px 5px 1px;
     box-sizing: border-box;
+    border-radius: 2px;
 
     &:first-child {
       margin-left: 0px;
