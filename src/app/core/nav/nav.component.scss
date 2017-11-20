@@ -2,7 +2,7 @@
   display: block;
   position: relative;
   z-index: 10;
-  padding: 0 10px;
+  padding: 0 10px 0 0;
 }
 
 nav {
@@ -28,6 +28,10 @@ ul {
     box-sizing: border-box;
     border-radius: 2px;
 
+    a {
+      color: white;
+    }
+
     &:first-child {
       margin-left: 0px;
     }
@@ -38,24 +42,5 @@ ul {
     letter-spacing: 2px;
     text-indent: 2px;
     position: relative;
-
-    &:hover, &.active {
-      &:before {
-        width: 110%;
-      }
-    }
-
-    &:before {
-      transition: width 300ms ease-in-out;
-      content: '';
-      display: block;
-      position: absolute;
-      background-color: #2e85d8;
-      opacity: 0.5;
-      height: 3px;
-      width: 0px;
-      bottom: 0;
-      left: -5%;
-    }
   }
 }
