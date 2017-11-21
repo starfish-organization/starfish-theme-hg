@@ -33,16 +33,17 @@ ul {
   margin: 0;
   border-radius: 3px;
   overflow: hidden;
+  background-color: white;
 
   li {
     margin: 0;
-    border-top: 1px solid #999;
     padding: 2px 5px;
     white-space: nowrap;
+    font-size: 14px;
 
     .icon {
-      width: 24px;
       vertical-align: middle;
+      width: 20px;
     }
 
     span {
