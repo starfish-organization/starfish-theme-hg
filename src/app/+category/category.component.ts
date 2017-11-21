@@ -3,11 +3,12 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import 'rxjs/add/operator/toPromise';
+import { format } from 'date-fns';
 import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+import 'rxjs/add/operator/toPromise';
 
 class Article {
   name: string;
@@ -51,5 +52,9 @@ export class CategoryComponent implements OnInit {
     this.categorys.getCategoryList().then(categroyList => {
       this.categoryList = categroyList;
     });
+  }
+
+  formatTime(timestamp: string | number): string {
+    return format(timestamp, 'MMMM Do YYYY, h:mm');
   }
 }

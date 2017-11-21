@@ -1,20 +1,17 @@
 :host {
   display: block;
   position: relative;
-  padding-left: 27px;
-  padding-right: 50px;
   padding-top: 20px;
 }
 
 main {
   display: flex;
   justify-content: space-between;
-  margin-top: 80px;
 }
 
 h1 {
   position: relative;
-  font-size: 20px;
+  font-size: 65px;
   margin: 0;
 
   &:before {
