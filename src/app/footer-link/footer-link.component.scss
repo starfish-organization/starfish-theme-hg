@@ -8,8 +8,8 @@
     ul {
       position: absolute;
       display: block;
-      bottom: 2px;
-      left: -5px;
+      bottom: -3px;
+      left: -4px;
     }
   }
 }
@@ -17,7 +17,7 @@
 .toggle {
   vertical-align: middle;
   font-size: 14px;
-
+  
   svg {
     vertical-align: middle;
   }
@@ -30,10 +30,12 @@
 ul {
   display: none;
   padding: 0;
+  padding-top: 2px;
   margin: 0;
   border-radius: 3px;
   overflow: hidden;
   background-color: white;
+  border: 1px solid #ddd;
 
   li {
     margin: 0;
@@ -43,7 +45,7 @@ ul {
 
     .icon {
       vertical-align: middle;
-      width: 20px;
+      width: 22px;
     }
 
     span {
