@@ -1,6 +1,6 @@
 export default class Glitcher {
-  width: number = 160;
-  height: number = 110;
+  width = 160;
+  height = 110;
   text: string;
   size: string;
   font: string;
@@ -22,7 +22,7 @@ export default class Glitcher {
   scanlineBase: number = 40;
   scanlineRange: number = 40;
   scanlineShift: number = 15;
-
+  
   fillStyle1: string = 'rgb(224,66,215)';
   fillStyle2: string = 'rgb(48, 48, 121)';
   fillStyle3: string = 'rgb(47, 245, 204)';
@@ -51,7 +51,6 @@ export default class Glitcher {
     if (!!this.timer) {
       clearInterval(this.timer);
       this.timer = null;
-      this.grayify();
     }
   }
 
@@ -80,6 +79,7 @@ export default class Glitcher {
         }
 
         this.render();
+        this.grayify();
       }.bind(this),
       1000 / this.fps
     );
@@ -88,9 +88,9 @@ export default class Glitcher {
   grayify() {
     const contextData = this.context.getImageData(0, 0, this.width, this.height);
     for (let i = 0; i < contextData.data.length; i += 4) {
-      contextData.data[i] = Math.max(0, contextData.data[i] - 120);
-      contextData.data[i + 1] = Math.max(0, contextData.data[i + 1] - 120);
-      contextData.data[i + 2] = Math.max(0, contextData.data[i + 2] - 120);
+      contextData.data[i] = Math.max(0, contextData.data[i] - 10);
+      contextData.data[i + 1] = Math.max(0, contextData.data[i + 1] - 10);
+      contextData.data[i + 2] = Math.max(0, contextData.data[i + 2] - 10);
     }
     this.context.putImageData(contextData, 0, 0);
   }

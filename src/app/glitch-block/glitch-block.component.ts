@@ -19,7 +19,6 @@ export class GlitchBlockComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     if (isPlatformBrowser(this.platformId)) {
-      // Client only code.
       const canvas = this.canvas.nativeElement;
       this.glitcher = new Glitcher(canvas, this.text, this.size, this.silent);
       this.glitcher.start();
@@ -27,9 +26,6 @@ export class GlitchBlockComponent implements OnInit, OnDestroy {
       canvas.addEventListener('mouseover', event => {
         this.glitcher.start();
       });
-    }
-    if (isPlatformServer(this.platformId)) {
-      // Server only code.
     }
   }
 
