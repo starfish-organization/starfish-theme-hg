@@ -55,6 +55,6 @@ export class CategoryComponent implements OnInit {
   }
 
   formatTime(timestamp: string | number): string {
-    return format(timestamp, 'MMMM Do YYYY, h:mm');
+    return format(timestamp, 'MMMM Do YYYY');
   }
 }

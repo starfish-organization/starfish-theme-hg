@@ -10,10 +10,12 @@
   </aside>
   <ul class="articles">
     <li *ngFor="let article of category.articles">
-      <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
+      <div>
+        <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
+          <span class="title">{{article.title}}</span>
+        </a>
         <span class="show-time">{{formatTime(article.showTime)}}</span>
-        <span class="title">{{article.title}}</span>
-      </a>
+      </div>
     </li>
   </ul>
 
