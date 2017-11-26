@@ -9,7 +9,9 @@
   &:before {
     display: block;
     content: '';
-
+    position: absolute;
+    width: 100px;
+    height: 200px;
   }
 }
 
