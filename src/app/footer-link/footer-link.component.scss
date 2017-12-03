@@ -17,7 +17,6 @@
 .toggle {
   vertical-align: middle;
   font-size: 14px;
-  
   svg {
     vertical-align: middle;
   }
@@ -42,6 +41,13 @@ ul {
     padding: 2px 5px;
     white-space: nowrap;
     font-size: 14px;
+
+    &.github {
+      .icon {
+        width: 20px;
+        margin-left: -1px;
+      }
+    }
 
     .icon {
       vertical-align: middle;

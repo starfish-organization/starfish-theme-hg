@@ -9,7 +9,7 @@ app-article {
   padding-right: 30px;
 
   @media screen and (max-width: 600px) {
-    padding-right: 50px;
+    padding-right: 0px;
   }
 
   &.inited {
@@ -43,7 +43,6 @@ app-article {
   article {
     position: relative;
     font-size: 13px;
-    overflow: hidden;
     opacity: 0;
     transform: translateY(-50px);
     transition: all 300ms ease-in-out 50ms;
@@ -54,6 +53,10 @@ app-article {
 
     img {
       max-width: 100%;
+    }
+
+    a {
+      word-break: break-all;
     }
 
     $title-anchor-size: 40px;
@@ -81,7 +84,7 @@ app-article {
           background-color: white;
           left: - $title-anchor-size / 2;
           top: 0;
-          box-shadow: 0 0 $title-anchor-size black;
+          box-shadow: 0 0 $title-anchor-size #999;
         }
       }
     }
