@@ -18,6 +18,7 @@ export class RecentArticlesComponent implements OnInit {
   // TODO 抽一个全局 service
   ngOnInit() {
     this.getRecentArticles().then(articles => {
+      console.log(articles);
       this.recentArticles = articles;
     });
   }

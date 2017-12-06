@@ -12,7 +12,6 @@
     <li *ngFor="let article of category.articles">
       <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
         <div>
-          
           <span class="title">{{article.title}}</span>
         </div>
         <span class="show-time">{{formatTime(article.showTime)}}</span>

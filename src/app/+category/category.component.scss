@@ -28,6 +28,9 @@ h1 {
 
 ul.categorys {
   padding-right: 50px;
+  overflow: hidden;
+  display: block;
+  width: 70px;
 
   li {
     line-height: 25px;
