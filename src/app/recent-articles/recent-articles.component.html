@@ -7,6 +7,6 @@
 </header>
 <ul>
   <li *ngFor="let article of recentArticles">
-    <a routerLink="/{{article.name}}/{{article.articleFileNameWithoutSuffix}}">{{article.title}}</a>
+    <a routerLink="/{{article.categoryName}}/{{article.articleFileNameWithoutSuffix}}">{{article.title}}</a>
   </li>
 </ul>
