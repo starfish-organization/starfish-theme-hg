@@ -4,7 +4,7 @@ import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 
 @Component({
-  selector: 'glitch-block',
+  selector: 'app-glitch-block',
   templateUrl: './glitch-block.component.html',
   styleUrls: ['./glitch-block.component.scss']
 })
