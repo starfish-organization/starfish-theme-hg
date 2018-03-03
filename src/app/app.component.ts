@@ -1,14 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Component, OnInit, HostBinding } from '@angular/core';
+import { ActivatedRoute, Router, NavigationEnd,  } from '@angular/router';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  host: { '[class]': 'currentRoute' }
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  currentRoute: string;
+  @HostBinding('class') currentRouteClass: string;
 
   constructor(private route: Router) {}
 
@@ -16,13 +15,13 @@ export class AppComponent implements OnInit {
     this.route.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/') {
-          return (this.currentRoute = 'home');
+          return (this.currentRouteClass = 'home');
         }
         if (event.url.match(/^\/(\w+)$/)) {
-          return (this.currentRoute = 'blogs');
+          return (this.currentRouteClass = 'blogs');
         }
         if (event.url.match(/\//g).length === 2) {
-          return (this.currentRoute = 'article');
+          return (this.currentRouteClass = 'article');
         }
       }
     });
