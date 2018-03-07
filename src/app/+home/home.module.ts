@@ -9,10 +9,12 @@ import { GlitchBlockComponent } from '../glitch-block/glitch-block.component';
 import { ShadowLinkComponent } from '../shadow-link/shadow-link.component';
 import { CategorysService } from '../core/categorys.service';
 import { CategorysResolveService } from '../core/categorys-resolve.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [HomeComponent, FangweiComponent, GlitchBlockComponent, ShadowLinkComponent],
   imports: [
+    CommonModule,
     RouterModule.forChild([
       {
         path: '',
