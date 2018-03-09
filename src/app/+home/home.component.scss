@@ -20,6 +20,8 @@
 }
 
 .links {
+  position: absolute;
+  top: 400px;
   list-style: none;
   margin-left: 50px;
   position: relative;
@@ -27,7 +29,7 @@
 
   li {
     position: relative;
-
+    
     &:first-child {
       margin-top: 50px;
     }
@@ -39,11 +41,15 @@
 }
 
 .home-recent {
-  
+  height: 100%;
+  overflow: auto;
+  width: 500px;
+  right: 0;
+  position: absolute;
 }
 
 fangwei {
   position: absolute;
-  right: 180px;
-  top: 100px;
+  left: 10%;
+  top: 10%;
 }

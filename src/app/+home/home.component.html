@@ -1,20 +1,24 @@
 <div>
-  <fangwei></fangwei>
+  <div>
+    <fangwei></fangwei>
+    <ul class="links">
+      <li>
+        <shadow-link name="Blogs" href="{{blogsLink}}"></shadow-link>
+      </li>
+      <li>
+        <shadow-link name="About me" href="/"></shadow-link>
+      </li>
+    </ul>
+
+  </div>
 
   <div class="home-recent">
     <ul>
       <li *ngFor="let article of recentArticles">
         <a href="">{{article.title}}</a>
+        <div [innerHTML]="article.content"></div>
       </li>
     </ul>
   </div>
 
-  <ul class="links">
-    <li>
-      <shadow-link name="Blogs" href="{{blogsLink}}"></shadow-link>
-    </li>
-    <li>
-      <shadow-link name="About me" href="/"></shadow-link>
-    </li>
-  </ul>
 </div>
