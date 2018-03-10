@@ -1,5 +1,6 @@
 :host {
   display: block;
+  overflow: hidden;
 
   @media screen and (max-width: 500px) {
     fangwei {
@@ -17,6 +18,10 @@
       right: 10px;
     }
   }
+}
+
+.left-block {
+  position: fixed;
 }
 
 .links {
@@ -41,11 +46,9 @@
 }
 
 .home-recent {
-  height: 100%;
-  overflow: auto;
   width: 500px;
   right: 0;
-  position: absolute;
+  float: right;
 }
 
 fangwei {
