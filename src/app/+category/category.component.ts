@@ -47,7 +47,9 @@ export class CategoryComponent implements OnInit {
           .toPromise()
           .then(response => response.json());
       })
-      .subscribe(res => (this.category = res));
+      .subscribe(res => {
+        this.category = res;
+      });
 
     this.categorys.getCategoryList().then(categroyList => {
       this.categoryList = categroyList;

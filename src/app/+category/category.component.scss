@@ -44,6 +44,9 @@ ul.categorys {
     text-indent: 1px;
     opacity: 0.9;
     font-weight: lighter;
+    display: inline-block;
+    height: 100%;
+    padding: 3px 0;
 
     &:hover, &.active {
       font-weight: 900;
