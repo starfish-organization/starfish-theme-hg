@@ -98,8 +98,8 @@ export class FangweiComponent implements OnInit, OnDestroy, AfterViewInit {
     };
     const bounds = element.getBoundingClientRect();
     const relmousepos = {
-      x: mousepos.x - bounds.left,
-      y: mousepos.y - bounds.top
+      x: mousepos.x - bounds.left - window.scrollX,
+      y: mousepos.y - bounds.top - window.scrollY
     };
     const t = this.movement[name].translation;
     const r = this.movement[name].rotation;
