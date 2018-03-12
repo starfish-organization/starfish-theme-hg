@@ -105,8 +105,8 @@ export class FangweiComponent implements OnInit, OnDestroy, AfterViewInit {
     const r = this.movement[name].rotation;
 
     const setRange = function(obj) {
-      for (var k in obj) {
-        if (obj[k] == undefined) {
+      for (const k in obj) {
+        if (obj[k] === undefined) {
           obj[k] = [0, 0];
         } else if (typeof obj[k] === 'number') {
           obj[k] = [-1 * obj[k], obj[k]];
