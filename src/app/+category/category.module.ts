@@ -10,7 +10,10 @@ import { CategorysService } from '../core/categorys.service';
 @NgModule({
   declarations: [CategoryComponent],
   imports: [
-    RouterModule.forChild([{ path: ':categoryName', component: CategoryComponent }]),
+    RouterModule.forChild([
+      { path: '', component: CategoryComponent },
+      { path: ':categoryName', component: CategoryComponent },
+    ]),
     CommonModule
   ],
   providers: [Title, CategorysService]
