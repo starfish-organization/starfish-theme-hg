@@ -12,11 +12,8 @@ export class NavComponent implements OnInit {
   currentRoute: string;
 
   constructor(private categorys: CategorysService, private route: Router) {}
-  ngOnInit() {
-    this.categorys.getCategoryList().then(categoryList => {
-      this.categorysLink = categoryList[0].relativeOutputPath;
-    });
 
+  ngOnInit() {
     this.route.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
         if (event.url === '/') {

@@ -7,8 +7,10 @@ import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
+
 import 'rxjs/add/operator/toPromise';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/do';
 
 class Article {
   name: string;
@@ -25,17 +27,28 @@ export class CategoryComponent implements OnInit {
     private http: Http,
     private route: ActivatedRoute,
     private location: Location,
-    private categorys: CategorysService,
+    private categoryService: CategorysService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  category: any = {};
-  categoryList: Array<any> = [];
+  category: {[key: string]: CategoryData} = {};
+  categoryList: CategoryItem[] = [];
 
   ngOnInit(): void {
-    this.categorys.getCategoryList().then(categroyList => {
-      this.categoryList = categroyList;
-    });
+    this.categoryService
+      .getCategoryList()
+      .map(categoryListItem => categoryListItem.categoryList)
+      .do((categoryList: CategoryItem[]) => {
+        console.log(categoryList)
+        categoryList.forEach((categoryItem: CategoryItem) => {
+          this.categoryService.getCategory(categoryItem.path).subscribe((categoryData: CategoryData) => {
+            this.category[categoryItem.categoryName] = categoryData;
+          });
+        });
+      })
+      .subscribe((categoryList: CategoryItem[]) => {
+        this.categoryList = categoryList;
+      });
   }
 
   formatTime(timestamp: string | number): string {

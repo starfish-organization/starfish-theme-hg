@@ -11,7 +11,7 @@ import { CategorysService } from '../core/categorys.service';
   declarations: [CategoryComponent],
   imports: [
     RouterModule.forChild([
-      { path: '', component: CategoryComponent },
+      { path: 'category', component: CategoryComponent },
       { path: ':categoryName', component: CategoryComponent },
     ]),
     CommonModule

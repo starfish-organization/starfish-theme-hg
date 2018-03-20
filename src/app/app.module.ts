@@ -23,10 +23,8 @@ import { FooterComponent } from './footer/footer.component';
     HttpModule,
     AppRoutingModule,
     CoreModule,
-
     HomeModule,
     ArticleModule,
-    CategoryListModule,
     CategoryModule
   ],
   providers: [Title],
