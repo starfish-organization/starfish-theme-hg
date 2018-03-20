@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/switchMap';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -9,6 +8,7 @@ import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/switchMap';
 
 class Article {
   name: string;
