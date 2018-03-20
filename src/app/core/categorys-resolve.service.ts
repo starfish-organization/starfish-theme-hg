@@ -4,6 +4,7 @@ import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@a
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CategorysService } from './categorys.service';
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class CategorysResolveService implements Resolve<any> {
@@ -13,7 +14,7 @@ export class CategorysResolveService implements Resolve<any> {
     private categoryService: CategorysService
   ) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<any> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return this.categoryService.getCategoryList();
   }
 }

@@ -9,7 +9,6 @@ import { AppComponent } from './app.component';
 import { HomeModule } from './+home/home.module';
 import { ArticleModule } from './+article/article.module';
 import { CategoryModule } from './+category/category.module';
-import { CategoryListModule } from './+category-list/category-list.module';
 
 import { AppRoutingModule } from './app.routing.modules';
 

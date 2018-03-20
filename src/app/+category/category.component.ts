@@ -34,6 +34,12 @@ export class CategoryComponent implements OnInit {
   category: {[key: string]: CategoryData} = {};
   categoryList: CategoryItem[] = [];
 
+  get categorys() {
+    return this.categoryList.map((categoryItem: CategoryItem) => {
+      return this.category[categoryItem.categoryName];
+    })
+  }
+ 
   ngOnInit(): void {
     this.categoryService
       .getCategoryList()
@@ -46,7 +52,7 @@ export class CategoryComponent implements OnInit {
           });
         });
       })
-      .subscribe((categoryList: CategoryItem[]) => {
+        .subscribe((categoryList: CategoryItem[]) => {
         this.categoryList = categoryList;
       });
   }
