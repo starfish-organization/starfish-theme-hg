@@ -34,26 +34,28 @@ export class CategoryComponent implements OnInit {
   category: {[key: string]: CategoryData} = {};
   categoryList: CategoryItem[] = [];
 
+
   get categorys() {
     return this.categoryList.map((categoryItem: CategoryItem) => {
       return this.category[categoryItem.categoryName];
     })
   }
- 
+
   ngOnInit(): void {
-    this.categoryService
-      .getCategoryList()
-      .map(categoryListItem => categoryListItem.categoryList)
-      .do((categoryList: CategoryItem[]) => {
-        console.log(categoryList)
+
+    this.route.data
+      .subscribe((data: {categoryListData: {categoryList: CategoryItem[]} }) => {
+        console.log(data);
+        const categoryList = data.categoryListData.categoryList;
+
+        this.categoryList = categoryList;
+
         categoryList.forEach((categoryItem: CategoryItem) => {
           this.categoryService.getCategory(categoryItem.path).subscribe((categoryData: CategoryData) => {
             this.category[categoryItem.categoryName] = categoryData;
+            console.log(categoryData);
           });
         });
-      })
-        .subscribe((categoryList: CategoryItem[]) => {
-        this.categoryList = categoryList;
       });
   }
 
