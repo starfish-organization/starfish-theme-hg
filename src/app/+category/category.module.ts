@@ -13,13 +13,6 @@ import { CategorysResolver } from '../core/categorys-resolve.service';
   imports: [
     RouterModule.forChild([
       {
-        path: 'category',
-        component: CategoryComponent,
-        resolve: {
-          categoryListData: CategorysResolver
-        }
-      },
-      {
         path: ':categoryName',
         component: CategoryComponent,
         resolve: {

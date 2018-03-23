@@ -3,19 +3,29 @@
 <main>
   <aside>
     <ul class="categorys">
-      <li *ngFor="let category of categoryList">
-        <a routerLink="/{{category.relativeOutputPath}}" routerLinkActive="active">{{category.name}}</a>
+      <li *ngFor="let category of categorys">
+        <a routerLink="/{{category.path}}" routerLinkActive="active">{{category.categoryName}}</a>
       </li>
     </ul>
   </aside>
-  <ul class="articles">
-    <li *ngFor="let article of category.articles">
-      <a routerLink="/{{category.name}}/{{article.articleFileNameWithoutSuffix}}">
-        <div>
-          <span class="title">{{article.title}}</span>
-        </div>
-        <span class="show-time">{{formatTime(article.showTime)}}</span>
-      </a>
+
+  <ul>
+    <li *ngFor="let category of categorys">
+      <h5>
+        {{category.categoryName}}
+      </h5>
+      <ul class="articles">
+        <li *ngFor="let article of category.articles">
+          <a [routerLink]="getArticleLink(article.path)">
+            <span>
+              <span class="title">{{article.title}}</span>
+            </span>
+            <span class="show-time">{{formatTime(article.showTime)}}</span>
+          </a>
+        </li>
+      </ul>
+
     </li>
   </ul>
+
 </main>

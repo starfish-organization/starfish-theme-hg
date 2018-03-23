@@ -5,11 +5,18 @@ import { CategorysService } from './categorys.service';
 import { CategorysResolver } from './categorys-resolve.service';
 import { RouterModule } from '@angular/router';
 import { NavLogoComponent } from './nav-logo/nav-logo.component';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { CachingInterceptor } from './http-interceptors/caching-interceptor';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
   exports: [NavComponent],
-  providers: [CategorysService, CategorysResolver],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
+    ,
+    CategorysService,
+    CategorysResolver
+  ],
   declarations: [NavComponent, NavLogoComponent]
 })
 export class CoreModule {}

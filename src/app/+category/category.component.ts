@@ -8,7 +8,7 @@ import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 
-import 'rxjs/add/operator/toPromise';
+import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 
@@ -31,35 +31,37 @@ export class CategoryComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  category: {[key: string]: CategoryData} = {};
-  categoryList: CategoryItem[] = [];
-
+  public category: { [key: string]: CategoryData } = {};
+  public categoryList: CategoryItem[] = [];
 
   get categorys() {
-    return this.categoryList.map((categoryItem: CategoryItem) => {
-      return this.category[categoryItem.categoryName];
-    })
+    return this.categoryList
+      .filter((categoryItem: CategoryItem) => !!this.category[categoryItem.categoryName])
+      .map((categoryItem: CategoryItem) => this.category[categoryItem.categoryName]);
   }
 
   ngOnInit(): void {
-
     this.route.data
-      .subscribe((data: {categoryListData: {categoryList: CategoryItem[]} }) => {
-        console.log(data);
+      .take(1)
+      .subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
         const categoryList = data.categoryListData.categoryList;
-
         this.categoryList = categoryList;
 
-        categoryList.forEach((categoryItem: CategoryItem) => {
-          this.categoryService.getCategory(categoryItem.path).subscribe((categoryData: CategoryData) => {
-            this.category[categoryItem.categoryName] = categoryData;
-            console.log(categoryData);
-          });
+        categoryList.forEach((categoryItem: CategoryItem): void => {
+          this.categoryService
+            .getCategory(categoryItem.path)
+            .subscribe((categoryData: CategoryData) => {
+              this.category[categoryItem.categoryName] = categoryData;
+            });
         });
       });
   }
 
-  formatTime(timestamp: string | number): string {
+  public formatTime(timestamp: string | number): string {
     return format(timestamp, 'MMMM Do YYYY');
+  }
+
+  public getArticleLink(articlePath: string): string {
+    return '/' + articlePath.split('index.html')[0];
   }
 }
