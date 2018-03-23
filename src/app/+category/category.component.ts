@@ -12,11 +12,6 @@ import 'rxjs/add/operator/take';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/do';
 
-class Article {
-  name: string;
-  articles: any[];
-}
-
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',

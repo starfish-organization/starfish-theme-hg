@@ -13,7 +13,6 @@ import { CachingInterceptor } from './http-interceptors/caching-interceptor';
   exports: [NavComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
-    ,
     CategorysService,
     CategorysResolver
   ],
