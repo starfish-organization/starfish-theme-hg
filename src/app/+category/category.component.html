@@ -4,28 +4,31 @@
   <aside>
     <ul class="categorys">
       <li *ngFor="let category of categorys">
-        <a routerLink="/{{category.path}}" routerLinkActive="active">{{category.categoryName}}</a>
+        <a href="categorys#{{category.categoryName}}">{{category.categoryName}}</a>
       </li>
     </ul>
   </aside>
 
-  <ul>
-    <li *ngFor="let category of categorys">
-      <h5>
-        {{category.categoryName}}
-      </h5>
-      <ul class="articles">
-        <li *ngFor="let article of category.articles">
-          <a [routerLink]="getArticleLink(article.path)">
-            <span>
-              <span class="title">{{article.title}}</span>
-            </span>
-            <span class="show-time">{{formatTime(article.showTime)}}</span>
-          </a>
-        </li>
-      </ul>
+  <div class="category-article">
+    <ul>
+      <li *ngFor="let category of categorys">
+        <h5>
+          {{category.categoryName}}
+          <a class="anchor" [name]="category.categoryName"></a>
+        </h5>
+        <ul class="articles">
+          <li *ngFor="let article of category.articles">
+            <a [routerLink]="getArticleLink(article.path)">
+              <span>
+                <span class="title">{{article.title}}</span>
+              </span>
+              <span class="show-time">{{formatTime(article.showTime)}}</span>
+            </a>
+          </li>
+        </ul>
 
-    </li>
-  </ul>
+      </li>
+    </ul>
+  </div>
 
 </main>

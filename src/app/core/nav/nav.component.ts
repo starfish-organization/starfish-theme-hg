@@ -5,7 +5,10 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
 @Component({
   selector: 'app-nav',
   templateUrl: './nav.component.html',
-  styleUrls: ['./nav.component.scss']
+  styleUrls: ['./nav.component.scss'],
+  host: {
+    '[class]' : 'currentRoute'
+  }
 })
 export class NavComponent implements OnInit {
   categorysLink: string;
@@ -19,11 +22,10 @@ export class NavComponent implements OnInit {
         if (event.url === '/') {
           return (this.currentRoute = 'home');
         }
-        if (event.url) {
-          if (event.url.match(/^\/(\w+)$/)) {
-            return (this.currentRoute = 'blogs');
-          }
+        if (event.url.indexOf('/categorys') > -1) {
+          return (this.currentRoute = 'category');
         }
+        return (this.currentRoute = 'articles');
       }
     });
   }

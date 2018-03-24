@@ -16,7 +16,7 @@ import 'rxjs/add/observable/of';
 export class CachingInterceptor implements HttpInterceptor {
   private cacheMapByUrl = {};
 
-  private sendRequest(req: HttpRequest<any>, next: HttpHandler, urlId: string): Observable<HttpEvent<any>> {
+  private sendRequest(req: HttpRequest<object>, next: HttpHandler, urlId: string): Observable<HttpEvent<object>> {
     const noHeaderReq = req.clone({ headers: new HttpHeaders() });
 
     return next.handle(noHeaderReq).pipe(
@@ -28,7 +28,7 @@ export class CachingInterceptor implements HttpInterceptor {
     );
   }
 
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
+  intercept(req: HttpRequest<object>, next: HttpHandler) {
     const urlId: string = req.url;
     const cachedResponse = this.cacheMapByUrl[urlId];
     return cachedResponse ? Observable.of(cachedResponse) : this.sendRequest(req, next, urlId);

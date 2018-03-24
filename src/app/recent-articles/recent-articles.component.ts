@@ -15,7 +15,6 @@ export class RecentArticlesComponent implements OnInit {
 
   constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
 
-  // TODO 抽一个全局 service
   ngOnInit() {
     this.getRecentArticles().then(articles => {
       this.recentArticles = articles;
@@ -36,4 +35,9 @@ export class RecentArticlesComponent implements OnInit {
         });
     }
   }
+
+  public getArticleLink(articlePath: string): string {
+    return '/' + articlePath.split('index.html')[0];
+  }
+
 }

@@ -2,26 +2,16 @@
   display: block;
   overflow: hidden;
 
-  @media screen and (max-width: 500px) {
-    fangwei {
-      transform: scale(0.8, 0.8);
-      position: relative;
-      top: 0;
-      right: 42px;
-      margin: 0 auto;
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    fangwei {
-      transform: scale(0.6, 0.6);
-      right: 10px;
-    }
-  }
 }
 
 .left-block {
-  position: fixed;
+  left: 20px;
+
+  fangwei {
+    position: absolute;
+    left: 20%;
+    top: 10%;
+  }
 }
 
 .links {
@@ -34,7 +24,7 @@
 
   li {
     position: relative;
-    
+
     &:first-child {
       margin-top: 50px;
     }
@@ -46,13 +36,5 @@
 }
 
 .home-recent {
-  width: 500px;
-  right: 0;
-  float: right;
 }
 
-fangwei {
-  position: absolute;
-  left: 10%;
-  top: 10%;
-}

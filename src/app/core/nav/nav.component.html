@@ -1,10 +1,10 @@
 <nav>
-  <ul [hidden]="currentRoute === 'home'">
+  <ul>
     <li>
       <app-nav-logo></app-nav-logo> 
     </li>
     <li>
-      <a routerLink="{{categorysLink}}" [ngClass]="{'active': currentRoute === 'blogs'}">BLOGS</a>
+      <a routerLink="/categorys" [ngClass]="{'active': currentRoute === 'blogs'}">BLOGS</a>
     </li>
     <li>
       <a>ABOUT ME</a>

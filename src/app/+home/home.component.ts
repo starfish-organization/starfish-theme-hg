@@ -23,9 +23,5 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle(`奔為狼--放為的博客 首页`);
-
-    this.httpClient.get(API_ENDPOINT + `/recent-articles.json`).subscribe((response: any[]) => {
-      this.recentArticles = response;
-    });
   }
 }
