@@ -23,12 +23,14 @@
     "@angular/platform-browser-dynamic": "^5.2.9",
     "@angular/platform-server": "^5.2.9",
     "@angular/router": "^5.2.9",
+    "@nguniversal/module-map-ngfactory-loader": "^5.0.0-beta.8",
     "core-js": "^2.4.1",
     "date-fns": "^2.0.0-alpha.7",
     "enhanced-resolve": "^3.4.1",
     "glob": "^7.1.2",
     "ramda": "^0.24.1",
     "rxjs": "^5.4.1",
+    "ts-loader": "^4.1.0",
     "zone.js": "^0.8.14"
   },
   "devDependencies": {

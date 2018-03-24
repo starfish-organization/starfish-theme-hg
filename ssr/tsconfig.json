@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "outDir": "./",
+    "baseUrl": "./",
+    "allowJs": true,
+    "target": "es5",
+    "lib": ["es2015", "es2017", "dom"],
+    "moduleResolution": "node",
+    "experimentalDecorators": true
+  },
+  "files": [
+    "./ssr.ts"
+  ]
+}
