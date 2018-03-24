@@ -27,6 +27,13 @@ export class CategorysService {
   }
 
   getCategory(categoryPath): Observable<object> {
-    return this.httpClient.get(API_ENDPOINT + categoryPath + '/index.json');
+    if (isPlatformServer(this.platformId)) {
+      return Observable.of(
+        JSON.parse(require('fs').readFileSync(`build${categoryPath}/index.json`, 'utf-8'))
+      );
+    } else {
+      return this.httpClient.get(API_ENDPOINT + categoryPath + '/index.json');
+    }
+
   }
 }

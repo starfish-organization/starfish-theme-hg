@@ -41,6 +41,8 @@ export default function render(inputs) {
     'utf-8'
   );
   const AppServerModuleNgFactory = require(TMPFILE).AppServerModuleNgFactory;
+  const LAZY_MODULE_MAP = require(TMPFILE).LAZY_MODULE_MAP;
+
 
   const buildedPath = path.join('.', 'build');
 
@@ -59,11 +61,11 @@ export default function render(inputs) {
           document: fs.readFileSync(file, 'utf-8'),
           url: url,
           extraProviders: [
-            provideModuleMap({})
+            provideModuleMap(LAZY_MODULE_MAP)
           ]
         }).then(html => {
           fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
-        });
+        );
       });
 
     fs.unlinkSync(path.join(__dirname, TMPFILE));

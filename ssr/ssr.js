@@ -25,6 +25,7 @@ function render(inputs) {
         .filter(function (name) { return /^main.+.bundle.js$/.test(name); })[0];
     fs.writeFileSync(path.join(__dirname, TMPFILE), fs.readFileSync(path.join(themePath, './dist-server/', ngFactoryFilePath), 'utf-8'), 'utf-8');
     var AppServerModuleNgFactory = require(TMPFILE).AppServerModuleNgFactory;
+    var LAZY_MODULE_MAP = require(TMPFILE).LAZY_MODULE_MAP;
     var buildedPath = path.join('.', 'build');
     var ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(function (regex) { return new RegExp(regex).source; }).join('|'));
     glob(path.join(buildedPath, '**/*.html'), function (err, files) {
@@ -38,7 +39,7 @@ function render(inputs) {
                 document: fs.readFileSync(file, 'utf-8'),
                 url: url,
                 extraProviders: [
-                    module_map_ngfactory_loader_1.provideModuleMap({})
+                    module_map_ngfactory_loader_1.provideModuleMap(LAZY_MODULE_MAP)
                 ]
             }).then(function (html) {
                 fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
