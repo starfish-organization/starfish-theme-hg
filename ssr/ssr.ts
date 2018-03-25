@@ -2,14 +2,11 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 import * as glob from 'glob';
-
-
-import 'zone.js/dist/zone-node';
-import 'reflect-metadata';
 import { renderModuleFactory } from '@angular/platform-server';
 import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
-const TMPFILE = './temp.js';
+import 'zone.js/dist/zone-node';
+import 'reflect-metadata';
 
 export default function render(inputs) {
   const inputPath = path.join(inputs[0]);
@@ -21,7 +18,6 @@ export default function render(inputs) {
     throw new Error('config.yaml file not found');
   }
 
-  // TODO configure 应该从主程序读入-> 传入constructor
   const starfishConfigure = yaml.safeLoad(
     fs.readFileSync(path.join(inputPath, 'config.yaml'), 'utf-8')
   );
@@ -31,18 +27,13 @@ export default function render(inputs) {
     starfishConfigure.STYLE.THEME
   );
 
-  const ngFactoryFilePath = fs
+  const ngFactoryFileName = fs
     .readdirSync(path.join(themePath, './dist-server/'))
     .filter(name => /^main.+.bundle.js$/.test(name))[0];
 
-  fs.writeFileSync(
-    path.join(__dirname, TMPFILE),
-    fs.readFileSync(path.join(themePath, './dist-server/', ngFactoryFilePath), 'utf-8'),
-    'utf-8'
-  );
-  const AppServerModuleNgFactory = require(TMPFILE).AppServerModuleNgFactory;
-  const LAZY_MODULE_MAP = require(TMPFILE).LAZY_MODULE_MAP;
+  const ngFactoryFilePath = path.join(themePath, './dist-server', ngFactoryFileName);
 
+  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(ngFactoryFilePath);
 
   const buildedPath = path.join('.', 'build');
 
@@ -65,9 +56,7 @@ export default function render(inputs) {
           ]
         }).then(html => {
           fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
-        );
+        });
       });
-
-    fs.unlinkSync(path.join(__dirname, TMPFILE));
   });
 }
