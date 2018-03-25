@@ -8,8 +8,8 @@ import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
 
-export default function render(inputs) {
-  const inputPath = path.join(inputs[0]);
+export default function render(rootInputPath: string) {
+  const inputPath = path.resolve(rootInputPath);
 
   if (!fs.statSync(inputPath).isDirectory()) {
     throw new Error('input path is not a directory');
