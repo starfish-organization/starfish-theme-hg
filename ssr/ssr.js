@@ -8,8 +8,8 @@ var platform_server_1 = require("@angular/platform-server");
 var module_map_ngfactory_loader_1 = require("@nguniversal/module-map-ngfactory-loader");
 require("zone.js/dist/zone-node");
 require("reflect-metadata");
-function render(inputs) {
-    var inputPath = path.join(inputs[0]);
+function render(rootInputPath) {
+    var inputPath = path.resolve(rootInputPath);
     if (!fs.statSync(inputPath).isDirectory()) {
         throw new Error('input path is not a directory');
     }
