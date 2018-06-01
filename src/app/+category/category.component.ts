@@ -1,3 +1,5 @@
+
+import {take} from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -8,9 +10,9 @@ import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 
-import 'rxjs/add/operator/take';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/do';
+
+
+
 
 @Component({
   selector: 'app-category',
@@ -36,8 +38,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.data
-      .take(1)
+    this.route.data.pipe(
+      take(1))
       .subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
         const categoryList = data.categoryListData.categoryList;
         this.categoryList = categoryList;

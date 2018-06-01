@@ -1,5 +1,5 @@
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/toPromise';
+
+
 import {
   Inject,
   Component,
@@ -20,6 +20,7 @@ import { Article } from './article';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { parse, format, formatDistance } from 'date-fns';
+import { HttpClient } from '@angular/common/http';
 
 declare var hljs: any;
 
@@ -37,7 +38,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
   contentInited = false;
 
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private route: ActivatedRoute,
     private location: Location,
     private sanitizer: DomSanitizer,

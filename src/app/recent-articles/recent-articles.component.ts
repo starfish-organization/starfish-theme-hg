@@ -1,12 +1,13 @@
+
+import {of as observableOf,  Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { Inject, Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
-import { Observable } from 'rxjs/Observable';
 
-import 'rxjs/add/observable/of'
+
 
 @Component({
   selector: 'app-recent-articles',
@@ -26,7 +27,7 @@ export class RecentArticlesComponent implements OnInit {
 
   getRecentArticles(): Observable<any> {
     if (isPlatformServer(this.platformId)) {
-      return Observable.of(
+      return observableOf(
         JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8'))
       );
     } else {

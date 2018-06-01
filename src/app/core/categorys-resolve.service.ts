@@ -1,15 +1,16 @@
-import 'rxjs/add/operator/toPromise';
+
 import { Injectable } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
-import { Headers, Http } from '@angular/http';
+import { Headers } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CategorysService } from './categorys.service';
-import { Observable } from "rxjs/Observable";
+import { Observable } from "rxjs";
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CategorysResolver implements Resolve<any> {
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private router: Router,
     private categoryService: CategorysService
   ) {}

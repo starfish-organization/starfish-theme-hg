@@ -1,11 +1,9 @@
 import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
-import {HttpClientModule} from '@angular/common/http';
+import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
-
 
 import { ArticleComponent } from './article.component';
 import { ArticleResolver } from './article-resolve.service';
@@ -24,8 +22,8 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
         }
       }
     ]),
-      CommonModule,
-      HttpClientModule,
+    CommonModule,
+    HttpClientModule
   ],
   providers: [Title, ArticleResolver]
 })

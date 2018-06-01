@@ -1,3 +1,5 @@
+
+import {of as observableOf,  Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import {
   HttpInterceptor,
@@ -7,10 +9,8 @@ import {
   HttpHeaders,
   HttpResponse
 } from '@angular/common/http';
-
-import { Observable } from 'rxjs/Observable';
 import { tap } from 'rxjs/operators';
-import 'rxjs/add/observable/of';
+
 
 @Injectable()
 export class CachingInterceptor implements HttpInterceptor {
@@ -31,6 +31,6 @@ export class CachingInterceptor implements HttpInterceptor {
   intercept(req: HttpRequest<object>, next: HttpHandler) {
     const urlId: string = req.url;
     const cachedResponse = this.cacheMapByUrl[urlId];
-    return cachedResponse ? Observable.of(cachedResponse) : this.sendRequest(req, next, urlId);
+    return cachedResponse ? observableOf(cachedResponse) : this.sendRequest(req, next, urlId);
   }
 }

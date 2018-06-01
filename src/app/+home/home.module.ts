@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
-import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
-
 import { HomeComponent } from './home.component';
 import { FangweiComponent } from '../fangwei/fangwei.component';
 import { GlitchBlockComponent } from '../glitch-block/glitch-block.component';

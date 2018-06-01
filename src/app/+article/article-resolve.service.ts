@@ -1,4 +1,3 @@
-import 'rxjs/add/operator/toPromise';
 import { Inject, Injectable } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { API_ENDPOINT } from '../../constants';
@@ -16,15 +15,15 @@ export class ArticleResolver implements Resolve<Article> {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Article> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Promise<Article> {
     const articleName = route.paramMap.get('articleName').replace('.html', '');
     const categoryName = route.paramMap.get('categoryName');
     if (isPlatformServer(this.platformId)) {
-      return Promise.resolve(
-        JSON.parse(
-          require('fs').readFileSync(`build/${categoryName}/${articleName}/index.json`, 'utf-8')
-        )
-      );
+      // return Promise.resolve(
+      //   JSON.parse(
+      //     require('fs').readFileSync(`build/${categoryName}/${articleName}/index.json`, 'utf-8')
+      //   )
+      // );
     } else {
       return this.http
         .get(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`)
