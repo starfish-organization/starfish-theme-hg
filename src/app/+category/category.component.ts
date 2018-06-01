@@ -9,10 +9,7 @@ import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
-
-
-
-
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-category',
@@ -21,7 +18,7 @@ import { PLATFORM_ID } from '@angular/core';
 })
 export class CategoryComponent implements OnInit {
   constructor(
-    private http: Http,
+    private http: HttpClient,
     private route: ActivatedRoute,
     private location: Location,
     private categoryService: CategorysService,

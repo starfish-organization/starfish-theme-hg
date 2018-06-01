@@ -7,8 +7,6 @@ import { HttpClient } from '@angular/common/http';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
 
-
-
 @Component({
   selector: 'app-recent-articles',
   templateUrl: './recent-articles.component.html',

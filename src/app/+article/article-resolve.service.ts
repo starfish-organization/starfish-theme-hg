@@ -19,11 +19,11 @@ export class ArticleResolver implements Resolve<Article> {
     const articleName = route.paramMap.get('articleName').replace('.html', '');
     const categoryName = route.paramMap.get('categoryName');
     if (isPlatformServer(this.platformId)) {
-      // return Promise.resolve(
-      //   JSON.parse(
-      //     require('fs').readFileSync(`build/${categoryName}/${articleName}/index.json`, 'utf-8')
-      //   )
-      // );
+      return Promise.resolve(
+        JSON.parse(
+          require('fs').readFileSync(`build/${categoryName}/${articleName}/index.json`, 'utf-8')
+        )
+      );
     } else {
       return this.http
         .get(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`)
