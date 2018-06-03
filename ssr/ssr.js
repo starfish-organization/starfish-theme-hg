@@ -18,10 +18,10 @@ function render(rootInputPath) {
     }
     var starfishConfigure = yaml.safeLoad(fs.readFileSync(path.join(inputPath, 'config.yaml'), 'utf-8'));
     var themePath = path.join(inputPath, starfishConfigure.STYLE.THEMEDIR, starfishConfigure.STYLE.THEME);
-    var ngFactoryFileName = fs
-        .readdirSync(path.join(themePath, './dist-server/'))
-        .filter(function (name) { return /^main.+.bundle.js$/.test(name); })[0];
-    var ngFactoryFilePath = path.join(themePath, './dist-server', ngFactoryFileName);
+    // const ngFactoryFileName = fs
+    //   .readdirSync(path.join(themePath, './dist-server/'))
+    //   .filter(name => /^main.+.bundle.js$/.test(name))[0];
+    var ngFactoryFilePath = path.join(themePath, './dist-server/main');
     var _a = require(ngFactoryFilePath), AppServerModuleNgFactory = _a.AppServerModuleNgFactory, LAZY_MODULE_MAP = _a.LAZY_MODULE_MAP;
     var buildedPath = path.join('.', 'build');
     var ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(function (regex) { return new RegExp(regex).source; }).join('|'));

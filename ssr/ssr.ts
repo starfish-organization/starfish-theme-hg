@@ -27,11 +27,11 @@ export default function render(rootInputPath: string) {
     starfishConfigure.STYLE.THEME
   );
 
-  const ngFactoryFileName = fs
-    .readdirSync(path.join(themePath, './dist-server/'))
-    .filter(name => /^main.+.bundle.js$/.test(name))[0];
+  // const ngFactoryFileName = fs
+  //   .readdirSync(path.join(themePath, './dist-server/'))
+  //   .filter(name => /^main.+.bundle.js$/.test(name))[0];
 
-  const ngFactoryFilePath = path.join(themePath, './dist-server', ngFactoryFileName);
+  const ngFactoryFilePath = path.join(themePath, './dist-server/main');
 
   const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(ngFactoryFilePath);
 
