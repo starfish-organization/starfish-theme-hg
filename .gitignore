@@ -43,3 +43,4 @@ testem.log
 Thumbs.db
 .tern-port
 TAGS
+yarn-error.log

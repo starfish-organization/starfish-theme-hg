@@ -7,6 +7,7 @@
     "start": "ng serve --proxy-config proxy.conf.json --port 4220",
     "build": "ng build --prod",
     "build:ssr": "ng build --prod --app 1",
+    "build:client-and-server-bundles": "ng build --prod && ng run hg:server",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
