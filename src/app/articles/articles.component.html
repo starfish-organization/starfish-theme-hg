@@ -1,0 +1,11 @@
+<div>
+
+  <article *ngFor="let article of articlePage?.articles">
+    <h1>
+      {{article.title}}
+      <span class="article-time">{{formatTime(article.showTime)}}</span>
+    </h1>
+    <div class="article-content" #articleDom [innerHTML]="article.content"></div>
+  </article>
+  
+</div>

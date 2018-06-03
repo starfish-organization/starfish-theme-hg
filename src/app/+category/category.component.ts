@@ -1,5 +1,4 @@
-
-import {take} from 'rxjs/operators';
+import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
@@ -35,8 +34,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.data.pipe(
-      take(1))
+    this.route.data
+      .pipe(take(1))
       .subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
         const categoryList = data.categoryListData.categoryList;
         this.categoryList = categoryList;

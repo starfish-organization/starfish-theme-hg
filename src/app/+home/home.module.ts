@@ -8,9 +8,10 @@ import { ShadowLinkComponent } from '../shadow-link/shadow-link.component';
 import { CategorysService } from '../core/categorys.service';
 import { CategorysResolver } from '../core/categorys-resolve.service';
 import { CommonModule } from '@angular/common';
+import { ArticlesComponent } from '../articles/articles.component';
 
 @NgModule({
-  declarations: [HomeComponent, FangweiComponent, GlitchBlockComponent, ShadowLinkComponent],
+  declarations: [HomeComponent, FangweiComponent, GlitchBlockComponent, ShadowLinkComponent, ArticlesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([

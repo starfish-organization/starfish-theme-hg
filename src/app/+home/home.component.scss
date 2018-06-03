@@ -1,40 +1,8 @@
 :host {
   display: block;
   overflow: hidden;
-
 }
 
-.left-block {
-  left: 20px;
-
-  fangwei {
-    position: absolute;
-    left: 20%;
-    top: 10%;
-  }
+fangwei {
+  margin: 0 auto;
 }
-
-.links {
-  position: absolute;
-  top: 400px;
-  list-style: none;
-  margin-left: 50px;
-  position: relative;
-  z-index: 1000;
-
-  li {
-    position: relative;
-
-    &:first-child {
-      margin-top: 50px;
-    }
-
-    @media screen and (max-width: 500px) {
-      margin-top: 15px;
-    }
-  }
-}
-
-.home-recent {
-}
-

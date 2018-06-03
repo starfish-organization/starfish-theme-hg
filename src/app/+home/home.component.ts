@@ -14,6 +14,8 @@ import { API_ENDPOINT } from '../../constants';
 export class HomeComponent implements OnInit {
   blogsLink: string;
   public recentArticles: any[];
+  public articlePage;
+
   constructor(
     private route: ActivatedRoute,
     private titleService: Title,
@@ -23,5 +25,13 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.titleService.setTitle(`奔為狼--放為的博客 首页`);
+    this.getArticles();
+  }
+
+  public getArticles() {
+    this.httpClient.get(API_ENDPOINT + '/articles/articles-1.json').subscribe(data => {
+      console.log(data)
+      this.articlePage = data;
+    });
   }
 }

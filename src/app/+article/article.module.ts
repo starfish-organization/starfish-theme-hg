@@ -4,13 +4,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { ArticleComponent } from './article.component';
 import { ArticleResolver } from './article-resolve.service';
-import { RecentArticlesComponent } from '../recent-articles/recent-articles.component';
 
 @NgModule({
-  declarations: [ArticleComponent, RecentArticlesComponent],
+  declarations: [ArticleComponent],
   imports: [
     RouterModule.forChild([
       {
