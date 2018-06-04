@@ -1,0 +1,52 @@
+$title-anchor-size: 30px;
+
+:host {
+  padding-left: 20px;
+  display: block;
+
+  article {
+    padding-bottom: 50px;
+
+    .article-title {
+      position: relative;
+      text-align: left;
+      padding-left: 10px;
+      font-size: 22px;
+
+      .title-name {
+        position: relative;
+        display: inline-block;
+        z-index: 10;
+        letter-spacing: 3px;
+        text-indent: 3px;
+        font-weight: lighter;
+
+        &:before {
+          content: '';
+          display: block;
+          position: absolute;
+          width: $title-anchor-size;
+          height: $title-anchor-size;
+          z-index: -1;
+          border-radius: 50%;
+          background-color: white;
+          left: - $title-anchor-size / 2;
+          top: 0px;
+          box-shadow: 0 0 20px #999;
+        }
+      }
+    }
+
+    .article-created-time {
+      display: inline-block;
+      margin-left: 10px;
+      font-size: 12px;
+      font-weight: 300;
+    }
+
+    .article-content {
+      padding-left: 20px;
+      font-size: 12px;
+    }
+  }
+}

@@ -1,11 +1,15 @@
 <div>
 
   <article *ngFor="let article of articlePage?.articles">
-    <h1>
-      {{article.title}}
-      <span class="article-time">{{formatTime(article.showTime)}}</span>
+    <h1 class="article-title">
+      <a [routerLink]="getArticleLink(article.path)">
+        <span class="title-name">
+          {{article.title}}
+        </span>
+        <span class="article-created-time">{{formatTime(article.showTime)}}</span>
+      </a>
     </h1>
     <div class="article-content" #articleDom [innerHTML]="article.content"></div>
   </article>
-  
+
 </div>

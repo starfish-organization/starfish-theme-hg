@@ -11,10 +11,13 @@ export class ArticlesComponent implements OnInit {
 
   constructor() {}
 
-  formatTime(timestamp): string {
-    return format(timestamp, 'MMMM Do YYYY, h:mm');
+  ngOnInit() {}
+
+  public formatTime(timestamp): string {
+    return format(timestamp, 'MMMM dd  YYYY, h:mm');
   }
 
-
-  ngOnInit() {}
+  public getArticleLink(articlePath: string): string {
+    return '/' + articlePath.split('index.html')[0];
+  }
 }

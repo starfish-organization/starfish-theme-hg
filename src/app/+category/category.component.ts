@@ -54,6 +54,7 @@ export class CategoryComponent implements OnInit {
     return format(timestamp, 'MMMM Do YYYY');
   }
 
+  // TODO extract
   public getArticleLink(articlePath: string): string {
     return '/' + articlePath.split('index.html')[0];
   }
