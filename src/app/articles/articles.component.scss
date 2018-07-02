@@ -48,5 +48,21 @@ $title-anchor-size: 30px;
       padding-left: 20px;
       font-size: 12px;
     }
+
+    ::ng-deep {
+      pre {
+        border-radius: 8px;
+        font-size: 10px;
+        line-height: 1.5;
+        border: 1px solid #ccc;
+
+        code {
+          font-family: Monaco;
+          padding: 10px;
+        }
+      }
+    }
+
+
   }
 }
