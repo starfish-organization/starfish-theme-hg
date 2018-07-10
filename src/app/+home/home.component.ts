@@ -29,8 +29,7 @@ export class HomeComponent implements OnInit {
   }
 
   public getArticles() {
-    this.httpClient.get(API_ENDPOINT + '/articles/articles-1.json').subscribe(data => {
-      console.log(data)
+    this.httpClient.get(API_ENDPOINT + '/articles/articles-0.json').subscribe(data => {
       this.articlePage = data;
     });
   }
