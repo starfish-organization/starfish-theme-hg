@@ -7,7 +7,7 @@ import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
   host: {
-    '[class]' : 'currentRoute'
+    '[class]': 'currentRoute'
   }
 })
 export class NavComponent implements OnInit {

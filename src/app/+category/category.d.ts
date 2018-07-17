@@ -3,5 +3,4 @@ declare interface CategoryItem {
   categoryName: string;
 }
 
-interface CategoryData extends CategoryItem {
-}
+interface CategoryData extends CategoryItem {}

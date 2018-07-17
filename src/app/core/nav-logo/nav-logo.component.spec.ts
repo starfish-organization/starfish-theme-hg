@@ -8,9 +8,8 @@ describe('NavLogoComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavLogoComponent ]
-    })
-    .compileComponents();
+      declarations: [NavLogoComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

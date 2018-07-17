@@ -8,9 +8,8 @@ describe('ShadowLinkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShadowLinkComponent ]
-    })
-    .compileComponents();
+      declarations: [ShadowLinkComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

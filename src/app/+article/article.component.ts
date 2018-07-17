@@ -1,5 +1,4 @@
 import {
-  Inject,
   Component,
   OnInit,
   AfterViewChecked,
@@ -22,7 +21,7 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./article.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArticleComponent implements OnInit,  AfterViewChecked, AfterContentInit {
+export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentInit {
   article: Article = {};
   recentArticles = [];
   content: SafeHtml = '';
@@ -33,7 +32,7 @@ export class ArticleComponent implements OnInit,  AfterViewChecked, AfterContent
     private route: ActivatedRoute,
     private location: Location,
     private sanitizer: DomSanitizer,
-    private titleService: Title,
+    private titleService: Title
   ) {}
 
   ngOnInit(): void {

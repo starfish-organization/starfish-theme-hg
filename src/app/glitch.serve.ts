@@ -5,27 +5,27 @@ export default class Glitcher {
   size: string;
   font: string;
   textWidth: number;
-  globalAlpha: number = 0.9;
+  globalAlpha = 0.9;
 
-  fps: number = 25;
-  channel: number = 0;
-  compOp: string = 'lighter';
-  phase: number = 0.0;
-  phaseStep: number = 0.05;
-  amplitude: number = 0.0;
-  amplitudeBase: number = 2.0;
-  amplitudeRange: number = 2.0;
-  alphaMin: number = 0.8;
+  fps = 25;
+  channel = 0;
+  compOp = 'lighter';
+  phase = 0.0;
+  phaseStep = 0.05;
+  amplitude = 0.0;
+  amplitudeBase = 2.0;
+  amplitudeRange = 2.0;
+  alphaMin = 0.8;
 
-  glitchAmplitude: number = 5.0;
-  glitchThreshold: number = 0.9;
-  scanlineBase: number = 40;
-  scanlineRange: number = 40;
-  scanlineShift: number = 15;
-  
-  fillStyle1: string = 'rgb(224,66,215)';
-  fillStyle2: string = 'rgb(48, 48, 121)';
-  fillStyle3: string = 'rgb(47, 245, 204)';
+  glitchAmplitude = 5.0;
+  glitchThreshold = 0.9;
+  scanlineBase = 40;
+  scanlineRange = 40;
+  scanlineShift = 15;
+
+  fillStyle1 = 'rgb(224,66,215)';
+  fillStyle2 = 'rgb(48, 48, 121)';
+  fillStyle3 = 'rgb(47, 245, 204)';
 
   canvas: any;
   context: any;
@@ -145,7 +145,7 @@ export default class Glitcher {
   }
 
   renderScanline() {
-    var y = (this.height * Math.random()) >> 0,
+    let y = (this.height * Math.random()) >> 0,
       o = this.context.getImageData(0, y, this.width, 1),
       d = o.data,
       i = d.length,

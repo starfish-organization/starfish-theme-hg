@@ -7,11 +7,10 @@ import { Component, OnInit, AfterContentInit } from '@angular/core';
 })
 export class NavLogoComponent implements OnInit, AfterContentInit {
   contentInited = false;
-  
-  constructor() { }
 
-  ngOnInit() {
-  }
+  constructor() {}
+
+  ngOnInit() {}
 
   ngAfterContentInit() {
     setTimeout(() => {

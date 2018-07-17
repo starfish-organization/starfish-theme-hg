@@ -1,5 +1,4 @@
-
-import {of as observableOf,  Observable } from 'rxjs';
+import { of as observableOf, Observable } from 'rxjs';
 import { Component, OnInit } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { Inject, Injectable } from '@angular/core';
@@ -29,13 +28,11 @@ export class RecentArticlesComponent implements OnInit {
         JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8'))
       );
     } else {
-      return this.http
-        .get(API_ENDPOINT + `/recent-articles.json`)
+      return this.http.get(API_ENDPOINT + `/recent-articles.json`);
     }
   }
 
   public getArticleLink(articlePath: string): string {
     return '/' + articlePath.split('index.html')[0];
   }
-
 }

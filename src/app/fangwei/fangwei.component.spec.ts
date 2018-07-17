@@ -8,9 +8,8 @@ describe('FangweiComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FangweiComponent ]
-    })
-    .compileComponents();
+      declarations: [FangweiComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {

@@ -119,14 +119,14 @@ export class FangweiComponent implements OnInit, OnDestroy, AfterViewInit {
 
     const transforms = {
       translation: {
-        x: (t.x[1] - t.x[0]) / bounds.width * relmousepos.x + t.x[0],
-        y: (t.y[1] - t.y[0]) / bounds.height * relmousepos.y + t.y[0],
-        z: (t.z[1] - t.z[0]) / bounds.height * relmousepos.y + t.z[0]
+        x: ((t.x[1] - t.x[0]) / bounds.width) * relmousepos.x + t.x[0],
+        y: ((t.y[1] - t.y[0]) / bounds.height) * relmousepos.y + t.y[0],
+        z: ((t.z[1] - t.z[0]) / bounds.height) * relmousepos.y + t.z[0]
       },
       rotation: {
-        x: (r.x[1] - r.x[0]) / bounds.height * relmousepos.y + r.x[0],
-        y: (r.y[1] - r.y[0]) / bounds.width * relmousepos.x + r.y[0],
-        z: (r.z[1] - r.z[0]) / bounds.width * relmousepos.x + r.z[0]
+        x: ((r.x[1] - r.x[0]) / bounds.height) * relmousepos.y + r.x[0],
+        y: ((r.y[1] - r.y[0]) / bounds.width) * relmousepos.x + r.y[0],
+        z: ((r.z[1] - r.z[0]) / bounds.width) * relmousepos.x + r.z[0]
       }
     };
     this.applyTransfrom(transforms, element);

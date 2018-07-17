@@ -40,13 +40,15 @@ export class CategoryComponent implements OnInit {
         const categoryList = data.categoryListData.categoryList;
         this.categoryList = categoryList;
 
-        categoryList.forEach((categoryItem: CategoryItem): void => {
-          this.categoryService
-            .getCategory(categoryItem.path)
-            .subscribe((categoryData: CategoryData) => {
-              this.category[categoryItem.categoryName] = categoryData;
-            });
-        });
+        categoryList.forEach(
+          (categoryItem: CategoryItem): void => {
+            this.categoryService
+              .getCategory(categoryItem.path)
+              .subscribe((categoryData: CategoryData) => {
+                this.category[categoryItem.categoryName] = categoryData;
+              });
+          }
+        );
       });
   }
 

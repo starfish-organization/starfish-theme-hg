@@ -1,10 +1,9 @@
-
 import { Injectable } from '@angular/core';
 import { Router, Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { Headers } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { CategorysService } from './categorys.service';
-import { Observable } from "rxjs";
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

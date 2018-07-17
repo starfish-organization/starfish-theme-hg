@@ -8,9 +8,8 @@ describe('GlitchBlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ GlitchBlockComponent ]
-    })
-    .compileComponents();
+      declarations: [GlitchBlockComponent]
+    }).compileComponents();
   }));
 
   beforeEach(() => {
