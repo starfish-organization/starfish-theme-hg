@@ -6,6 +6,14 @@
     letter-spacing: 1.2px;
     text-indent: 1px;
 
+    .section-number {
+      margin-right: 8px;
+      color: white;
+      background-color: #555;
+      padding: 0 5px;
+      border-radius: 2px;
+    }
+
     td {
       text-align: center;
       border-color: currentColor;
