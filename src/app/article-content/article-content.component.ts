@@ -8,7 +8,7 @@ import {
   Input,
   PLATFORM_ID
 } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 declare var hljs: any;
 

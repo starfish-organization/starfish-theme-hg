@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CategorysService } from '../categorys.service';
-import { ActivatedRoute, Router, NavigationEnd } from '@angular/router';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-nav',

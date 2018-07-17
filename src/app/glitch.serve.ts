@@ -145,12 +145,13 @@ export default class Glitcher {
   }
 
   renderScanline() {
-    let y = (this.height * Math.random()) >> 0,
-      o = this.context.getImageData(0, y, this.width, 1),
-      d = o.data,
-      i = d.length,
-      s = (this.scanlineBase + this.scanlineRange * Math.random()) >> 0,
-      x = (-this.scanlineShift + this.scanlineShift * 2 * Math.random()) >> 0;
+    const y = (this.height * Math.random()) >> 0;
+    const o = this.context.getImageData(0, y, this.width, 1);
+    const d: any = o.data;
+
+    let i = d.length;
+    const s = (this.scanlineBase + this.scanlineRange * Math.random()) >> 0;
+    const x = (-this.scanlineShift + this.scanlineShift * 2 * Math.random()) >> 0;
 
     while (i-- > 0) {
       d[i] += s;

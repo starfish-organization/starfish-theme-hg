@@ -5,14 +5,11 @@ import {
   AfterContentInit,
   ViewEncapsulation
 } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { API_ENDPOINT } from '../../constants';
-import { DomSanitizer, SafeResourceUrl, SafeHtml, Title } from '@angular/platform-browser';
+import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
-import { parse, format, formatDistance } from 'date-fns';
+import { format, formatDistance } from 'date-fns';
 import { HttpClient } from '@angular/common/http';
 
 @Component({

@@ -1,7 +1,6 @@
-import { APP_BASE_HREF, CommonModule } from '@angular/common';
 import { BrowserModule, Title } from '@angular/platform-browser';
 
-import { NgModule, ApplicationRef } from '@angular/core';
+import { NgModule } from '@angular/core';
 
 import { HttpClientModule } from '@angular/common/http';
 

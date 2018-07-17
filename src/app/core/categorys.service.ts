@@ -1,9 +1,8 @@
 import { of as observableOf, Observable } from 'rxjs';
 import { Inject, Injectable } from '@angular/core';
-import { Headers } from '@angular/http';
 import { API_ENDPOINT } from '../../constants';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()

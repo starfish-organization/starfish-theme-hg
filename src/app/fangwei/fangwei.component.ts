@@ -8,7 +8,7 @@ import {
   AfterViewInit
 } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'fangwei',

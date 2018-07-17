@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { HomeComponent } from './home.component';
 import { FangweiComponent } from '../fangwei/fangwei.component';

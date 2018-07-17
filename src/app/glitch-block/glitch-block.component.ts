@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit, OnDestroy, ElementRef, ViewChild, Input } from '@angular/core';
 import Glitcher from '../glitch.serve';
 import { PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
+import { isPlatformBrowser } from '@angular/common';
 
 @Component({
   selector: 'app-glitch-block',

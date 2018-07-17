@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FangweiComponent } from '../fangwei/fangwei.component';
 import { CategorysService } from '../core/categorys.service';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { API_ENDPOINT } from '../../constants';
 

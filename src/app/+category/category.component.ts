@@ -1,12 +1,9 @@
 import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
-import { Headers, Http } from '@angular/http';
-import { ActivatedRoute, Params } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import * as format from 'date-fns/format';
-import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../core/categorys.service';
-import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
