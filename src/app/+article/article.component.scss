@@ -62,7 +62,7 @@ app-article {
     $title-anchor-size: 40px;
     .article-title {
       position: relative;
-      text-align: center;
+
       font-size: 28px;
 
       .title-name {
@@ -106,31 +106,6 @@ app-article {
 
     .article-time {
       display: block;
-    }
-
-    .article-content {
-      font-weight: lighter;
-      line-height: 1.8;
-      letter-spacing: 1.2px;
-      text-indent: 1px;
-
-      td {
-        text-align: center;
-        border-color: currentColor;
-        border-radius: 1px;
-      }
-    }
-
-    pre {
-      border-radius: 8px;
-      font-size: 10px;
-      line-height: 1.5;
-      border: 1px solid #ccc;
-
-      code {
-        font-family: Monaco;
-        padding: 10px;
-      }
     }
   }
 }

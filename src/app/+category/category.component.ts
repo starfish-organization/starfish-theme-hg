@@ -3,7 +3,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { Headers, Http } from '@angular/http';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Location } from '@angular/common';
-import { format } from 'date-fns';
+import * as format from 'date-fns/format';
 import { API_ENDPOINT } from '../../constants';
 import { CategorysService } from '../core/categorys.service';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';

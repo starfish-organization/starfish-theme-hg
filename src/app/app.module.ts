@@ -14,6 +14,7 @@ import { CategoryModule } from './+category/category.module';
 import { AppRoutingModule } from './app.routing.modules';
 import { FooterComponent } from './footer/footer.component';
 
+
 @NgModule({
   declarations: [AppComponent, FooterComponent],
   imports: [

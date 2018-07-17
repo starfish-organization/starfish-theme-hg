@@ -4,9 +4,6 @@ import {
   OnInit,
   AfterViewChecked,
   AfterContentInit,
-  ElementRef,
-  ViewChild,
-  AfterViewInit,
   ViewEncapsulation
 } from '@angular/core';
 import { Headers, Http } from '@angular/http';
@@ -15,12 +12,9 @@ import { Location } from '@angular/common';
 import { API_ENDPOINT } from '../../constants';
 import { DomSanitizer, SafeResourceUrl, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article';
-import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser, isPlatformServer } from '@angular/common';
 import { parse, format, formatDistance } from 'date-fns';
 import { HttpClient } from '@angular/common/http';
-
-declare var hljs: any;
 
 @Component({
   selector: 'app-article',
@@ -28,8 +22,7 @@ declare var hljs: any;
   styleUrls: ['./article.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked, AfterContentInit {
-  @ViewChild('articleDom') articleDom: ElementRef;
+export class ArticleComponent implements OnInit,  AfterViewChecked, AfterContentInit {
   article: Article = {};
   recentArticles = [];
   content: SafeHtml = '';
@@ -41,7 +34,6 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
     private location: Location,
     private sanitizer: DomSanitizer,
     private titleService: Title,
-    @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
   ngOnInit(): void {
@@ -54,7 +46,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
   }
 
   formatTime(timestamp): string {
-    return format(timestamp, 'MMMM Do YYYY, h:mm');
+    return format(timestamp, 'MMMM dd YYYY, h:mm');
   }
 
   distanceTime(timestamp): string {
@@ -65,17 +57,7 @@ export class ArticleComponent implements OnInit, AfterViewInit, AfterViewChecked
     return new Date().getTime() - timestamp > 1000 * 60 * 60 * 24 * 265;
   }
 
-  highlightify(): void {
-    this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
-  }
-
   ngAfterViewChecked() {}
-
-  ngAfterViewInit() {
-    if (isPlatformBrowser(this.platformId)) {
-      this.highlightify();
-    }
-  }
 
   ngAfterContentInit() {
     setTimeout(() => {
