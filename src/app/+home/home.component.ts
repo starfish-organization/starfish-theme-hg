@@ -23,7 +23,7 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.titleService.setTitle(`奔為狼--放為的博客 首页`);
+    this.titleService.setTitle(`陈放為的博客 首页`);
     this.getArticles();
   }
 
