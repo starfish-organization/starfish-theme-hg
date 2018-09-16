@@ -26,6 +26,10 @@
     }
   }
 
+  p {
+    line-height: 2.2;
+  }
+
   pre {
     border-radius: 8px;
     font-size: 10px;
@@ -40,7 +44,7 @@
 
   blockquote {
     position: relative;
-    background-color: #f8f8f8;
+    background-color: #fafafa;
     border-radius: 4px;
     padding: 0px 16px;
     box-sizing: border-box;
