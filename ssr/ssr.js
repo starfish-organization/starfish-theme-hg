@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var fs = require("fs");
 var path = require("path");
 var yaml = require("js-yaml");
@@ -18,30 +18,32 @@ function render(rootInputPath) {
     }
     var starfishConfigure = yaml.safeLoad(fs.readFileSync(path.join(inputPath, 'config.yaml'), 'utf-8'));
     var themePath = path.join(inputPath, starfishConfigure.STYLE.THEMEDIR, starfishConfigure.STYLE.THEME);
-    // const ngFactoryFileName = fs
-    //   .readdirSync(path.join(themePath, './dist-server/'))
-    //   .filter(name => /^main.+.bundle.js$/.test(name))[0];
     var ngFactoryFilePath = path.join(themePath, './dist-server/main');
     var _a = require(ngFactoryFilePath), AppServerModuleNgFactory = _a.AppServerModuleNgFactory, LAZY_MODULE_MAP = _a.LAZY_MODULE_MAP;
     var buildedPath = path.join('.', 'build');
     var ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(function (regex) { return new RegExp(regex).source; }).join('|'));
-    glob(path.join(buildedPath, '**/*.html'), function (err, files) {
+    glob(path.join(buildedPath, '**/index.html'), function (err, files) {
         files
             .filter(function (file) {
             return !ignoreRegExp.test(file.replace(/^build/, ''));
         })
             .forEach(function (file) {
-            var url = file.split(buildedPath)[1];
-            platform_server_1.renderModuleFactory(AppServerModuleNgFactory, {
-                document: fs.readFileSync(file, 'utf-8'),
-                url: url,
-                extraProviders: [
-                    module_map_ngfactory_loader_1.provideModuleMap(LAZY_MODULE_MAP)
-                ]
-            }).then(function (html) {
-                fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
-            });
+            try {
+                var url_1 = file.split(buildedPath)[1];
+                platform_server_1.renderModuleFactory(AppServerModuleNgFactory, {
+                    document: fs.readFileSync(file, 'utf-8'),
+                    url: url_1,
+                    extraProviders: [
+                        module_map_ngfactory_loader_1.provideModuleMap(LAZY_MODULE_MAP)
+                    ]
+                }).then(function (html) {
+                    fs.writeFileSync(path.join(buildedPath, url_1), html, 'utf-8');
+                });
+            }
+            catch (error) {
+                console.error(error);
+            }
         });
     });
 }
-exports.default = render;
+exports["default"] = render;

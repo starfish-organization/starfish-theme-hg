@@ -27,10 +27,6 @@ export default function render(rootInputPath: string) {
     starfishConfigure.STYLE.THEME
   );
 
-  // const ngFactoryFileName = fs
-  //   .readdirSync(path.join(themePath, './dist-server/'))
-  //   .filter(name => /^main.+.bundle.js$/.test(name))[0];
-
   const ngFactoryFilePath = path.join(themePath, './dist-server/main');
 
   const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(ngFactoryFilePath);
@@ -41,22 +37,26 @@ export default function render(rootInputPath: string) {
     starfishConfigure.SSR.IGNORE.map(regex => new RegExp(regex).source).join('|')
   );
 
-  glob(path.join(buildedPath, '**/*.html'), function(err, files) {
+  glob(path.join(buildedPath, '**/index.html'), function(err, files) {
     files
       .filter(file => {
         return !ignoreRegExp.test(file.replace(/^build/, ''));
       })
       .forEach(file => {
-        const url = file.split(buildedPath)[1];
-        renderModuleFactory(AppServerModuleNgFactory, {
-          document: fs.readFileSync(file, 'utf-8'),
-          url: url,
-          extraProviders: [
-            provideModuleMap(LAZY_MODULE_MAP)
-          ]
-        }).then(html => {
-          fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
-        });
+        try {
+          const url = file.split(buildedPath)[1];
+          renderModuleFactory(AppServerModuleNgFactory, {
+            document: fs.readFileSync(file, 'utf-8'),
+            url: url,
+            extraProviders: [
+              provideModuleMap(LAZY_MODULE_MAP)
+            ]
+          }).then(html => {
+            fs.writeFileSync(path.join(buildedPath, url), html, 'utf-8');
+          });
+        } catch (error) {
+          console.error(error);
+        }
       });
   });
 }
