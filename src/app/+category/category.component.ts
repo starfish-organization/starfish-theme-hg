@@ -2,7 +2,7 @@ import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import * as format from 'date-fns/format';
+import format from 'date-fns/format';
 import { CategorysService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -50,7 +50,7 @@ export class CategoryComponent implements OnInit {
   }
 
   public formatTime(timestamp: number): string {
-    return format(timestamp, 'MMMM Do YYYY');
+    return format(timestamp, 'MMMM do yyyy');
   }
 
   // TODO extract

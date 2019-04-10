@@ -9,7 +9,8 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article';
-import { format, formatDistance } from 'date-fns';
+import format from 'date-fns/format';
+import formatDistance from 'date-fns/formatDistance';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -42,7 +43,7 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
   }
 
   formatTime(timestamp): string {
-    return format(timestamp, 'MMMM dd YYYY, h:mm');
+    return format(timestamp, 'MMMM dd yyyy, h:mm');
   }
 
   distanceTime(timestamp): string {
