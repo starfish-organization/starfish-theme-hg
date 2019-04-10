@@ -49,7 +49,7 @@ export class CategoryComponent implements OnInit {
       });
   }
 
-  public formatTime(timestamp: string | number): string {
+  public formatTime(timestamp: number): string {
     return format(timestamp, 'MMMM Do YYYY');
   }
 
