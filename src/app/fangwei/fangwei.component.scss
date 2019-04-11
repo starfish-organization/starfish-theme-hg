@@ -9,7 +9,7 @@
 
   &:before {
     display: block;
-    content: '';
+    content: "";
     position: absolute;
     width: 260px;
     height: 380px;
@@ -56,7 +56,8 @@
     display: none;
   }
 
-  &, & > * {
+  &,
+  & > * {
     will-change: transform;
 
     &.leaved {

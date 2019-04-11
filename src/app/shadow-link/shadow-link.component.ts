@@ -6,8 +6,10 @@ import { Component, OnInit, Input } from '@angular/core';
   styleUrls: ['./shadow-link.component.scss']
 })
 export class ShadowLinkComponent implements OnInit {
-  @Input() name: string;
-  @Input() href: string;
+  @Input()
+  name: string;
+  @Input()
+  href: string;
 
   constructor() {}
 

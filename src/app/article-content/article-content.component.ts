@@ -1,13 +1,4 @@
-import {
-  Inject,
-  ViewChild,
-  AfterViewInit,
-  ElementRef,
-  Component,
-  OnInit,
-  Input,
-  PLATFORM_ID
-} from '@angular/core';
+import { Inject, ViewChild, AfterViewInit, ElementRef, Component, OnInit, Input, PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
 declare var hljs: any;
@@ -18,8 +9,10 @@ declare var hljs: any;
   styleUrls: ['./article-content.component.scss']
 })
 export class ArticleContentComponent implements OnInit, AfterViewInit {
-  @Input() content: string;
-  @ViewChild('articleDom') articleDom: ElementRef;
+  @Input()
+  content: string;
+  @ViewChild('articleDom')
+  articleDom: ElementRef;
 
   constructor(@Inject(PLATFORM_ID) private platformId: Object) {}
 

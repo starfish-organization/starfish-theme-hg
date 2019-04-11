@@ -74,7 +74,7 @@ app-article {
         font-weight: lighter;
 
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: $title-anchor-size;
@@ -82,14 +82,16 @@ app-article {
           z-index: -1;
           border-radius: 50%;
           background-color: white;
-          left: - $title-anchor-size / 2;
+          left: -$title-anchor-size / 2;
           top: 0;
           box-shadow: 0 0 $title-anchor-size #999;
         }
       }
     }
 
-    .article-time, .article-time-distance, .article-long-ago-a {
+    .article-time,
+    .article-time-distance,
+    .article-long-ago-a {
       display: block;
       font-size: 10px;
       letter-spacing: initial;
@@ -100,7 +102,7 @@ app-article {
     }
 
     .article-time-add {
-      text-align: right; 
+      text-align: right;
       line-height: 18px;
     }
 

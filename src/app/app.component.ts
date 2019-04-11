@@ -7,7 +7,8 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  @HostBinding('class') currentRouteClass: string;
+  @HostBinding('class')
+  currentRouteClass: string;
 
   constructor(private route: Router) {}
 

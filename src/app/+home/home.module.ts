@@ -11,13 +11,7 @@ import { CommonModule } from '@angular/common';
 import { ArticlesComponent } from '../articles/articles.component';
 
 @NgModule({
-  declarations: [
-    HomeComponent,
-    FangweiComponent,
-    GlitchBlockComponent,
-    ShadowLinkComponent,
-    ArticlesComponent
-  ],
+  declarations: [HomeComponent, FangweiComponent, GlitchBlockComponent, ShadowLinkComponent, ArticlesComponent],
   imports: [
     CommonModule,
     RouterModule.forChild([

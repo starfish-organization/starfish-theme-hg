@@ -24,9 +24,7 @@ export class RecentArticlesComponent implements OnInit {
 
   getRecentArticles(): Observable<any> {
     if (isPlatformServer(this.platformId)) {
-      return observableOf(
-        JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8'))
-      );
+      return observableOf(JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8')));
     } else {
       return this.http.get(API_ENDPOINT + `/recent-articles.json`);
     }

@@ -1,10 +1,4 @@
-import {
-  Component,
-  OnInit,
-  AfterViewChecked,
-  AfterContentInit,
-  ViewEncapsulation
-} from '@angular/core';
+import { Component, OnInit, AfterViewChecked, AfterContentInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';

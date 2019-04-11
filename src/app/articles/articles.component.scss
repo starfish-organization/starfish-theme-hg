@@ -22,7 +22,7 @@ $title-anchor-size: 30px;
         font-weight: lighter;
 
         &:before {
-          content: '';
+          content: "";
           display: block;
           position: absolute;
           width: $title-anchor-size;
@@ -30,7 +30,7 @@ $title-anchor-size: 30px;
           z-index: -1;
           border-radius: 50%;
           background-color: white;
-          left: - $title-anchor-size / 2;
+          left: -$title-anchor-size / 2;
           top: 0px;
           box-shadow: 0 0 20px #999;
         }
@@ -62,7 +62,5 @@ $title-anchor-size: 30px;
         }
       }
     }
-
-
   }
 }

@@ -1,4 +1,3 @@
-
 ::ng-deep {
   .article-content {
     font-weight: lighter;
@@ -50,7 +49,7 @@
     box-sizing: border-box;
 
     &:before {
-      content: '“';
+      content: "“";
       display: block;
       position: absolute;
       left: -40px;

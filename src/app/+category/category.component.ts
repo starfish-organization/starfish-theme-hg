@@ -2,7 +2,7 @@ import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
-import { format} from 'date-fns';
+import { format } from 'date-fns';
 import { CategorysService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -31,22 +31,18 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.data
-      .pipe(take(1))
-      .subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
-        const categoryList = data.categoryListData.categoryList;
-        this.categoryList = categoryList;
+    this.route.data.pipe(take(1)).subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
+      const categoryList = data.categoryListData.categoryList;
+      this.categoryList = categoryList;
 
-        categoryList.forEach(
-          (categoryItem: CategoryItem): void => {
-            this.categoryService
-              .getCategory(categoryItem.path)
-              .subscribe((categoryData: CategoryData) => {
-                this.category[categoryItem.categoryName] = categoryData;
-              });
-          }
-        );
-      });
+      categoryList.forEach(
+        (categoryItem: CategoryItem): void => {
+          this.categoryService.getCategory(categoryItem.path).subscribe((categoryData: CategoryData) => {
+            this.category[categoryItem.categoryName] = categoryData;
+          });
+        }
+      );
+    });
   }
 
   public formatTime(timestamp: number): string {

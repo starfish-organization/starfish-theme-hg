@@ -15,7 +15,7 @@ h1 {
   color: #404146;
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: 0;
@@ -57,7 +57,8 @@ aside {
       padding: 3px 0;
       transition: all 100ms ease-in-out;
 
-      &:hover, &.active {
+      &:hover,
+      &.active {
         font-weight: 900;
       }
     }
@@ -83,9 +84,7 @@ aside {
       top: -50px;
     }
   }
-
 }
-
 
 ul.articles {
   margin-bottom: 30px;

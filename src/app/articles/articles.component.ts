@@ -7,7 +7,8 @@ import { format } from 'date-fns';
   styleUrls: ['./articles.component.scss']
 })
 export class ArticlesComponent implements OnInit {
-  @Input() articlePage;
+  @Input()
+  articlePage;
 
   constructor() {}
 

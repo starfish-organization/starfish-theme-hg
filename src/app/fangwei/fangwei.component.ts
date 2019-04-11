@@ -1,12 +1,4 @@
-import {
-  Component,
-  Inject,
-  OnInit,
-  OnDestroy,
-  ElementRef,
-  ViewChild,
-  AfterViewInit
-} from '@angular/core';
+import { Component, Inject, OnInit, OnDestroy, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
@@ -16,7 +8,8 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./fangwei.component.scss']
 })
 export class FangweiComponent implements OnInit, OnDestroy, AfterViewInit {
-  @ViewChild('jupiterContainer') jupiterContainer: ElementRef;
+  @ViewChild('jupiterContainer')
+  jupiterContainer: ElementRef;
   movement: any = {
     imgWrapper: {
       translation: { x: 1, y: 1, z: 0 },

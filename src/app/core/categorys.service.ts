@@ -11,9 +11,7 @@ export class CategorysService {
 
   getCategoryList(): Observable<any> {
     if (isPlatformServer(this.platformId)) {
-      return observableOf(
-        JSON.parse(require('fs').readFileSync(`build/categorys/index.json`, 'utf-8'))
-      );
+      return observableOf(JSON.parse(require('fs').readFileSync(`build/categorys/index.json`, 'utf-8')));
     } else {
       return this.httpClient.get(API_ENDPOINT + '/categorys/index.json');
     }
@@ -21,9 +19,7 @@ export class CategorysService {
 
   getCategory(categoryPath): Observable<object> {
     if (isPlatformServer(this.platformId)) {
-      return observableOf(
-        JSON.parse(require('fs').readFileSync(`build${categoryPath}/index.json`, 'utf-8'))
-      );
+      return observableOf(JSON.parse(require('fs').readFileSync(`build${categoryPath}/index.json`, 'utf-8')));
     } else {
       return this.httpClient.get(API_ENDPOINT + categoryPath + '/index.json');
     }

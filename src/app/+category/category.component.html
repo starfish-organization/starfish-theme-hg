@@ -1,10 +1,12 @@
-<h1>{{category.name}}</h1>
+<h1>{{ category.name }}</h1>
 
 <main>
   <aside>
     <ul class="categorys">
       <li *ngFor="let category of categorys">
-        <a href="categorys#{{category.categoryName}}">{{category.categoryName}}</a>
+        <a href="categorys#{{ category.categoryName }}">{{
+          category.categoryName
+        }}</a>
       </li>
     </ul>
   </aside>
@@ -13,24 +15,22 @@
     <ul>
       <li *ngFor="let category of categorys">
         <h5>
-          {{category.categoryName}}
+          {{ category.categoryName }}
           <a class="anchor" [name]="category.categoryName"></a>
         </h5>
         <ul class="articles">
           <li *ngFor="let article of category.articles">
             <a [routerLink]="getArticleLink(article.path)">
               <span>
-                <span class="title">{{article.title}}</span>
+                <span class="title">{{ article.title }}</span>
               </span>
-              <span class="show-time">{{formatTime(article.showTime)}}</span>
+              <span class="show-time">{{ formatTime(article.showTime) }}</span>
             </a>
           </li>
         </ul>
-
       </li>
     </ul>
   </div>
 
   <app-recent-articles></app-recent-articles>
-
 </main>

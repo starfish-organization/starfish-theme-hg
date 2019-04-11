@@ -16,7 +16,7 @@ $major-bottom-distance: 10px;
   }
 
   &:before {
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     left: 0;
@@ -30,7 +30,7 @@ $major-bottom-distance: 10px;
     @media screen and (max-width: 500px) {
       width: $small-circle-size;
       height: $small-circle-size;
-      left: - $small-circle-size - 15px;
+      left: -$small-circle-size - 15px;
       background-color: white;
       opacity: 0.3;
     }
@@ -43,7 +43,7 @@ $major-bottom-distance: 10px;
     }
 
     .major {
-      opacity: 0.90;
+      opacity: 0.9;
       transform: translate(0, -5px);
       text-shadow: 0 0 20px white;
     }
