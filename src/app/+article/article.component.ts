@@ -9,8 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article';
-import format from 'date-fns/format';
-import formatDistance from 'date-fns/formatDistance';
+import { format, formatDistance } from 'date-fns';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
