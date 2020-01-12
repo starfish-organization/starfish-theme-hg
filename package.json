@@ -1,12 +1,13 @@
 {
-  "name": "hg",
-  "version": "0.0.0",
+  "name": "@starfishx/theme-hg",
+  "version": "0.0.3",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --port 4220",
     "build": "ng build --prod",
     "build:ssr": "ng run hg:server",
+    "prepublish": "npm run build && npm run build:ssr",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
@@ -16,7 +17,6 @@
     "path": false,
     "os": false
   },
-  "private": true,
   "dependencies": {
     "@angular/animations": "^7.2.12",
     "@angular/common": "^7.2.12",
