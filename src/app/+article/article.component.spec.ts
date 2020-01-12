@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { advanceBy, advanceTo, clear } from 'jest-date-mock';
 
 import { ArticleComponent } from './article.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -34,5 +35,15 @@ describe('ArticleComponent', () => {
 
   it('should be created', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should distanceTime correctly', () => {
+    advanceTo(new Date(2020, 1, 1, 0, 0, 0)); 
+
+    expect(component.distanceTime(new Date(2019, 12, 27, 0,0,0))).toEqual("写于 5 天前")
+    expect(component.distanceTime(new Date(2019, 7, 27, 0,0,0))).toEqual("写于 5 个月前")
+    expect(component.distanceTime(new Date(2017, 12, 27, 0,0,0))).toEqual("写于 2 年前")
+
+    clear();
   });
 });

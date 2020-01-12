@@ -44,7 +44,7 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
       return `写于 ${(day / 365).toFixed(0)} 年前`
     }
     if ( day / 30 >= 1 ) {
-      return `写于 ${(day / 365).toFixed(0)} 个月前`
+      return `写于 ${(day / 30).toFixed(0)} 个月前`
     }
     return `写于 ${day.toFixed(0) } 天前`
   }
