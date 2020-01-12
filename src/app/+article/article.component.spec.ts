@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ArticleComponent } from './article.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { ActivatedRoute } from '@angular/router';
+import { Subject } from 'rxjs';
 
 describe('ArticleComponent', () => {
   let component: ArticleComponent;
@@ -8,7 +12,17 @@ describe('ArticleComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ArticleComponent]
+      declarations: [ArticleComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [HttpClientModule],
+      providers: [
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            data: new Subject()
+          }
+        },
+      ]
     }).compileComponents();
   }));
 

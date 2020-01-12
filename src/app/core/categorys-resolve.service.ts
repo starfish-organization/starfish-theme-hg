@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class CategorysResolver implements Resolve<any> {
-  constructor(private http: HttpClient, private router: Router, private categoryService: CategorysService) {}
+  constructor(private http: HttpClient, private categoryService: CategorysService) {}
 
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
     return this.categoryService.getCategoryList();

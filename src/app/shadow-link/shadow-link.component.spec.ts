@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShadowLinkComponent } from './shadow-link.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('ShadowLinkComponent', () => {
   let component: ShadowLinkComponent;
@@ -8,7 +9,8 @@ describe('ShadowLinkComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ShadowLinkComponent]
+      declarations: [ShadowLinkComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 

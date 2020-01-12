@@ -16,7 +16,6 @@ export class CategoryComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private location: Location,
     private categoryService: CategorysService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}

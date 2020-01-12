@@ -12,7 +12,7 @@ app-article {
     padding-right: 0px;
   }
 
-  &.inited {
+  &.initialized {
     article {
       transform: translateY(0px);
       opacity: 1;
@@ -72,26 +72,11 @@ app-article {
         letter-spacing: 3px;
         text-indent: 3px;
         font-weight: lighter;
-
-        &:before {
-          content: "";
-          display: block;
-          position: absolute;
-          width: $title-anchor-size;
-          height: $title-anchor-size;
-          z-index: -1;
-          border-radius: 50%;
-          background-color: white;
-          left: -$title-anchor-size / 2;
-          top: 0;
-          box-shadow: 0 0 $title-anchor-size #999;
-        }
       }
     }
 
     .article-time,
-    .article-time-distance,
-    .article-long-ago-a {
+    .article-time-distance {
       display: block;
       font-size: 10px;
       letter-spacing: initial;

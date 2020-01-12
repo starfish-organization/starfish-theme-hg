@@ -13,15 +13,14 @@ import { HttpClient } from '@angular/common/http';
   encapsulation: ViewEncapsulation.None
 })
 export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentInit {
-  article: Article = {};
+  article: Article;
   recentArticles = [];
   content: SafeHtml = '';
-  contentInited = false;
+  contentInitialized = false;
 
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private location: Location,
     private sanitizer: DomSanitizer,
     private titleService: Title
   ) {}
@@ -36,11 +35,18 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
   }
 
   formatTime(timestamp): string {
-    return format(timestamp, 'MMMM dd yyyy, h:mm');
+    return format(timestamp, 'yyyy年M月d号');
   }
 
   distanceTime(timestamp): string {
-    return formatDistance(new Date(timestamp), new Date());
+    const day: number = (new Date().getTime() - new Date(timestamp).getTime()) / (1000 * 60 * 60 * 24)
+    if ( day / 365 >= 1 ) {
+      return `写于 ${(day / 365).toFixed(0)} 年前`
+    }
+    if ( day / 30 >= 1 ) {
+      return `写于 ${(day / 365).toFixed(0)} 个月前`
+    }
+    return `写于 ${day.toFixed(0) } 天前`
   }
 
   isLongAgo(timestamp): boolean {
@@ -51,7 +57,7 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
 
   ngAfterContentInit() {
     setTimeout(() => {
-      this.contentInited = true;
+      this.contentInitialized = true;
     }, 300);
   }
 }

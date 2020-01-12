@@ -2,5 +2,9 @@
   "/**/*.json": {
     "target": "http://localhost:8022",
     "secure": false
+  },
+  "/**/*.(png|svg|jpg)": {
+    "target": "http://localhost:8022",
+    "secure": false
   }
 }

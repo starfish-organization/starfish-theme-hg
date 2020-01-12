@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CategorysService } from '../core/categorys.service';
 import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { API_ENDPOINT } from '../../constants';
 
@@ -16,9 +14,7 @@ export class HomeComponent implements OnInit {
   public articlePage;
 
   constructor(
-    private route: ActivatedRoute,
     private titleService: Title,
-    private categorys: CategorysService,
     private httpClient: HttpClient
   ) {}
 

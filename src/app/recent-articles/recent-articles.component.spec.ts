@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RecentArticlesComponent } from './recent-articles.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('RecentArticlesComponent', () => {
   let component: RecentArticlesComponent;
@@ -8,7 +10,9 @@ describe('RecentArticlesComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [RecentArticlesComponent]
+      declarations: [RecentArticlesComponent],
+      schemas: [NO_ERRORS_SCHEMA],
+      imports: [HttpClientModule]
     }).compileComponents();
   }));
 
