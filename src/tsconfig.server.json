@@ -4,7 +4,10 @@
     "outDir": "../out-tsc/app",
     "baseUrl": "./",
     "module": "commonjs",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node"
+    ]
   },
   "exclude": [
     "test.ts",
