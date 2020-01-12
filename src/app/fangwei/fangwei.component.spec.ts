@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { FangweiComponent } from './fangwei.component';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('FangweiComponent', () => {
   let component: FangweiComponent;
@@ -8,7 +9,8 @@ describe('FangweiComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [FangweiComponent]
+      declarations: [FangweiComponent],
+      schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
   }));
 
