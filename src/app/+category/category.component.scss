@@ -27,31 +27,37 @@ h1 {
 }
 
 aside {
-  position: fixed;
-  margin-top: 50px;
-
   @media screen and (max-width: 600px) {
     display: none;
+  }
+
+  .tag-heading {
+    font-weight: bold;
+    img {
+      position: relative;
+      top: 3px;
+      height: 18px;
+      width: 18px;
+    }
   }
 
   ul.categorys {
     padding-right: 50px;
     padding-left: 2px;
-    overflow: hidden;
     display: block;
     width: 70px;
+    margin-top: 12px;
 
     li {
-      line-height: 25px;
+      line-height: 22px;
     }
 
     a {
       position: relative;
-      font-size: 13px;
-      letter-spacing: 1px;
+      font-size: 18px;
+      letter-spacing: 0.3px;
       text-indent: 1px;
       opacity: 0.9;
-      font-weight: lighter;
       display: inline-block;
       height: 100%;
       padding: 3px 0;
@@ -67,8 +73,7 @@ aside {
 
 .category-article {
   position: relative;
-  margin-left: 160px;
-  top: 50px;
+  margin-left: 20px;
 
   @media screen and (max-width: 600px) {
     margin-left: 0;

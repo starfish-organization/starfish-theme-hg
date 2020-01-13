@@ -6,12 +6,15 @@
     <li>
       <a
         routerLink="/categorys"
-        [ngClass]="{ active: currentRoute === 'blogs' }"
-        >BLOGS</a
+        >博客</a
       >
     </li>
     <li>
-      <a>ABOUT ME</a>
+      <a>关于我</a>
     </li>
   </ul>
+
+  <div class="search-container">
+    <input type="text" placeholder="搜索">
+  </div>
 </nav>

@@ -1,7 +1,6 @@
 import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Location } from '@angular/common';
 import { format } from 'date-fns';
 import { CategorysService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
@@ -23,7 +22,7 @@ export class CategoryComponent implements OnInit {
   public category: { [key: string]: CategoryData } = {};
   public categoryList: CategoryItem[] = [];
 
-  get categorys() {
+  get categories() {
     return this.categoryList
       .filter((categoryItem: CategoryItem) => !!this.category[categoryItem.categoryName])
       .map((categoryItem: CategoryItem) => this.category[categoryItem.categoryName]);

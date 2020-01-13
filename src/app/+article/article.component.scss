@@ -44,6 +44,7 @@ app-article {
     position: relative;
     font-size: 13px;
     opacity: 0;
+    width: 100%;
     transform: translateY(-50px);
     transition: all 100ms ease-in-out 20ms;
 
@@ -84,6 +85,7 @@ app-article {
       font-weight: normal;
       letter-spacing: 1px;
       opacity: 0.6;
+      padding-right: 3px;
     }
 
     .article-time-add {

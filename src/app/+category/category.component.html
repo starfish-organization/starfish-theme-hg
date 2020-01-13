@@ -1,9 +1,11 @@
-<h1>{{ category.name }}</h1>
-
 <main>
   <aside>
+    <div class="tag-heading">
+      <img src="/assets/image/tag.png" alt="">
+      标签
+    </div>
     <ul class="categorys">
-      <li *ngFor="let category of categorys">
+      <li *ngFor="let category of categories">
         <a href="categorys#{{ category.categoryName }}">{{
           category.categoryName
         }}</a>
@@ -13,9 +15,9 @@
 
   <div class="category-article">
     <ul>
-      <li *ngFor="let category of categorys">
+      <li *ngFor="let category of categories">
         <h5>
-          {{ category.categoryName }}
+          <span class="hash">#</span>{{ category.categoryName }}
           <a class="anchor" [name]="category.categoryName"></a>
         </h5>
         <ul class="articles">

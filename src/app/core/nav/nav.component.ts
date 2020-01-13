@@ -11,22 +11,7 @@ import { Router, NavigationEnd } from '@angular/router';
   }
 })
 export class NavComponent implements OnInit {
-  categorysLink: string;
-  currentRoute: string;
+  constructor(private route: Router) {}
 
-  constructor(private categorys: CategorysService, private route: Router) {}
-
-  ngOnInit() {
-    this.route.events.subscribe(event => {
-      if (event instanceof NavigationEnd) {
-        if (event.url === '/') {
-          return (this.currentRoute = 'home');
-        }
-        if (event.url.indexOf('/categorys') > -1) {
-          return (this.currentRoute = 'category');
-        }
-        return (this.currentRoute = 'articles');
-      }
-    });
-  }
+  ngOnInit() {}
 }
