@@ -1,13 +1,15 @@
 ::ng-deep {
   .article-content {
-    font-weight: lighter;
-    line-height: 1.8;
-    letter-spacing: 1.2px;
-    text-indent: 1px;
+    line-height: 2;
+    text-indent: 18px;
 
     > ul {
       margin: 0;
       padding: 0;
+    }
+
+    ul.outline {
+      line-height: 1.8;
     }
 
     .section-number {
@@ -25,9 +27,6 @@
     }
   }
 
-  p {
-    line-height: 2.2;
-  }
 
   pre {
     border-radius: 8px;

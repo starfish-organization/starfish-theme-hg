@@ -27,12 +27,15 @@ h1 {
 }
 
 aside {
+  padding-top: 12px;
+
   @media screen and (max-width: 600px) {
     display: none;
   }
 
   .tag-heading {
     font-weight: bold;
+    margin-bottom: 6px;
     img {
       position: relative;
       top: 3px;
@@ -46,7 +49,6 @@ aside {
     padding-left: 2px;
     display: block;
     width: 70px;
-    margin-top: 12px;
 
     li {
       line-height: 22px;
@@ -62,6 +64,7 @@ aside {
       height: 100%;
       padding: 3px 0;
       transition: all 100ms ease-in-out;
+      color: #222;
 
       &:hover,
       &.active {
@@ -74,13 +77,15 @@ aside {
 .category-article {
   position: relative;
   margin-left: 20px;
+  padding-top: 3px;
 
   @media screen and (max-width: 600px) {
     margin-left: 0;
   }
 
   h5 {
-    margin: 5px auto;
+    font-size: 28px;
+    margin: 10px auto;
 
     .anchor {
       display: block;
@@ -89,48 +94,52 @@ aside {
       top: -50px;
     }
   }
-}
 
-ul.articles {
-  margin-bottom: 30px;
-  li {
-    font-weight: lighter;
-    margin-bottom: 10px;
-
-    div {
-      display: inline-block;
-      border-bottom: 1px solid #ccc;
-    }
-
-    a {
-      display: inline-block;
-      border-bottom: 1px solid transparent;
-      transition: border-color 100ms ease-in-out;
-      vertical-align: baseline;
-      cursor: pointer;
-      outline: none;
-      position: relative;
-
-      &:hover {
-        border-bottom: 1px solid #e8e8e8;
+  ul.articles {
+    margin-bottom: 24px;
+    padding-left: 18px;
+    
+    li {
+      margin-bottom: 10px;
+  
+      div {
+        display: inline-block;
+        border-bottom: 1px solid #ccc;
       }
-    }
+  
+      a {
+        display: inline-block;
+        border-bottom: 1px solid transparent;
+        transition: border-color 100ms ease-in-out;
+        vertical-align: baseline;
+        cursor: pointer;
+        outline: none;
+        position: relative;
+        color: #555;
+  
+        &:hover {
+          border-bottom: 1px solid #e8e8e8;
+        }
+      }
 
-    .show-time {
-      display: inline-block;
-      margin-right: 20px;
-      font-size: 10px;
-      letter-spacing: 1px;
-      text-indent: 1px;
-      margin-left: 20px;
-    }
-
-    .title {
-      display: inline-block;
-      font-size: 12px;
-      letter-spacing: 1px;
-      text-indent: 1px;
-      font-weight: lighter;
+      .title {
+        display: inline-block;
+        font-size: 15px;
+        letter-spacing: 1px;
+        text-indent: 1px;
+      }
+  
+      .show-time {
+        display: inline-block;
+        margin-right: 20px;
+        font-size: 10px;
+        letter-spacing: 1px;
+        text-indent: 1px;
+        margin-left: 20px;
+      }
+ 
     }
   }
+  
 }
+

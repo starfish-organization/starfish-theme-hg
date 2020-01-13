@@ -42,7 +42,7 @@ app-article {
 
   article {
     position: relative;
-    font-size: 13px;
+    font-size: 14px;
     opacity: 0;
     width: 100%;
     transform: translateY(-50px);
@@ -72,7 +72,6 @@ app-article {
         z-index: 10;
         letter-spacing: 3px;
         text-indent: 3px;
-        font-weight: lighter;
       }
     }
 
