@@ -20,7 +20,8 @@ function render(rootInputPath) {
     var themePath = path.join(inputPath, starfishConfigure.STYLE.THEMEDIR, starfishConfigure.STYLE.THEME);
     var ngFactoryFilePath = path.join(themePath, './dist-server/main');
     var _a = require(ngFactoryFilePath), AppServerModuleNgFactory = _a.AppServerModuleNgFactory, LAZY_MODULE_MAP = _a.LAZY_MODULE_MAP;
-    var buildedPath = path.join('.', 'build');
+    // TODO
+    var buildedPath = path.join('.', 'blog-dist');
     var ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(function (regex) { return new RegExp(regex).source; }).join('|'));
     glob(path.join(buildedPath, '**/index.html'), function (err, files) {
         files

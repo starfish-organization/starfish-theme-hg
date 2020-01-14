@@ -1,6 +1,6 @@
 {
   "name": "@starfishx/theme-hg",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "license": "MIT",
   "scripts": {
     "ng": "ng",

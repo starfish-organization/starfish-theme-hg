@@ -31,7 +31,8 @@ export default function render(rootInputPath: string) {
 
   const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(ngFactoryFilePath);
 
-  const buildedPath = path.join('.', 'build');
+  // TODO: input the blog-dist name
+  const buildedPath = path.join('.', 'blog-dist');
 
   const ignoreRegExp = new RegExp(
     starfishConfigure.SSR.IGNORE.map(regex => new RegExp(regex).source).join('|')
