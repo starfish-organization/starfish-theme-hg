@@ -2,7 +2,7 @@ import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { format } from 'date-fns';
-import { CategorysService } from '../core/categorys.service';
+import { CategoriesService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -15,7 +15,7 @@ export class CategoryComponent implements OnInit {
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
-    private categoryService: CategorysService,
+    private categoryService: CategoriesService,
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
@@ -43,8 +43,8 @@ export class CategoryComponent implements OnInit {
     });
   }
 
-  public formatTime(timestamp: number): string {
-    return format(timestamp, 'MMMM do yyyy');
+  public formatTime(timestamp): string {
+    return format(timestamp, 'yyyy年M月d号');
   }
 
   // TODO extract

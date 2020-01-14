@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { CategoryComponent } from './category.component';
-import { CategorysService } from '../core/categorys.service';
+import { CategoriesService } from '../core/categorys.service';
 import { CategorysResolver } from '../core/categorys-resolve.service';
 import { RecentArticlesComponent } from '../recent-articles/recent-articles.component';
 
@@ -21,6 +21,6 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
     ]),
     CommonModule
   ],
-  providers: [Title, CategorysService]
+  providers: [Title, CategoriesService]
 })
 export class CategoryModule {}

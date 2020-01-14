@@ -24,17 +24,17 @@ header {
 }
 
 ul {
-  list-style: disc;
-  padding-left: 18px;
+  list-style: none;
+  padding-left: 0px;
+  
   li {
     font-size: 14px;
     text-align: left;
     line-height: 24px;
 
     a {
-      color: #999;
-      font-weight: 300;
-      font-size: smaller;
+      color: #333;
+      font-weight: 400;
       letter-spacing: 2px;
     }
   }

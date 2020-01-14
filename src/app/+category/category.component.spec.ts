@@ -4,7 +4,7 @@ import { CategoryComponent } from './category.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { ActivatedRoute } from '@angular/router';
-import { CategorysService } from '../core/categorys.service';
+import { CategoriesService } from '../core/categorys.service';
 import { Subject } from 'rxjs';
 
 describe('CategoryComponent', () => {
@@ -23,7 +23,7 @@ describe('CategoryComponent', () => {
             data: new Subject()
           }
         },
-        CategorysService
+        CategoriesService
       ]
     }).compileComponents();
   }));

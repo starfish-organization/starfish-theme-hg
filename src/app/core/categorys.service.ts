@@ -6,7 +6,7 @@ import { isPlatformServer } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
 
 @Injectable()
-export class CategorysService {
+export class CategoriesService {
   constructor(private httpClient: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
 
   getCategoryList(): Observable<any> {

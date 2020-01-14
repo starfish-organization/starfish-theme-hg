@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { NavComponent } from './nav.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { Router } from '@angular/router';
-import { CategorysService } from '../categorys.service';
+import { CategoriesService } from '../categorys.service';
 import { Subject } from 'rxjs';
 
 describe('NavComponent', () => {
@@ -22,7 +22,7 @@ describe('NavComponent', () => {
           }
         },
         {
-          provide: CategorysService,
+          provide: CategoriesService,
           useValue: {}
         }
       ]

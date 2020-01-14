@@ -5,7 +5,7 @@ import { HomeComponent } from './home.component';
 import { FangweiComponent } from '../fangwei/fangwei.component';
 import { GlitchBlockComponent } from '../glitch-block/glitch-block.component';
 import { ShadowLinkComponent } from '../shadow-link/shadow-link.component';
-import { CategorysService } from '../core/categorys.service';
+import { CategoriesService } from '../core/categorys.service';
 import { CategorysResolver } from '../core/categorys-resolve.service';
 import { CommonModule } from '@angular/common';
 import { ArticlesComponent } from '../articles/articles.component';
@@ -25,6 +25,6 @@ import { ArticlesComponent } from '../articles/articles.component';
       }
     ])
   ],
-  providers: [Title, CategorysService]
+  providers: [Title, CategoriesService]
 })
 export class HomeModule {}
