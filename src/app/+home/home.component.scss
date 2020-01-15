@@ -7,4 +7,9 @@ fangwei {
   margin: 40px auto 30px;
   position: relative;
   left: -150px;
+
+  @media screen and (max-width: 600px) {
+    left: 72px;
+    margin: 30px auto 0;
+  }
 }

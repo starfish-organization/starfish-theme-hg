@@ -3,6 +3,10 @@
   padding: 10px 5px;
   text-align: left;
   position: relative;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 header {

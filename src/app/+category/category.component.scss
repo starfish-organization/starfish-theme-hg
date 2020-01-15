@@ -79,10 +79,6 @@ aside {
   margin-left: 20px;
   padding-top: 3px;
 
-  @media screen and (max-width: 600px) {
-    margin-left: 0;
-  }
-
   h5 {
     font-size: 28px;
     margin: 10px auto;
@@ -98,15 +94,15 @@ aside {
   ul.articles {
     margin-bottom: 24px;
     padding-left: 18px;
-    
+
     li {
       margin-bottom: 10px;
-  
+
       div {
         display: inline-block;
         border-bottom: 1px solid #ccc;
       }
-  
+
       a {
         display: inline-block;
         border-bottom: 1px solid transparent;
@@ -116,7 +112,7 @@ aside {
         outline: none;
         position: relative;
         color: #555;
-  
+
         &:hover {
           border-bottom: 1px solid #e8e8e8;
         }
@@ -128,18 +124,30 @@ aside {
         letter-spacing: 1px;
         text-indent: 1px;
       }
-  
+
       .show-time {
         display: inline-block;
         margin-right: 20px;
         font-size: 10px;
-        letter-spacing: 1px;
-        text-indent: 1px;
+        font-style: italic;
         margin-left: 20px;
+        opacity: 0.5;
       }
- 
     }
   }
-  
-}
 
+  @media screen and (max-width: 600px) {
+    margin-left: 0;
+    width: 100%;
+    padding-top: 0;
+
+    & > ul {
+      padding: 0;
+    }
+
+    ul.articles {
+      padding-left: 8px;
+      margin-bottom: 0;
+    }
+  }
+}

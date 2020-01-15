@@ -23,23 +23,6 @@ app-article {
     background-color: white;
   }
 
-  aside.left {
-    text-align: center;
-    width: 300px;
-    padding-right: 30px;
-
-    .big-article {
-      font-weight: 900;
-      font-size: 65px;
-      color: #404146;
-      letter-spacing: 2px;
-    }
-
-    @media screen and (max-width: 600px) {
-      display: none;
-    }
-  }
-
   article {
     position: relative;
     font-size: 14px;

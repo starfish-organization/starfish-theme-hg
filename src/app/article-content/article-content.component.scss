@@ -25,38 +25,45 @@
       border-color: currentColor;
       border-radius: 1px;
     }
-  }
 
+    pre {
+      border-radius: 8px;
+      font-size: 10px;
+      line-height: 1.5;
+      border: 1px solid #ccc;
+      padding: 10px;
 
-  pre {
-    border-radius: 8px;
-    font-size: 10px;
-    line-height: 1.5;
-    border: 1px solid #ccc;
-    padding: 10px;
-
-    code {
-      font-family: Monaco;
+      code {
+        font-family: Monaco;
+      }
     }
-  }
 
-  blockquote {
-    position: relative;
-    background-color: #fafafa;
-    border-radius: 4px;
-    padding: 0px 16px;
-    box-sizing: border-box;
+    blockquote {
+      position: relative;
+      background-color: #fafafa;
+      border-radius: 4px;
+      padding: 0px 16px;
+      box-sizing: border-box;
 
-    &:before {
-      content: "“";
-      display: block;
-      position: absolute;
-      left: -40px;
-      top: 46px;
-      font-size: 113px;
-      font-family: "Impact";
-      color: #999;
-      line-height: 0;
+      &:before {
+        content: "“";
+        display: block;
+        position: absolute;
+        left: -40px;
+        top: 46px;
+        font-size: 113px;
+        font-family: "Impact";
+        color: #999;
+        line-height: 0;
+      }
+    }
+    
+    @media screen and (max-width: 600px) {
+      table {
+        max-width: 100%;
+        overflow: scroll;
+        display: block;
+      }
     }
   }
 }

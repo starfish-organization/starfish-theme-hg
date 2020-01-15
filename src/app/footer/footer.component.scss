@@ -11,6 +11,10 @@
   padding-top: 55px;
   box-sizing: border-box;
   color: rgba(255, 255, 255, 0.9);
+
+  @media screen and (max-width: 600px) {
+    padding-top: 15px;
+  }
 }
 
 .copyright {
