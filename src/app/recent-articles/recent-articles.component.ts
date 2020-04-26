@@ -1,5 +1,5 @@
 import { of as observableOf, Observable } from 'rxjs';
-import { Component, OnInit } from '@angular/core';
+import { Component, Injector, OnInit } from '@angular/core';
 import { PLATFORM_ID } from '@angular/core';
 import { Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -14,7 +14,11 @@ import { API_ENDPOINT } from '../../constants';
 export class RecentArticlesComponent implements OnInit {
   recentArticles = [];
 
-  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) {}
+  constructor(
+    private http: HttpClient,
+    @Inject(PLATFORM_ID) private platformId: Object,
+    private injector: Injector
+  ) {}
 
   ngOnInit() {
     this.getRecentArticles().subscribe(articles => {
@@ -24,7 +28,8 @@ export class RecentArticlesComponent implements OnInit {
 
   getRecentArticles(): Observable<any> {
     if (isPlatformServer(this.platformId)) {
-      return observableOf(JSON.parse(require('fs').readFileSync(`build/recent-articles.json`, 'utf-8')));
+      const staticDist = this.injector.get('STATIC_DIST');
+      return observableOf(JSON.parse(require('fs').readFileSync(`${staticDist}/recent-articles.json`, 'utf-8')));
     } else {
       return this.http.get(API_ENDPOINT + `/recent-articles.json`);
     }

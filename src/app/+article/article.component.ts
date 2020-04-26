@@ -2,7 +2,7 @@ import { Component, OnInit, AfterViewChecked, AfterContentInit, ViewEncapsulatio
 import { ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
-import { Article } from './article';
+import { Article } from './article.interface';
 import { format, formatDistance } from 'date-fns';
 import { HttpClient } from '@angular/common/http';
 
@@ -39,14 +39,14 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
   }
 
   distanceTime(timestamp): string {
-    const day: number = (new Date().getTime() - new Date(timestamp).getTime()) / (1000 * 60 * 60 * 24)
-    if ( day / 365 >= 1 ) {
-      return `写于 ${(day / 365).toFixed(0)} 年前`
+    const day: number = (new Date().getTime() - new Date(timestamp).getTime()) / (1000 * 60 * 60 * 24);
+    if (day / 365 >= 1) {
+      return `写于 ${(day / 365).toFixed(0)} 年前`;
     }
-    if ( day / 30 >= 1 ) {
-      return `写于 ${(day / 30).toFixed(0)} 个月前`
+    if (day / 30 >= 1) {
+      return `写于 ${(day / 30).toFixed(0)} 个月前`;
     }
-    return `写于 ${day.toFixed(0) } 天前`
+    return `写于 ${day.toFixed(0)} 天前`;
   }
 
   isLongAgo(timestamp): boolean {

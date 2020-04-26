@@ -1,12 +1,13 @@
 {
   "name": "@starfishx/theme-hg",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve --proxy-config proxy.conf.json --port 4220",
     "build": "ng build --prod",
     "build:ssr": "ng run hg:server",
+    "build:ssr-command": "cd ssr && tsc",
     "prepublish": "npm run build && npm run build:ssr",
     "test": "jest",
     "test:watch": "jest --watch",
@@ -65,7 +66,7 @@
     "@angular/language-service": "^7.2.12",
     "@types/jasmine": "~2.8.8",
     "@types/jest": "^24.0.25",
-    "@types/node": "^8.9.0",
+    "@types/node": "^8.10.60",
     "codelyzer": "^4.3.0",
     "jasmine-core": "~3.1.0",
     "jasmine-spec-reporter": "~4.2.1",

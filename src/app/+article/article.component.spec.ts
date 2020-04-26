@@ -22,7 +22,7 @@ describe('ArticleComponent', () => {
           useValue: {
             data: new Subject()
           }
-        },
+        }
       ]
     }).compileComponents();
   }));
@@ -38,11 +38,11 @@ describe('ArticleComponent', () => {
   });
 
   it('should distanceTime correctly', () => {
-    advanceTo(new Date(2020, 1, 1, 0, 0, 0)); 
+    advanceTo(new Date(2020, 1, 1, 0, 0, 0));
 
-    expect(component.distanceTime(new Date(2019, 12, 27, 0,0,0))).toEqual("写于 5 天前")
-    expect(component.distanceTime(new Date(2019, 7, 27, 0,0,0))).toEqual("写于 5 个月前")
-    expect(component.distanceTime(new Date(2017, 12, 27, 0,0,0))).toEqual("写于 2 年前")
+    expect(component.distanceTime(new Date(2019, 12, 27, 0, 0, 0))).toEqual('写于 5 天前');
+    expect(component.distanceTime(new Date(2019, 7, 27, 0, 0, 0))).toEqual('写于 5 个月前');
+    expect(component.distanceTime(new Date(2017, 12, 27, 0, 0, 0))).toEqual('写于 2 年前');
 
     clear();
   });

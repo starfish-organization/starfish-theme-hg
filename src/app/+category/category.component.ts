@@ -1,10 +1,11 @@
-import { take } from 'rxjs/operators';
 import { Component, OnInit, Inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { format } from 'date-fns';
 import { CategoriesService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { CategoryData } from './category.interface';
+import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category',
@@ -19,27 +20,25 @@ export class CategoryComponent implements OnInit {
     @Inject(PLATFORM_ID) private platformId: Object
   ) {}
 
-  public category: { [key: string]: CategoryData } = {};
-  public categoryList: CategoryItem[] = [];
+  public allCategories: CategoryData[] = [];
 
-  get categories() {
-    return this.categoryList
-      .filter((categoryItem: CategoryItem) => !!this.category[categoryItem.categoryName])
-      .map((categoryItem: CategoryItem) => this.category[categoryItem.categoryName]);
+  get categories(): CategoryData[] {
+    return this.allCategories;
   }
 
   ngOnInit(): void {
-    this.route.data.pipe(take(1)).subscribe((data: { categoryListData: { categoryList: CategoryItem[] } }) => {
-      const categoryList = data.categoryListData.categoryList;
-      this.categoryList = categoryList;
-
-      categoryList.forEach(
-        (categoryItem: CategoryItem): void => {
-          this.categoryService.getCategory(categoryItem.path).subscribe((categoryData: CategoryData) => {
-            this.category[categoryItem.categoryName] = categoryData;
-          });
-        }
-      );
+    this.route.data.pipe(take(1)).subscribe((data: { allCategories: CategoryData[] }) => {
+      this.allCategories = data.allCategories;
+      // const categoryList = data.categoryListData.categoryList;
+      // this.categoryList = categoryList;
+      //
+      // categoryList.forEach(
+      //   (categoryItem: CategoryItem): void => {
+      //     this.categoryService.getAllCategories().subscribe((categoryData: CategoryData) => {
+      //       this.category[categoryItem.categoryName] = categoryData;
+      //     });
+      //   }
+      // );
     });
   }
 

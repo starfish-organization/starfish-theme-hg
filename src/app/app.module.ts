@@ -24,7 +24,9 @@ import { FooterComponent } from './footer/footer.component';
     CategoryModule,
     HttpClientModule
   ],
-  providers: [Title],
+  providers: [
+    Title
+  ],
   bootstrap: [AppComponent],
   exports: [AppComponent]
 })

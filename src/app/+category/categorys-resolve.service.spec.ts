@@ -2,7 +2,7 @@ import { TestBed, inject } from '@angular/core/testing';
 
 import { CategorysResolver } from './categorys-resolve.service';
 import { HttpClientModule } from '@angular/common/http';
-import { CategoriesService } from './categorys.service';
+import { CategoriesService } from '../core/categorys.service';
 
 describe('CategorysResolver', () => {
   beforeEach(() => {
