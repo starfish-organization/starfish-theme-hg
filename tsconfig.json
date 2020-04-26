@@ -2,6 +2,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "importHelpers": true,
+    "module": "esnext",
     "plugins": [
       {
         "name": "tslint-language-service"

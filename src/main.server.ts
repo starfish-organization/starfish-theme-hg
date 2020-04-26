@@ -5,3 +5,5 @@ import { environment } from './environments/environment';
 if (environment.production) {
   enableProdMode();
 }
+
+export { renderModule, renderModuleFactory } from '@angular/platform-server';
