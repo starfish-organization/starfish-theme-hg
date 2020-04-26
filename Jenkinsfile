@@ -8,7 +8,8 @@ pipeline {
         pollSCM('*/1 * * * *')
     }
     environment {
-        CI = 'true' 
+        CI = 'true'
+        HOME = '.'
     }
     stages {
         stage('Npm install') {
@@ -16,19 +17,19 @@ pipeline {
                 sh 'npm install'
             }
         }
-        stage('Test') { 
+        stage('Test') {
             steps {
-                sh 'npm run test:ci' 
+                sh 'npm run test:ci'
             }
         }
-        stage('Build') { 
+        stage('Build') {
             steps {
-                sh 'npm run build' 
+                sh 'npm run build'
             }
         }
-        stage('Build ssr') { 
+        stage('Build ssr') {
             steps {
-                sh 'npm run build:ssr' 
+                sh 'npm run build:ssr'
             }
         }
     }
