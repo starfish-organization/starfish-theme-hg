@@ -9,12 +9,15 @@ import { isPlatformBrowser } from '@angular/common';
   styleUrls: ['./glitch-block.component.scss']
 })
 export class GlitchBlockComponent implements OnInit, OnDestroy {
-  @ViewChild('canvas')
+  @ViewChild('canvas', { static: false })
   canvas: ElementRef;
+
   @Input()
   text: string;
+
   @Input()
   size: string;
+
   @Input()
   silent: boolean;
   glitcher: any;
