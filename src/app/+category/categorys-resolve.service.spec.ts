@@ -1,18 +1,18 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { CategorysResolver } from './categorys-resolve.service';
+import { CategoryResolver } from './categorys-resolve.service';
 import { HttpClientModule } from '@angular/common/http';
 import { CategoriesService } from '../core/categorys.service';
 
 describe('CategorysResolver', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [CategorysResolver, CategoriesService],
+      providers: [CategoryResolver, CategoriesService],
       imports: [HttpClientModule]
     });
   });
 
-  it('should be created', inject([CategorysResolver], (service: CategorysResolver) => {
+  it('should be created', inject([CategoryResolver], (service: CategoryResolver) => {
     expect(service).toBeTruthy();
   }));
 });

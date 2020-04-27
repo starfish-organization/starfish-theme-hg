@@ -3,12 +3,13 @@ import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/r
 import { CategoriesService } from '../core/categorys.service';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { CategoryData } from './category.interface';
 
 @Injectable()
-export class CategorysResolver implements Resolve<any> {
+export class CategoryResolver implements Resolve<CategoryData[]> {
   constructor(private http: HttpClient, private categoryService: CategoriesService) {}
 
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<any> {
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<CategoryData[]> {
     return this.categoryService.getAllCategories();
   }
 }

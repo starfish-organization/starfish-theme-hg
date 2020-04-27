@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { CategoriesService } from '../categorys.service';
 import { Router, NavigationEnd } from '@angular/router';
 
@@ -11,7 +11,13 @@ import { Router, NavigationEnd } from '@angular/router';
   }
 })
 export class NavComponent implements OnInit {
+  @ViewChild('searchInput', { static: true }) searchInput: HTMLInputElement;
+
   constructor(private route: Router) {}
 
   ngOnInit() {}
+
+  onSearch() {
+    window.location.href = 'https://www.google.com/search?q=site:chencanhao.com%20nihao';
+  }
 }

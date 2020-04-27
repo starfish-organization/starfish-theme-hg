@@ -1,15 +1,22 @@
 ::ng-deep {
   .article-content {
-    line-height: 2;
-    text-indent: 18px;
+    line-height: 1.7;
 
     > ul {
       margin: 0;
-      padding: 0;
+      padding-left: 18px;
+    }
+
+    ul {
+      list-style: disc;
     }
 
     ul.outline {
       line-height: 1.8;
+    }
+
+    img {
+      border-radius: 3px;
     }
 
     .section-number {
@@ -34,23 +41,22 @@
       padding: 10px;
 
       code {
-        text-indent: 0;
         font-family: Monaco;
       }
     }
 
     blockquote {
       position: relative;
-      background-color: #fafafa;
+      background-color: #e7edf38a;
       border-radius: 4px;
-      padding: 0px 16px;
+      padding: 1px 16px;
       box-sizing: border-box;
 
       &:before {
         content: "“";
         display: block;
         position: absolute;
-        left: -40px;
+        left: -46px;
         top: 46px;
         font-size: 113px;
         font-family: "Impact";
@@ -58,7 +64,7 @@
         line-height: 0;
       }
     }
-    
+
     @media screen and (max-width: 600px) {
       table {
         max-width: 100%;

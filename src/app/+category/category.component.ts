@@ -13,6 +13,8 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
+  private rendered: boolean;
+
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -27,19 +29,12 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.data.pipe(take(1)).subscribe((data: { allCategories: CategoryData[] }) => {
-      this.allCategories = data.allCategories;
-      // const categoryList = data.categoryListData.categoryList;
-      // this.categoryList = categoryList;
-      //
-      // categoryList.forEach(
-      //   (categoryItem: CategoryItem): void => {
-      //     this.categoryService.getAllCategories().subscribe((categoryData: CategoryData) => {
-      //       this.category[categoryItem.categoryName] = categoryData;
-      //     });
-      //   }
-      // );
-    });
+    if (!this.rendered) {
+      this.route.data.pipe(take(1)).subscribe((data: { allCategories: CategoryData[] }) => {
+        this.allCategories = data.allCategories;
+        this.rendered = true;
+      });
+    }
   }
 
   public formatTime(timestamp): string {
