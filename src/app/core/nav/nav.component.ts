@@ -1,6 +1,5 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { CategoriesService } from '../categorys.service';
-import { Router, NavigationEnd } from '@angular/router';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-nav',
@@ -11,13 +10,18 @@ import { Router, NavigationEnd } from '@angular/router';
   }
 })
 export class NavComponent implements OnInit {
-  @ViewChild('searchInput', { static: true }) searchInput: HTMLInputElement;
+  @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;
 
   constructor(private route: Router) {}
 
   ngOnInit() {}
 
   onSearch() {
-    window.location.href = 'https://www.google.com/search?q=site:chencanhao.com%20nihao';
+    const inputValue = this.searchInput.nativeElement.value;
+    if (!inputValue) {
+      return;
+    }
+    const url = 'https://www.google.com/search?q=site:chencanhao.com ' + inputValue;
+    window.open(url, '_blank');
   }
 }
