@@ -4,10 +4,10 @@ var fs = require("fs");
 var path = require("path");
 var yaml = require("js-yaml");
 var glob = require("glob");
-var platform_server_1 = require("@angular/platform-server");
-var module_map_ngfactory_loader_1 = require("@nguniversal/module-map-ngfactory-loader");
 require("zone.js/dist/zone-node");
 require("reflect-metadata");
+// import { INITIAL_CONFIG } from '@angular/platform-server';
+var common_1 = require("@angular/common");
 function render(_a) {
     var rootInputPath = _a.rootInputPath, renderedDistPath = _a.renderedDistPath, themePath = _a.themePath;
     var inputPath = path.resolve(rootInputPath);
@@ -22,7 +22,7 @@ function render(_a) {
     }
     var starfishConfigure = yaml.safeLoad(fs.readFileSync(path.join(inputPath, 'config.yaml'), 'utf-8'));
     var ngFactoryFilePath = path.join(themePath, './dist-server/main');
-    var _b = require(ngFactoryFilePath), AppServerModuleNgFactory = _b.AppServerModuleNgFactory, LAZY_MODULE_MAP = _b.LAZY_MODULE_MAP;
+    var _b = require(ngFactoryFilePath), renderModuleFactory = _b.renderModuleFactory, AppServerModuleNgFactory = _b.AppServerModuleNgFactory, renderModule = _b.renderModule, AppServerModule = _b.AppServerModule;
     var ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(function (regex) { return new RegExp(regex).source; }).join('|'));
     glob(path.join(renderedDistPath, '**/index.html'), function (err, files) {
         files
@@ -30,20 +30,33 @@ function render(_a) {
             return !ignoreRegExp.test(file.replace(/^build/, ''));
         })
             .forEach(function (file) {
+            console.log(file);
             try {
                 var webRelativeUrl_1 = file.split(renderedDistPath)[1];
-                platform_server_1.renderModuleFactory(AppServerModuleNgFactory, {
+                // AppServerModuleNgFactory(renderModuleFactory)
+                renderModule(AppServerModule, {
                     document: fs.readFileSync(file, 'utf-8'),
                     url: webRelativeUrl_1,
                     extraProviders: [
-                        module_map_ngfactory_loader_1.provideModuleMap(LAZY_MODULE_MAP),
+                        // {
+                        //   provide: INITIAL_CONFIG,
+                        //   useValue: {
+                        //     document: fs.readFileSync(file, 'utf-8'),
+                        //     url: webRelativeUrl
+                        //   }
+                        // },
+                        { provide: common_1.APP_BASE_HREF, useValue: webRelativeUrl_1 },
                         {
                             provide: 'STATIC_DIST',
                             useValue: renderedDistPath
                         }
                     ]
-                }).then(function (html) {
+                })
+                    .then(function (html) {
                     fs.writeFileSync(path.join(renderedDistPath, webRelativeUrl_1), html, 'utf-8');
+                })
+                    .catch(function (error) {
+                    console.error(error);
                 });
             }
             catch (error) {

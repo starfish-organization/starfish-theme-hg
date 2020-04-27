@@ -12,7 +12,7 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
   imports: [
     RouterModule.forChild([
       {
-        path: 'category',
+        path: '',
         component: CategoryComponent,
         resolve: {
           allCategories: CategorysResolver

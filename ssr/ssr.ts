@@ -2,11 +2,12 @@ import * as fs from 'fs';
 import * as path from 'path';
 import * as yaml from 'js-yaml';
 import * as glob from 'glob';
-import { renderModuleFactory } from '@angular/platform-server';
-import { provideModuleMap } from '@nguniversal/module-map-ngfactory-loader';
 
 import 'zone.js/dist/zone-node';
 import 'reflect-metadata';
+
+// import { INITIAL_CONFIG } from '@angular/platform-server';
+import { APP_BASE_HREF } from '@angular/common';
 
 export default function render({ rootInputPath, renderedDistPath, themePath }) {
   const inputPath = path.resolve(rootInputPath);
@@ -25,7 +26,7 @@ export default function render({ rootInputPath, renderedDistPath, themePath }) {
 
   const ngFactoryFilePath = path.join(themePath, './dist-server/main');
 
-  const { AppServerModuleNgFactory, LAZY_MODULE_MAP } = require(ngFactoryFilePath);
+  const { renderModuleFactory, AppServerModuleNgFactory, renderModule, AppServerModule } = require(ngFactoryFilePath);
 
   const ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(regex => new RegExp(regex).source).join('|'));
 
@@ -35,21 +36,34 @@ export default function render({ rootInputPath, renderedDistPath, themePath }) {
         return !ignoreRegExp.test(file.replace(/^build/, ''));
       })
       .forEach(file => {
+        console.log(file);
         try {
           const webRelativeUrl = file.split(renderedDistPath)[1];
-          renderModuleFactory(AppServerModuleNgFactory, {
+          // AppServerModuleNgFactory(renderModuleFactory)
+          renderModule(AppServerModule, {
             document: fs.readFileSync(file, 'utf-8'),
             url: webRelativeUrl,
             extraProviders: [
-              provideModuleMap(LAZY_MODULE_MAP),
+              // {
+              //   provide: INITIAL_CONFIG,
+              //   useValue: {
+              //     document: fs.readFileSync(file, 'utf-8'),
+              //     url: webRelativeUrl
+              //   }
+              // },
+              { provide: APP_BASE_HREF, useValue: webRelativeUrl },
               {
                 provide: 'STATIC_DIST',
                 useValue: renderedDistPath
               }
             ]
-          }).then(html => {
-            fs.writeFileSync(path.join(renderedDistPath, webRelativeUrl), html, 'utf-8');
-          });
+          })
+            .then(html => {
+              fs.writeFileSync(path.join(renderedDistPath, webRelativeUrl), html, 'utf-8');
+            })
+            .catch(error => {
+              console.error(error);
+            });
         } catch (error) {
           console.error(error);
         }

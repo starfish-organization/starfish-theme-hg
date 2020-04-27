@@ -12,7 +12,7 @@ import { ArticleContentComponent } from '../article-content/article-content.comp
   imports: [
     RouterModule.forChild([
       {
-        path: ':categoryName/:articleName',
+        path: '',
         component: ArticleComponent,
         pathMatch: 'full',
         resolve: {
