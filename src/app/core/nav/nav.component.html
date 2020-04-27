@@ -1,8 +1,6 @@
 <nav>
   <ul>
-    <li>
-      <app-nav-logo></app-nav-logo>
-    </li>
+    <app-nav-logo></app-nav-logo>
     <li>
       <a routerLink="/category">博客</a>
     </li>
@@ -12,6 +10,6 @@
   </ul>
 
   <div class="search-container">
-    <input #searchInput type="text" placeholder="搜索" (click)="onSearch()">
+    <input #searchInput type="text" placeholder="搜索" (keydown.enter)="onSearch()">
   </div>
 </nav>

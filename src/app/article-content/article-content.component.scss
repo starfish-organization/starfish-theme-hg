@@ -19,6 +19,15 @@
       border-radius: 3px;
     }
 
+    a {
+      color: #0052cc;
+
+      &:visited {
+        color: #6a84e6;
+        font-style: italic;
+      }
+    }
+
     .section-number {
       margin-right: 8px;
       color: white;
