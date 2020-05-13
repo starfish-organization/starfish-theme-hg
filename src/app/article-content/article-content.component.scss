@@ -42,6 +42,10 @@
       border-radius: 1px;
     }
 
+    code {
+      color: #ad5b5b;
+    }
+
     pre {
       border-radius: 8px;
       font-size: 10px;
@@ -50,6 +54,7 @@
       padding: 10px;
 
       code {
+        color: inherit;
         font-family: Monaco;
       }
     }
@@ -67,7 +72,7 @@
         position: absolute;
         left: -46px;
         top: 46px;
-        font-size: 113px;
+        font-size: 110px;
         font-family: "Impact";
         color: #999;
         line-height: 0;

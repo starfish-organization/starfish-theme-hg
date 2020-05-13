@@ -12,11 +12,10 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./article.component.scss'],
   encapsulation: ViewEncapsulation.None
 })
-export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentInit {
+export class ArticleComponent implements OnInit {
   article: Article;
   recentArticles = [];
   content: SafeHtml = '';
-  contentInitialized = false;
 
   constructor(
     private http: HttpClient,
@@ -47,17 +46,5 @@ export class ArticleComponent implements OnInit, AfterViewChecked, AfterContentI
       return `写于 ${(day / 30).toFixed(0)} 个月前`;
     }
     return `写于 ${day.toFixed(0)} 天前`;
-  }
-
-  isLongAgo(timestamp): boolean {
-    return new Date().getTime() - timestamp > 1000 * 60 * 60 * 24 * 265;
-  }
-
-  ngAfterViewChecked() {}
-
-  ngAfterContentInit() {
-    setTimeout(() => {
-      this.contentInitialized = true;
-    }, 300);
   }
 }
