@@ -30,7 +30,7 @@ export class CategoryComponent implements OnInit {
 
   ngOnInit(): void {
     if (!this.rendered) {
-      this.route.data.pipe(take(1)).subscribe((data: { allCategories: CategoryData[] }) => {
+      this.categoryService.getAllCategories().subscribe((data: { allCategories: CategoryData[] }) => {
         this.allCategories = data.allCategories;
         this.rendered = true;
       });

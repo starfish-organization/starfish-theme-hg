@@ -4,7 +4,6 @@ import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { CategoryComponent } from './category.component';
 import { CategoriesService } from '../core/categorys.service';
-import { CategoryResolver } from './categorys-resolve.service';
 import { RecentArticlesComponent } from '../recent-articles/recent-articles.component';
 
 @NgModule({
@@ -13,10 +12,7 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
     RouterModule.forChild([
       {
         path: '',
-        component: CategoryComponent,
-        resolve: {
-          allCategories: CategoryResolver
-        }
+        component: CategoryComponent
       }
     ]),
     CommonModule
