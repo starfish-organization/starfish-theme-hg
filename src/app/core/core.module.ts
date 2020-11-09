@@ -2,11 +2,11 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavComponent } from './nav/nav.component';
 import { CategoriesService } from './categorys.service';
-import { CategoryResolver } from '../+category/categorys-resolve.service';
 import { RouterModule } from '@angular/router';
 import { NavLogoComponent } from './nav-logo/nav-logo.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CachingInterceptor } from './http-interceptors/caching-interceptor';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -14,8 +14,7 @@ import { CachingInterceptor } from './http-interceptors/caching-interceptor';
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
     CategoriesService,
-    CategoryResolver
   ],
-  declarations: [NavComponent, NavLogoComponent]
+  declarations: [NavComponent, NavLogoComponent, PaginationComponent]
 })
 export class CoreModule {}

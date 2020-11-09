@@ -5,7 +5,6 @@ import { CategoriesService } from '../core/categorys.service';
 import { PLATFORM_ID } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryData } from './category.interface';
-import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-category',
@@ -13,7 +12,6 @@ import { take } from 'rxjs/operators';
   styleUrls: ['./category.component.scss']
 })
 export class CategoryComponent implements OnInit {
-  private rendered: boolean;
 
   constructor(
     private http: HttpClient,
@@ -29,12 +27,9 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    if (!this.rendered) {
-      this.categoryService.getAllCategories().subscribe((data: { allCategories: CategoryData[] }) => {
-        this.allCategories = data.allCategories;
-        this.rendered = true;
-      });
-    }
+    this.categoryService.getAllCategories().subscribe((data: { allCategories: CategoryData[] }) => {
+      this.allCategories = data.allCategories;
+    });
   }
 
   public formatTime(timestamp): string {

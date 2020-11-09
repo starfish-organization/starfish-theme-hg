@@ -19,4 +19,4 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
   ],
   providers: [Title, CategoriesService]
 })
-export class CategoryModule {}
+export class ArchiveModule {}

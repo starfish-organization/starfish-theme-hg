@@ -6,7 +6,6 @@ import { FangweiComponent } from '../fangwei/fangwei.component';
 import { GlitchBlockComponent } from '../glitch-block/glitch-block.component';
 import { ShadowLinkComponent } from '../shadow-link/shadow-link.component';
 import { CategoriesService } from '../core/categorys.service';
-import { CategoryResolver } from '../+category/categorys-resolve.service';
 import { CommonModule } from '@angular/common';
 import { ArticlesComponent } from '../articles/articles.component';
 
@@ -19,9 +18,6 @@ import { ArticlesComponent } from '../articles/articles.component';
         path: '',
         component: HomeComponent,
         pathMatch: 'full',
-        resolve: {
-          categoryList: CategoryResolver
-        }
       }
     ])
   ],
