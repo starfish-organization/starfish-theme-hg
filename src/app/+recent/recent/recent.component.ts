@@ -10,21 +10,17 @@ import { Article } from '../../+article/article.interface';
 @Component({
   selector: 'app-recent',
   templateUrl: './recent.component.html',
-  styleUrls: ['./recent.component.scss']
+  styleUrls: ['./recent.component.scss'],
 })
 export class RecentComponent implements OnInit {
-  recentArticles: {[pageIndex: number]: Article[]} = {};
+  recentArticles: { [pageIndex: number]: Article[] } = {};
   currentPage = 0;
 
-  constructor(
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private injector: Injector
-  ) {}
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object, private injector: Injector) {}
 
   ngOnInit() {
     const pageIndex = this.currentPage;
-    this.getRecentArticles(pageIndex).subscribe(articles => {
+    this.getRecentArticles(pageIndex).subscribe((articles) => {
       this.recentArticles[pageIndex] = articles;
     });
   }
@@ -34,7 +30,7 @@ export class RecentComponent implements OnInit {
       const staticDist = this.injector.get('STATIC_DIST');
       return of(JSON.parse(require('fs').readFileSync(`${staticDist}/recent-articles-${pageIndex}.json`, 'utf-8')));
     } else {
-      return this.http.get<Article[]>(API_ENDPOINT + `/recent-articles.json`);
+      return this.http.get<Article[]>(API_ENDPOINT + `/recent-articles-${pageIndex}.json`);
     }
   }
 
@@ -42,7 +38,7 @@ export class RecentComponent implements OnInit {
     return '/' + articlePath.split('index.html')[0];
   }
 
-  public onPageSelect(pageIndex) {
+  public onPageChange(pageIndex) {
     this.currentPage = pageIndex;
   }
 }

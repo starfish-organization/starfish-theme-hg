@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { NavLogoComponent } from './nav-logo/nav-logo.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { CachingInterceptor } from './http-interceptors/caching-interceptor';
-import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   imports: [CommonModule, RouterModule],
@@ -15,6 +14,6 @@ import { PaginationComponent } from './pagination/pagination.component';
     { provide: HTTP_INTERCEPTORS, useClass: CachingInterceptor, multi: true },
     CategoriesService,
   ],
-  declarations: [NavComponent, NavLogoComponent, PaginationComponent]
+  declarations: [NavComponent, NavLogoComponent]
 })
 export class CoreModule {}
