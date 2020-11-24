@@ -1,6 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Injector, Inject } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot } from '@angular/router';
-import { Location } from '@angular/common';
+import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article.interface';
 import { format } from 'date-fns';
@@ -14,7 +13,7 @@ import { API_ENDPOINT } from '../../constants';
   selector: 'app-article',
   templateUrl: './article.component.html',
   styleUrls: ['./article.component.scss'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class ArticleComponent implements OnInit {
   article: Article;
@@ -23,8 +22,8 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private router: ActivatedRoute,
-    private route: ActivatedRouteSnapshot,
+    private router: Router,
+    private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private titleService: Title,
     private injector: Injector,
@@ -41,20 +40,22 @@ export class ArticleComponent implements OnInit {
   }
 
   getArticle(): Observable<Article> {
-    const articleName = this.route.paramMap.get('articleName').replace('.html', '');
-    const categoryName = this.route.paramMap.get('categoryName');
+    const articleName = this.route.snapshot.paramMap.get('articleName').replace('.html', '');
+    const categoryName = this.route.snapshot.paramMap.get('categoryName');
     if (isPlatformServer(this.platformId)) {
       const staticDist = this.injector.get('STATIC_DIST'); // TODO: InjectionToken
       return of(
         JSON.parse(require('fs').readFileSync(`${staticDist}/${categoryName}/${articleName}/index.json`, 'utf-8'))
       );
     } else {
-      return this.http
-        .get<Article>(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`);
+      return this.http.get<Article>(API_ENDPOINT + `/${categoryName}/${articleName}/index.json`);
     }
   }
 
   formatTime(timestamp): string {
+    if (!timestamp) {
+      return '';
+    }
     return format(timestamp, 'yyyy年M月d号');
   }
 

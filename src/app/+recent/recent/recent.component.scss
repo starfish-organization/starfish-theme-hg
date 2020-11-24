@@ -1,0 +1,12 @@
+
+:host {
+  display: block;
+  overflow: hidden;
+  position: relative;
+}
+
+.article {
+  ::ng-deep .outline {
+    display: none;
+  }
+}

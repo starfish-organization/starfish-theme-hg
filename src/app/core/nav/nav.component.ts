@@ -5,9 +5,6 @@ import { Router } from '@angular/router';
   selector: 'app-nav',
   templateUrl: './nav.component.html',
   styleUrls: ['./nav.component.scss'],
-  host: {
-    '[class]': 'currentRoute'
-  }
 })
 export class NavComponent implements OnInit {
   @ViewChild('searchInput', { static: true }) searchInput: ElementRef<HTMLInputElement>;

@@ -12,11 +12,11 @@ import { RecentArticlesComponent } from '../recent-articles/recent-articles.comp
     RouterModule.forChild([
       {
         path: '',
-        component: CategoryComponent
-      }
+        component: CategoryComponent,
+      },
     ]),
-    CommonModule
+    CommonModule,
   ],
-  providers: [Title, CategoriesService]
+  providers: [Title, CategoriesService],
 })
 export class ArchiveModule {}

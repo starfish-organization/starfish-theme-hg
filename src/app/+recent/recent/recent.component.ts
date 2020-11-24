@@ -21,6 +21,7 @@ export class RecentComponent implements OnInit {
   ngOnInit() {
     const pageIndex = this.currentPage;
     this.getRecentArticles(pageIndex).subscribe((articles) => {
+      console.log('articles', articles);
       this.recentArticles[pageIndex] = articles;
     });
   }
@@ -35,7 +36,7 @@ export class RecentComponent implements OnInit {
   }
 
   public getArticleLink(articlePath: string): string {
-    return '/' + articlePath.split('index.html')[0];
+    return articlePath.split('index.html')[0];
   }
 
   public onPageChange(pageIndex) {

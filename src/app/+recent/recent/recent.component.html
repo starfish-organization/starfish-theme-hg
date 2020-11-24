@@ -1,7 +1,9 @@
 <div>
   <div *ngFor="let article of recentArticles[currentPage]">
-    <h3>{{ article.title }}</h3>
-    <div [innerHTML]="article.content"></div>
+    <a [routerLink]="getArticleLink(article.path)">
+      <h3>{{ article.title }}</h3>
+    </a>
+    <div class="article" [innerHTML]="article.content"></div>
   </div>
 </div>
 
