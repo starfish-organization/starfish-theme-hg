@@ -9,19 +9,15 @@ import { API_ENDPOINT } from '../../constants';
 @Component({
   selector: 'app-recent-articles',
   templateUrl: './recent-articles.component.html',
-  styleUrls: ['./recent-articles.component.scss']
+  styleUrls: ['./recent-articles.component.scss'],
 })
 export class RecentArticlesComponent implements OnInit {
   recentArticles = [];
 
-  constructor(
-    private http: HttpClient,
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private injector: Injector
-  ) {}
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object, private injector: Injector) {}
 
   ngOnInit() {
-    this.getRecentArticles().subscribe(articles => {
+    this.getRecentArticles().subscribe((articles) => {
       this.recentArticles = articles;
     });
   }

@@ -5,10 +5,9 @@ import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ArticleComponent } from './article.component';
 import { ArticleResolver } from './article-resolve.service';
-import { ArticleContentComponent } from '../article-content/article-content.component';
 
 @NgModule({
-  declarations: [ArticleComponent, ArticleContentComponent],
+  declarations: [ArticleComponent],
   imports: [
     RouterModule.forChild([
       {
@@ -16,13 +15,13 @@ import { ArticleContentComponent } from '../article-content/article-content.comp
         component: ArticleComponent,
         pathMatch: 'full',
         resolve: {
-          article: ArticleResolver
-        }
-      }
+          article: ArticleResolver,
+        },
+      },
     ]),
     CommonModule,
-    HttpClientModule
+    HttpClientModule,
   ],
-  providers: [Title, ArticleResolver]
+  providers: [Title, ArticleResolver],
 })
 export class ArticleModule {}

@@ -6,7 +6,7 @@ declare var hljs: any;
 @Component({
   selector: 'app-article-content',
   templateUrl: './article-content.component.html',
-  styleUrls: ['./article-content.component.scss']
+  styleUrls: ['./article-content.component.scss'],
 })
 export class ArticleContentComponent implements OnInit, AfterViewInit {
   @Input()
@@ -19,7 +19,7 @@ export class ArticleContentComponent implements OnInit, AfterViewInit {
   ngOnInit() {}
 
   private highlightify(): void {
-    this.articleDom.nativeElement.querySelectorAll('pre code').forEach(e => hljs.highlightBlock(e));
+    this.articleDom.nativeElement.querySelectorAll('pre code').forEach((e) => hljs.highlightBlock(e));
   }
 
   ngAfterViewInit() {
