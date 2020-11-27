@@ -17,7 +17,7 @@ import { takeUntil } from 'rxjs/operators';
 export class RecentComponent implements OnInit, OnDestroy {
   recentArticles: { [pageIndex: number]: Article[] } = {};
   currentPage = 0;
-  total = Infinity;
+  total = 0;
   pageSize = 0;
   complete$ = new Subject();
 
@@ -64,7 +64,7 @@ export class RecentComponent implements OnInit, OnDestroy {
   }
 
   private queryRecentArticlesByPage(pageIndex) {
-    if (pageIndex < 0 || pageIndex > this.total - 1 || !!this.recentArticles[pageIndex]) {
+    if (pageIndex < 0 || !!this.recentArticles[pageIndex]) {
       return;
     }
     this.getRecentArticles(pageIndex).subscribe((articles) => {
