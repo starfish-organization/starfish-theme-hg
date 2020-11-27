@@ -8,12 +8,12 @@ const routes: Routes = [
     pathMatch: 'full',
   },
   {
-    path: ':categoryName/:articleName',
-    loadChildren: () => import('./+article/article.module').then((m) => m.ArticleModule),
-  },
-  {
     path: 'articles', // recent page
     loadChildren: () => import('./+recent/recent.module').then((m) => m.RecentModule),
+  },
+  {
+    path: ':categoryName/:articleName',
+    loadChildren: () => import('./+article/article.module').then((m) => m.ArticleModule),
   },
   {
     path: 'category', // 兼容 SEO

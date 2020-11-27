@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 // TODO move to share
 @Component({
@@ -7,31 +7,47 @@ import { Component, Input, OnInit } from '@angular/core';
   styleUrls: ['./pagination.component.scss'],
 })
 export class PaginationComponent implements OnInit {
+  private _pageSize: number;
   @Input()
-  pageSize: number;
+  set pageSize(value) {
+    this._pageSize = value;
+    this.totalPage = Math.ceil(this.total / value || 0);
+  }
+  get pageSize() {
+    return this._pageSize;
+  }
 
+  private _total: number;
   @Input()
-  total: number;
+  set total(value) {
+    this._total = value;
+    this.totalPage = Math.ceil(value / this.pageSize || 0);
+  }
+  get total() {
+    return this._total;
+  }
 
   @Input()
   currentIndex: number;
 
-  private pageTotal = 0;
+  @Output()
+  change = new EventEmitter();
+
+  private totalPage = 0;
 
   constructor() {}
 
   ngOnInit(): void {}
 
-  goPage(pageIndex: number) {
-
-  }
-
   nextPage() {
-
+    if (this.currentIndex !== this.totalPage - 1) {
+      this.change.emit(this.currentIndex + 1);
+    }
   }
 
   lastPage() {
-
+    if (this.currentIndex !== 0) {
+      this.change.emit(this.currentIndex - 1);
+    }
   }
-
 }

@@ -15,6 +15,10 @@ import { CoreModule } from '../core/core.module';
         component: RecentComponent,
         pathMatch: 'full',
       },
+      {
+        path: ':page',
+        component: RecentComponent,
+      },
     ]),
     CommonModule,
     CoreModule,
