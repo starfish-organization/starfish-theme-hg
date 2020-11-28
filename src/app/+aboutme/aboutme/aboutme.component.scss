@@ -1,0 +1,28 @@
+
+.container {
+  background-color: #d1d9e177;
+  border-radius: 6px;
+  margin: 120px auto;
+  padding: 80px 0 38px;
+  position: relative;
+
+  .avatar-container {
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translate(-50%, -50%);
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  .heading-description {
+    text-align: center;
+  }
+}

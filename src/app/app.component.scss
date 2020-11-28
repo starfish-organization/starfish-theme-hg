@@ -8,8 +8,20 @@
   padding: 0 20px;
   display: block;
 
+  app-nav {
+    max-width: 1000px;
+  }
+
+  .app-body {
+    padding-top: 30px;
+  }
+
   @media screen and (max-width: 500px) {
     width: 100%;
     padding: 10px 20px;
+
+    app-nav {
+      width: max-content;
+    }
   }
 }

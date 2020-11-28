@@ -2,3 +2,20 @@
   display: block;
   text-align: center;
 }
+
+button {
+  display: inline-block;
+  -webkit-appearance: none;
+  border: 0;
+  background-color: #d1d9e166;
+  padding: 10px 66px;
+  border-radius: 3px;
+  outline: none;
+  transition: all 180ms ease-in-out;
+  cursor: pointer;
+  margin: 0 10px;
+
+  &:hover {
+    background-color: #d1d9e1;
+  }
+}

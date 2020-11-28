@@ -9,10 +9,9 @@ import { CategoryData } from './category.interface';
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.scss']
+  styleUrls: ['./category.component.scss'],
 })
 export class CategoryComponent implements OnInit {
-
   constructor(
     private http: HttpClient,
     private route: ActivatedRoute,
@@ -27,8 +26,8 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.categoryService.getAllCategories().subscribe((data: { allCategories: CategoryData[] }) => {
-      this.allCategories = data.allCategories;
+    this.categoryService.getAllCategories().subscribe((data) => {
+      this.allCategories = data;
     });
   }
 

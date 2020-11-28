@@ -33,7 +33,7 @@ export class PaginationComponent implements OnInit {
   @Output()
   change = new EventEmitter();
 
-  private totalPage = 0;
+  totalPage = 0;
 
   constructor() {}
 
