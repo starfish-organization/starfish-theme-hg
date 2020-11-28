@@ -38,6 +38,11 @@ ul {
     box-sizing: border-box;
     border-radius: 2px;
     cursor: pointer;
+    transition: 180ms ease-in-out;
+
+    &:hover {
+      background-color: #292c3299;
+    }
 
     a {
       color: white;
