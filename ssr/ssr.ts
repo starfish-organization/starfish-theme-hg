@@ -28,14 +28,14 @@ export default function render({ rootInputPath, renderedDistPath, themePath }) {
 
   const { renderModuleFactory, AppServerModuleNgFactory, renderModule, AppServerModule } = require(ngFactoryFilePath);
 
-  const ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map(regex => new RegExp(regex).source).join('|'));
+  const ignoreRegExp = new RegExp(starfishConfigure.SSR.IGNORE.map((regex) => new RegExp(regex).source).join('|'));
 
-  glob(path.join(renderedDistPath, '**/index.html'), function(err, files) {
+  glob(path.join(renderedDistPath, '**/index.html'), function (err, files) {
     files
-      .filter(file => {
+      .filter((file) => {
         return !ignoreRegExp.test(file.replace(/^build/, ''));
       })
-      .forEach(file => {
+      .forEach((file) => {
         console.log(file);
         try {
           const webRelativeUrl = file.split(renderedDistPath)[1];
@@ -54,14 +54,14 @@ export default function render({ rootInputPath, renderedDistPath, themePath }) {
               { provide: APP_BASE_HREF, useValue: webRelativeUrl },
               {
                 provide: 'STATIC_DIST',
-                useValue: renderedDistPath
-              }
-            ]
+                useValue: renderedDistPath,
+              },
+            ],
           })
-            .then(html => {
+            .then((html) => {
               fs.writeFileSync(path.join(renderedDistPath, webRelativeUrl), html, 'utf-8');
             })
-            .catch(error => {
+            .catch((error) => {
               console.error(error);
             });
         } catch (error) {
