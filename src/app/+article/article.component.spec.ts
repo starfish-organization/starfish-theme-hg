@@ -4,8 +4,8 @@ import { advanceBy, advanceTo, clear } from 'jest-date-mock';
 import { ArticleComponent } from './article.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { ActivatedRoute } from '@angular/router';
-import { Subject } from 'rxjs';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { of, Subject } from 'rxjs';
 
 describe('ArticleComponent', () => {
   let component: ArticleComponent;
@@ -15,12 +15,23 @@ describe('ArticleComponent', () => {
     TestBed.configureTestingModule({
       declarations: [ArticleComponent],
       schemas: [NO_ERRORS_SCHEMA],
-      imports: [HttpClientModule],
+      imports: [HttpClientModule, RouterModule],
       providers: [
         {
           provide: ActivatedRoute,
           useValue: {
-            data: new Subject()
+            data: new Subject(),
+            snapshot: {
+              paramMap: {
+                get: () => ''
+              }
+            }
+          }
+        },
+        {
+          provide: Router,
+          useValue: {
+            paramMap: of()
           }
         }
       ]
