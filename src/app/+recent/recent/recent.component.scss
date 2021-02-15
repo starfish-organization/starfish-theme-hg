@@ -5,12 +5,26 @@
   position: relative;
 }
 
+.article-date {
+  font-size: 18px;
+  font-weight: 200;
+  letter-spacing: 3px;
+}
+
 .article {
   margin-bottom: 150px;
 
   ::ng-deep .outline {
     display: none;
   }
+}
+
+.article-title {
+  margin-top: 0;
+}
+
+.article-title a {
+  color: #00255d;
 }
 
 .dot {
@@ -21,4 +35,9 @@
   border-radius: 50%;
   background-color: #363a43;
   vertical-align: middle;
+}
+
+app-article-content {
+  padding-left: 20px;
+  opacity: 0.7;
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewEncapsulation, Injector, Inject } from '@angular/core';
-import { ActivatedRoute, ActivatedRouteSnapshot, Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { DomSanitizer, SafeHtml, Title } from '@angular/platform-browser';
 import { Article } from './article.interface';
 import { format } from 'date-fns';
@@ -22,7 +22,6 @@ export class ArticleComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private router: Router,
     private route: ActivatedRoute,
     private sanitizer: DomSanitizer,
     private titleService: Title,

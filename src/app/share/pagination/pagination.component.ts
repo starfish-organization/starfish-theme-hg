@@ -40,7 +40,6 @@ export class PaginationComponent implements OnInit {
   ngOnInit(): void {}
 
   nextPage() {
-    console.log(this.totalPage);
     if (this.currentIndex !== this.totalPage - 1) {
       this.change.emit(this.currentIndex + 1);
     }

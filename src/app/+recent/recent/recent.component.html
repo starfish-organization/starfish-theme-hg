@@ -4,6 +4,7 @@
 
 <div>
   <div class="article" *ngFor="let article of recentArticles[currentPage]">
+    <div class="article-date">{{ formatTime(article.showTime) }}</div>
     <h1 class="article-title">
       <span class="dot"></span>
       <a [routerLink]="getArticleLink(article.path)">
@@ -15,6 +16,7 @@
 </div>
 
 <app-pagination
+  *ngIf="!!total"
   [pageSize]="pageSize"
   [total]="total"
   [currentIndex]="currentPage"

@@ -8,6 +8,8 @@ import { Observable, of, Subject } from 'rxjs';
 import { Article } from '../../+article/article.interface';
 import { ActivatedRoute, Router } from '@angular/router';
 import { takeUntil } from 'rxjs/operators';
+import { format } from 'date-fns';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-recent',
@@ -26,10 +28,12 @@ export class RecentComponent implements OnInit, OnDestroy {
     @Inject(PLATFORM_ID) private platformId: Object,
     private injector: Injector,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private titleService: Title
   ) {}
 
   ngOnInit() {
+    this.titleService.setTitle('放為的博客 博客文章')
     this.queryRecentArticlesByPage(this.currentPage);
     this.queryRecentArticlesByPage(1);
 
@@ -42,6 +46,13 @@ export class RecentComponent implements OnInit, OnDestroy {
         this.queryRecentArticles(pageNumber - 1);
       }
     });
+  }
+
+  formatTime(timestamp): string {
+    if (!timestamp) {
+      return '';
+    }
+    return format(timestamp, 'yyyy年M月d号');
   }
 
   getRecentArticles(
@@ -63,21 +74,26 @@ export class RecentComponent implements OnInit, OnDestroy {
     }
   }
 
-  private queryRecentArticlesByPage(pageIndex) {
-    if (pageIndex < 0 || !!this.recentArticles[pageIndex]) {
-      return;
-    }
-    this.getRecentArticles(pageIndex).subscribe((articles) => {
-      this.recentArticles[pageIndex] = articles.articles;
-      this.total = articles.total;
-      this.pageSize = articles.pageSize;
+  private queryRecentArticlesByPage(pageIndex): Promise<void> {
+    return new Promise((resolve, reject) => {
+      if (pageIndex < 0 || !!this.recentArticles[pageIndex] || pageIndex > (this.total / this.pageSize - 1)) {
+        return  resolve();
+      }
+      this.getRecentArticles(pageIndex).subscribe((articles) => {
+        this.recentArticles[pageIndex] = articles.articles;
+        this.total = articles.total;
+        this.pageSize = articles.pageSize;
+        resolve();
+      }, reject);
     });
+    
   }
 
   private queryRecentArticles(basePageIndex) {
-    this.queryRecentArticlesByPage(basePageIndex);
-    this.queryRecentArticlesByPage(basePageIndex + 1);
-    this.queryRecentArticlesByPage(basePageIndex - 1);
+    this.queryRecentArticlesByPage(basePageIndex).then(() => {
+      this.queryRecentArticlesByPage(basePageIndex + 1).then();
+      this.queryRecentArticlesByPage(basePageIndex - 1).then();
+    });
   }
 
   public getArticleLink(articlePath: string): string {
@@ -87,6 +103,7 @@ export class RecentComponent implements OnInit, OnDestroy {
   public onPageChange(pageIndex) {
     this.currentPage = pageIndex;
     this.router.navigate(['/articles', pageIndex + 1]).then();
+    window.scrollTo(0, 0);
   }
 
   ngOnDestroy(): void {

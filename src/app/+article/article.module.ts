@@ -4,7 +4,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Title } from '@angular/platform-browser';
 import { ArticleComponent } from './article.component';
-import { ArticleResolver } from './article-resolve.service';
+import { ShareModule } from '../share/share.module';
+import { CoreModule } from '../core/core.module';
 
 @NgModule({
   declarations: [ArticleComponent],
@@ -13,15 +14,14 @@ import { ArticleResolver } from './article-resolve.service';
       {
         path: '',
         component: ArticleComponent,
-        pathMatch: 'full',
-        resolve: {
-          article: ArticleResolver,
-        },
+        pathMatch: 'full'
       },
     ]),
     CommonModule,
+    CoreModule,
+    ShareModule,
     HttpClientModule,
   ],
-  providers: [Title, ArticleResolver],
+  providers: [Title],
 })
 export class ArticleModule {}

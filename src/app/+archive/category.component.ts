@@ -1,9 +1,7 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { format } from 'date-fns';
 import { CategoriesService } from '../core/categorys.service';
-import { PLATFORM_ID } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { CategoryData } from './category.interface';
 
 @Component({
@@ -13,10 +11,8 @@ import { CategoryData } from './category.interface';
 })
 export class CategoryComponent implements OnInit {
   constructor(
-    private http: HttpClient,
-    private route: ActivatedRoute,
     private categoryService: CategoriesService,
-    @Inject(PLATFORM_ID) private platformId: Object
+    private title: Title
   ) {}
 
   public allCategories: CategoryData[] = [];
@@ -26,6 +22,7 @@ export class CategoryComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.title.setTitle('放為的博客 归档');
     this.categoryService.getAllCategories().subscribe((data) => {
       this.allCategories = data;
     });
