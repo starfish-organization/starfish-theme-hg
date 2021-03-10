@@ -103,7 +103,9 @@ export class RecentComponent implements OnInit, OnDestroy {
   public onPageChange(pageIndex) {
     this.currentPage = pageIndex;
     this.router.navigate(['/articles', pageIndex + 1]).then();
-    window && window.scrollTo(0, 0);
+    if (!isPlatformServer(this.platformId)) {
+      window && window.scrollTo(0, 0);
+    }
   }
 
   ngOnDestroy(): void {
