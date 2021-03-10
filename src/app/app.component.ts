@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.route.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        window.scrollTo(0, 0);
+        window && window.scrollTo(0, 0);
         if (event.url === '/') {
           return (this.currentRouteClass = 'home');
         }
